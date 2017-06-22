@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+ <ol class="breadcrumb">
+  <li><a href="#">she codes;</a></li>
+ </ol>
+</div>
+this is the index page
+<ul class="list-group">
+  {% for user in users %}
+  <li class="list-group-item"><a href="/{{ user.id }}/">{{ user }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

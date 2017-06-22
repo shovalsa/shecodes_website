@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+<ol class="breadcrumb">
+    <!-- that's the nevigation at the top of the page.-->
+  <li><a href="/">she codes;</a></li>
+  <li><a href="#">{{ user }}</a></li>
+</ol>
+</div>
+<h2>My Profile</h2>
+<p>
+    name: {{ user }}
+    <br>
+    join date: {{user.join_date}}
+    <br>
+    branch: {{user.branch.branchName}} this is not working. find out why.
+
+
+
+
+
+</p>
+<h4><a href="https://www.facebook.com/{{ user.first_name }}{{user.surname}}">facebook profile</a></h4>
+
+{% endblock %}
