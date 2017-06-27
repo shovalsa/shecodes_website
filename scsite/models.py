@@ -15,7 +15,7 @@ from django.core.validators import MaxValueValidator
 class User(models.Model):
     first_name = models.CharField(max_length=40)
     surname = models.CharField(max_length=40)
-    main_branch = models.ForeignKey('Branch')
+    main_branch = models.ForeignKey('Branch') # this is a many-to-one relation, which means that many users can be in the same branch
     track = models.ForeignKey('Track')
     personal_background = models.CharField(max_length=2000)
     join_date = models.DateTimeField()
@@ -26,11 +26,13 @@ class User(models.Model):
 
 class Track(models.Model):
     trackName = models.CharField(max_length=80)
+    trackDescription = models.CharField(max_length=500, default="אנא פרטי את מהלך הקורס")
+
     def __str__(self):
         return self.trackName
-
-    class Meta:
-        ordering = ('trackName',)
+    #
+    # class Meta:
+    #     ordering = ('trackName',)
 
 
 class Branch(models.Model):
