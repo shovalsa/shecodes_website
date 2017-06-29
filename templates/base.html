@@ -9,7 +9,6 @@
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
         <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
-    	<link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" media="screen" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block extra_head %}{% endblock %}
@@ -30,8 +29,9 @@
             <a href="/#/"><img src="{% static "scsite/sc_logo.png" %}" alt="logo" width=20% height=20%/></a>
         </div>
         <div role="navigation">
-            <ul class="nav nav-pills">
+            <ul class="nav nav-tabs">
                 <li role="presentation"><a href="/#/">Home</a></li>
+                <li role="presentation"><a href="/members/">Members</a></li>
                 <li role="presentation"><a href="/tracks/">Tracks</a></li>
                 <li role="presentation"><a href="/branches/">Branches</a></li>
             </ul>

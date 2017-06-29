@@ -26,7 +26,7 @@ class User(models.Model):
 
 class Track(models.Model):
     trackName = models.CharField(max_length=80)
-    trackDescription = models.CharField(max_length=500, default="אנא פרטי את מהלך הקורס")
+    trackDescription = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.trackName

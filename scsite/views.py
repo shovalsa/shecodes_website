@@ -7,17 +7,24 @@ from django.template import RequestContext
 
 def index(request):
     users = User.objects.all()
-    return render(request, "index.html", {'users': users})
+    return render(request, "index.html")
 
 @login_required #only logged in users can enter this page.
 def members(request, id):
     user = get_object_or_404(User, id=id)
     return render(request, "members.html", {'user': user})
 
+def members_index(request):
+    users = User.objects.all()
+    return render(request, "members_index.html", {'users': users})
+
 def tracks(request):
     tracks = Track.objects.all()
-    return render(request, "tracks.html", {'track': tracks})
+    return render(request, "tracks.html", {'tracks': tracks})
 
+def branches(request):
+    branches = Branch.objects.all()
+    return render(request, "branches.html", {'branches': branches})
 
 def handler404(request):
     response = render_to_response('404.html', {}, context_instance=RequestContext(request))

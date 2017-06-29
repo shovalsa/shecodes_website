@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'scsite',
     'bootstrap3',
+    'menuware',
 ]
 
 MIDDLEWARE = [

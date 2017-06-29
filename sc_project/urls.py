@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from scsite.views import index, members, tracks
+from scsite.views import index, members, members_index, tracks, branches
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
@@ -24,7 +24,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="home"),
     url(r'^members/(?P<id>[^/]+)/$', members),
+    url(r'^members/$', members_index, name="members"),
     url(r'^tracks/$', tracks, name="tracks"),
+    url(r'^branches/$', branches, name="branches"),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), #this is for defining 'home' in settings.py
