@@ -26,6 +26,18 @@ def branches(request):
     branches = Branch.objects.all()
     return render(request, "branches.html", {'branches': branches})
 
+def faq(request):
+    return render(request, "faq.html")
+
+def team(request):
+    return render(request, "team.html")
+
+def contact(request):
+    return render(request, "contact.html")
+
+def partners(request):
+    return render(request, "partners.html")
+
 def handler404(request):
     response = render_to_response('404.html', {}, context_instance=RequestContext(request))
     response.status_code = 404
