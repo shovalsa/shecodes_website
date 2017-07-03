@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}she codes; home{% endblock %}
+{% block content %}
+<div class="page-header">
+ <ol class="breadcrumb">
+    <li><a href="/">she codes;</a></li>
+    <li><a href="/branches/">branches</a></li>
+ </ol>
+</div>
+<div>
+    Tracks:
+        <ul class="list-group">
+          {% for branch in branches %}
+              <li class="list-group-item"><b>{{ branch }}</b>
+                <br>Address: {{ branch.address }}
+                <br>Activity times: {{ branch.activityTimes }}
+                <br>Available Tracks: {{ branch.availableTracks }}</li>
+          {% endfor %}
+        </ul>
+</div>
+
+{% endblock %}

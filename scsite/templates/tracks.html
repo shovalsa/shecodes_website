@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}she codes; home{% endblock %}
+{% block content %}
+<div class="page-header">
+ <ol class="breadcrumb">
+    <li><a href="/">she codes;</a></li>
+    <li><a href="/tracks/">tracks</a></li>
+ </ol>
+</div>
+<div>
+    <h1>Tracks:</h1>
+    <p>
+        <ul>
+        <li>All the tracks are for free.</li>
+        <li>No prerequisites are required.</li>
+        <li>No registration is required, unless otherwise specified.</li>
+        <li>Please bring your laptop and headphones to each meeting.</li>
+        <li>Each branch has a facebook group. It is best to join them and ask questions specific for the branch.</li>
+        <li>In each track you study independently, with online lectures and exercises.
+        There are no face-to-face lectures, but mentors are available in each branch to assist you.</li>
+        </ul>
+    </p>
+        <ul class="list-group">
+          {% for track in tracks %}
+              <li class="list-group-item">{{ track.trackLogo }} <b>{{ track }}</b>  <!-- the logo doesn't work. -->
+                <br>track description: {{ track.trackDescription }}</li>
+            <!-- this one outputs a text with all the html tags. I suppose there is a way to get the designed text properly-->
+          {% endfor %}
+        </ul>
+</div>
+
+{% endblock %}

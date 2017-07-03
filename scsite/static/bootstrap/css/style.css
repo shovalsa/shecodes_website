@@ -1,0 +1,64 @@
+body {
+  line-height: 2;
+  font-family: "Verdana", Verdana, Geneva, sans-serif;
+}
+
+.page-header {
+  padding-bottom: 0px;
+  margin: 40px 10 20px;
+  border-bottom: 0px solid #eee;
+}
+
+.breadcrumb {
+  padding: 0px 0px;
+  background-color: #f9fffa;
+}
+
+.carousel-caption {
+    background-color:black;
+    opacity:0.6;
+    font-family:verdana;
+}
+
+.carousel-control.left, .carousel-control.right { /* this eliminates some gray stripes that the carousel had*/
+    background-image: none
+}
+
+.mainPar{
+    padding: 0cm 3.5cm 0.5cm 3.5cm;
+    font-size:130%;
+    text-align: justify
+}
+.navbar-nav { /* this and the following one make the nav bar stretch across the screen*/
+    display:table;
+    width:80%;
+    margin: 0;
+}
+.navbar-nav > li {
+    float:none;
+    display:table-cell;
+    text-align:center;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #025604; /* this picks the color of the nav bar dropdown*/
+}
+
+.{
+    padding: 0cm 3.5cm 0.5cm 3.5cm;
+    text-align: justify
+}
+
+.collapsed{
+    color:rgb(19,125,73);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-header{
+    border-left: 6px solid rgb(19,125,73);
+    background-color: #f9fffa;
+    padding: 3px 3px 3px 3px;
+}
