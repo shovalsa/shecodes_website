@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'scsite',
     'bootstrap3',
     'menuware',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

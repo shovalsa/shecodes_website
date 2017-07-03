@@ -26,6 +26,9 @@ def branches(request):
     branches = Branch.objects.all()
     return render(request, "branches.html", {'branches': branches})
 
+def next_generation(request):
+    return render(request, "next_generation.html")
+
 def faq(request):
     return render(request, "faq.html")
 

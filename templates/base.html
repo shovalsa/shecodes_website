@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 
-{% load staticfiles %}
+{% load static %}
 
 <html>
 <head>
-    {% load bootstrap3 %}
-    {% bootstrap_css %}
+    <!--{% load bootstrap3 %}-->
+    <!--{% bootstrap_javascript %}-->
+    <!--{% bootstrap_css %}-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
-        <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+        <link rel="shortcut icon" href="{% static "/images/favicon.ico" %}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="she codes; is an Israeli based community for women programmers.">
-    {% bootstrap_javascript %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/style.css" %}">
 </head>
 <header>
     <div class="container clearfix">
@@ -33,7 +34,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/#/">
-                         <img class="img-responsive" style="auto; height:180%;" src="{%static "scsite/sc_logo.png" %}">
+                         <img class="img-responsive" style="auto; height:170%;" src="{% static "/images/sc_logo.png" %}">
                     </a>
                 </div>
 
@@ -49,34 +50,40 @@
                           <ul class="dropdown-menu">
                             <li><a href="/tracks/">Tracks</a></li>
                             <li><a href='/branches/'>Branches</a></li>
-                            <li><a href="/next generation/">Next Generation</a></li>
+                            <li><a href="/next-generation/">Next Generation</a></li>
                           </ul>
                         </li>
+                        <li><a href="/faq/" style="color:white">FAQ</a></li>
+                        <li><a href="/team/" style="color:white">Team</a></li>
+                        <li><a href="/partners/" style="color:white">Partners</a></li>
+                        <li><a href="/contact/" style="color:white">Contact Us</a></li>
                         <li>
-                            <a href="/faq/" style="color:white">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="/team/" style="color:white">Team</a>
-                        </li>
-                        <li>
-                            <a href="/partners/" style="color:white">Partners</a>
-                        </li>
-                        <li>
-                            <a href="/contact/" style="color:white">Contact Us</a>
+                            {% if request.user.is_authenticated %}
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                         aria-haspopup="true" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-user" style="color:white;"></span>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="/#/">My Profile</a></li> <!-- link to be replaced -->
+                                        <li><a href="/logout/">Log out</a></li>
+                                      </ul>
+                                    </li>
+
+                            {% else %}
+                                <a href="/login/" style="color:white">Login</a>
+                            {% endif %}
                         </li>
                     </ul>
+
                 </div>
         </nav>
-        <div align="right">
-            <a href="/login/">Login</a>   |   <a href="/logout/">Log out</a> &emsp;
-        </div>
     </div>
 </div>
 </div>
 </header>
 <body>
     <script type="text/javascript">
-        document.body.style.padding = "7px 15px 10px 15px";
+        document.body.style.padding = "50px 15px 100px 15px";
     </script>
     {% load static %}
     <div class="container">
