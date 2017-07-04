@@ -93,3 +93,7 @@ body {
   background-color: rgb(19,125,73);
   color: white;
 }
+
+.noBorder {
+    border:none !important;
+}

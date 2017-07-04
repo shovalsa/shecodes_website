@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
-from tinymce.models import HTMLField
 # from django.contrib.auth.models import AbstractBaseUser as User
 # Create your models here.
 
@@ -27,7 +26,7 @@ class User(models.Model):
 
 class Track(models.Model):
     trackName = models.CharField(max_length=80)
-    trackDescription = HTMLField(default="N/A")
+    trackDescription = models.TextField(default="N/A")
     # trackLogo = models.ImageField(upload_to='static/track icons', default="/static/favicon.ico")
 
     def __str__(self):
@@ -61,3 +60,14 @@ class Address(models.Model):
 
     def __str__(self):
         return ('%s %s, \n%s, %s %s'%(self.street, self.stNumber, self.city, self.postalCode, self.country))
+
+class Team(models.Model):
+    team_id = models.IntegerField('team_id', unique=True)
+    column = models.IntegerField('column')
+    name = models.CharField('Name', max_length=80)
+    title = models.CharField('Title', max_length=200)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        ordering = ['team_id']

@@ -8,4 +8,41 @@
  </ol>
 </div>
 <h3 class="page-title">Team:</h3>
+        <table class="noBorder">
+            <tr class="noBorder">
+                <td class="noBorder">
+                  {% for member in team %}
+                    {% if member.column == 1%}
+                      <li class="list-group-item" style="border: 0px !important"><b>{{ member }}</b>  <!-- the logo doesn't work. -->
+                        <br>{{ member.title }}</li>
+                    {%endif%}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for member in team %}
+                    {% if member.column == 2 %}
+                      <li class="list-group-item" style="border: 0px !important"><b>{{ member }}</b>  <!-- the logo doesn't work. -->
+                        <br>{{ member.title }}</li>
+                    {%endif%}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for member in team %}
+                    {% if member.column == 3%}
+                      <li class="list-group-item" style="border: 0px !important"><b>{{ member }}</b>  <!-- the logo doesn't work. -->
+                        <br>{{ member.title }}</li>
+                    {%endif%}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for member in team %}
+                    {% if member.column == 4 %}
+                      <li class="list-group-item" style="border: 0px !important"><b>{{ member }}</b>  <!-- the logo doesn't work. -->
+                        <br>{{ member.title }}</li>
+                    {%endif%}
+                  {% endfor %}
+                </td>
+            </tr>
+        </table>
+
 {% endblock %}

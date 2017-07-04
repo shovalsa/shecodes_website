@@ -36,7 +36,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), #this is for defining 'home' in settings.py
         name='home'),
-    url(r'^tinymce/', include('tinymce.urls')),
 ]
 
 
