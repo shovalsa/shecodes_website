@@ -22,7 +22,7 @@
     </p>
         <ul class="list-group">
           {% for track in tracks %}
-              <li class="list-group-item">{{ track.trackLogo }} <b>{{ track }}</b>  <!-- the logo doesn't work. -->
+              <li class="list-group-item"><b>{{ track }}</b>  <!-- the logo doesn't work. -->
                 <br>track description: {{ track.trackDescription }}</li>
             <!-- this one outputs a text with all the html tags. I suppose there is a way to get the designed text properly-->
           {% endfor %}

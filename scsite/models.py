@@ -28,7 +28,7 @@ class User(models.Model):
 class Track(models.Model):
     trackName = models.CharField(max_length=80)
     trackDescription = HTMLField(default="N/A")
-    trackLogo = models.ImageField(upload_to='static/track icons', default="/static/favicon.ico")
+    # trackLogo = models.ImageField(upload_to='static/track icons', default="/static/favicon.ico")
 
     def __str__(self):
         return self.trackName
