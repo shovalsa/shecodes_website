@@ -17,7 +17,6 @@ body {
 .carousel-caption {
     background-color:black;
     opacity:0.6;
-    font-family:verdana;
 }
 
 .carousel-control.left, .carousel-control.right { /* this eliminates some gray stripes that the carousel had*/
@@ -25,8 +24,9 @@ body {
 }
 
 .mainPar{
-    padding: 0cm 3.5cm 0.5cm 3.5cm;
-    font-size:130%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size:18px;
     text-align: justify
 }
 .navbar-nav { /* this and the following one make the nav bar stretch across the screen*/
@@ -44,11 +44,6 @@ body {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #025604; /* this picks the color of the nav bar dropdown*/
-}
-
-.{
-    padding: 0cm 3.5cm 0.5cm 3.5cm;
-    text-align: justify
 }
 
 .collapsed{
@@ -71,29 +66,73 @@ body {
 }
 
 .btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
   background-color: rgb(19,125,73);
   color: white;
 }
 
 .noBorder {
     border:none !important;
+}
+
+@font-face {
+    font-family: 'uwch';
+    src: url('/static/fonts/uwch.ttf?#') format('ttf'),
+}
+
+
+@media (max-width: 767px) {
+    .navbar-fixed-top {
+        position: relative;
+        top: auto;
+    }
+    .navbar-collapse {
+        max-height: none;
+    }
+    body {
+        margin: 0;
+    }
+}
+
+@media (min-width: 993px) {
+        h1 {
+        font-size: 600%;
+    }
+    p {
+        font-size: 150%;
+    }
+}
+
+@media (max-width: 577px) {
+        h1 {
+        font-size: 100%;
+    }
+    p {
+        font-size: 70%;
+    }
+    .carousel-caption {
+      right: 5%;
+      bottom: 0px;
+      left: 5%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+}
+
+@media (max-width: 370px) {
+        h1 {
+        font-size: 55%;
+    }
+    p {
+        font-size: 25%;
+    }
+    .carousel-caption {
+      right: 5%;
+      bottom: 0px;
+      left: 5%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    .mainPar{
+    font-size: 50%;
+    }
 }
