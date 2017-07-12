@@ -38,9 +38,17 @@ class Track(models.Model):
 
 class Branch(models.Model):
     branchName = models.CharField(max_length=80)
-    address = models.ForeignKey('Address')
+    area = models.CharField(max_length=200, default="NA")
+    address = models.CharField(max_length=200, default="NA")
     activityTimes = models.CharField(default='למשל, ימי שני 19:30-22:00', max_length=80)
     availableTracks = models.ManyToManyField(Track)
+    nextGeneration = models.CharField(max_length=2, default="NA")
+    facebookGroup = models.CharField(max_length=500, default="NA")
+    dogs_friendly = models.CharField(max_length=200, default="NA")
+    children_friendly = models.CharField(max_length=200, default="NA")
+    Parking = models.CharField(max_length=200, default="NA")
+    managers = models.CharField(max_length=200, default="NA")
+    other_staff_members = models.CharField(max_length=200, default="NA")
     # how to insert items into such a model: https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/
 
 
@@ -49,17 +57,6 @@ class Branch(models.Model):
 
     class Meta:
         ordering = ('branchName',)
-
-
-class Address(models.Model):
-    street = models.CharField(max_length=80)
-    stNumber = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
-    city = models.CharField(max_length=40)
-    postalCode = models.PositiveIntegerField(validators=[MaxValueValidator(99999999)])
-    country = models.CharField(max_length=80, default='ישראל', editable=False)
-
-    def __str__(self):
-        return ('%s %s, \n%s, %s %s'%(self.street, self.stNumber, self.city, self.postalCode, self.country))
 
 class Team(models.Model):
     team_id = models.IntegerField('team_id', unique=True)
@@ -71,3 +68,10 @@ class Team(models.Model):
         return self.name
     class Meta:
         ordering = ['team_id']
+
+class Faq(models.Model):
+    question = models.CharField('Question', max_length=150)
+    answer = models.TextField('Answer', max_length=5000)
+
+    def __str__(self):
+        return self.question

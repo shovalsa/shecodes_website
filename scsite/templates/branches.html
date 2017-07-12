@@ -12,10 +12,17 @@
     <!--<hr class="divider">-->
         <ul class="list-group">
           {% for branch in branches %}
-              <li class="list-group-item"><b>{{ branch }}</b>
-                <br>Address: {{ branch.address }}
-                <br>Activity times: {{ branch.activityTimes }}
-                <br>Available Tracks: {{ branch.availableTracks }}</li>
+            <!--<div style="float: left;">-->
+              <li class="list-group-item"><h3>{{ branch }}</h3>
+                <b>Address:</b> {{ branch.address }}
+                <br><b>Activity times:</b> {{ branch.activityTimes }}
+                  <br><b>Available Tracks:</b>
+                <ul>
+                {% for trackName in branch.availableTracks.all %}
+                    <li>{{ trackName }}</li>
+                {% endfor %}
+                </ul>
+            <!--</div>-->
           {% endfor %}
         </ul>
 </div>

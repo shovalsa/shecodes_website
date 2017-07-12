@@ -20,5 +20,23 @@
         from scratch at one of our meetings.
     </p>
 </div>
-
+<br>
+<div>
+    <h3>Branches</h3>
+    <ul class="list-group">
+      {% for branch in branches %}
+        {% if branch.nextGeneration == "NG" %}
+          <li class="list-group-item"><h3>{{ branch }}</h3>
+            <b>Address:</b> {{ branch.address }}
+            <br><b>Activity times:</b> {{ branch.activityTimes }}
+              <br><b>Available Tracks:</b>
+            <ul>
+            {% for trackName in branch.availableTracks.all %}
+                <li>{{ trackName }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+      {% endfor %}
+    </ul>
+</div>
 {% endblock %}

@@ -22,9 +22,12 @@
     </p>
         <ul class="list-group">
           {% for track in tracks %}
-              <li class="list-group-item"><b>{{ track }}</b>  <!-- the logo doesn't work. -->
-                <br>track description: {{ track.trackDescription }}</li>
-            <!-- this one outputs a text with all the html tags. I suppose there is a way to get the designed text properly-->
+            <div style="float: left;">
+            {%if track.trackDescription != "N/A"%}
+              <li class="list-group-item"><h3>{{ track }}</h3>  <!-- the logo doesn't work. -->
+                {{ track.trackDescription|safe }}</li>
+            {% endif %}
+            </div>
           {% endfor %}
         </ul>
 </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import User, Branch, Track, Team
+from .models import User, Branch, Track, Team, Faq
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -31,10 +31,12 @@ def branches(request):
     return render(request, "branches.html", {'branches': branches})
 
 def next_generation(request):
-    return render(request, "next_generation.html")
+    branches = Branch.objects.all()
+    return render(request, "next_generation.html", {'branches': branches})
 
 def faq(request):
-    return render(request, "faq.html")
+    faq = Faq.objects.all()
+    return render(request, "faq.html", {'faq': faq})
 
 def contact(request):
     return render(request, "contact.html")

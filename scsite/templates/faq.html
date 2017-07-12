@@ -9,141 +9,25 @@
 </div>
 <h3 class="page-title">FAQ:</h3>
 <div id="accordion" role="tablist" aria-multiselectable="true">
+  {% for qu in faq %}
   <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
-           aria-controls="collapseOne">
-          I don't know how to program. Will I have anything to do?
+    <div class="card-header" role="tab" id="heading{{qu.id}}">
+      <!--<h5 class="mb-0">-->
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{qu.id}}" aria-expanded="true"
+           aria-controls="collapse{{qu.id}}">
+          <span class="collapsed">{{qu.question}}</span>
         </a>
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapse{{qu.id}}" class="collapse" role="tabpanel" aria-labelledby="heading{{qu.id}}">
       <div class="card-block">
-        Our goal is to form a community of women with interest in technology and give them the tools to be involved in
-          the industry. We want to increase the number of women who tech, so if you come and persist, you can learn many
-          new things.
+        {{qu.answer}}
       </div>
     </div>
   </div>
     <br>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-           aria-controls="collapseTwo">
-          What should I bring to the meetings?
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="card-block">
-        You should bring your laptops and headphones.
-      </div>
-    </div>
-  </div>
-    <br>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingThree">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-           aria-controls="collapseThree">
-          Where do I register and how much does it cost?
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="card-block">
-        You can register in this link at any given point. You don't have to do this in order to participate. Just come!
-        Participation is free of charge. However, if you want a diploma at the end of the course, it is possible with a
-          nominal fee.
-      </div>
-    </div>
-  </div>
-    <br>
-    <div class="card">
-    <div class="card-header" role="tab" id="headingFour">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
-           aria-controls="collapseFour">
-          What kinds of meetings are there?
-        </a>
-      </h5>
-    </div>
-    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="card-block">
-        There are three types of meetings:
-        <br>
-        <br>
-        HackDays/HackNigts - we start out with a short introduction where each participant tells whats she wants to
-          study or do. Then guidance is given for whoever needs one and we just start working.
-        <br>
-        <br>
-        Insperational Womem Series - women who are leaders in the industry come to share their success stories with us.
-        <br>
-        <br>
-        Coding Skills Series - women who are leaders in the industry teach us programming and give us important tools
-          to start our own way. Past lectures included introduction to HTML, CSS and JS, iOS development, Android etc.
-      </div>
-    </div>
-  </div>
-    <br>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingFive">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
-           aria-controls="collapseFive">
-          Tracks: are there any teachers/guides/lectures?
-        </a>
-      </h5>
-    </div>
-    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="card-block">
-        Our tracks contain the best of existing materials on the internet, especially organized and edited into a
-          cohesive program. There is no teacher, but there are well organized video lectures, as well as a mentor and
-          a supporting group. <br>
-        We start each track once a month. This way, the group of that particular month has roughly the same progress.
-          Moreover, in any given branch, you can find students from former groups who are slightly ahead of you, or
-          even very experienced women, all of which can help you when in need.
-      </div>
-    </div>
-          <br>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingSix">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-           aria-controls="collapseSix">
-          Can I come in times other than track openning?
-        </a>
-      </h5>
-    </div>
-    <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="card-block">
-        Coming when a track begins is highly important in order to have a smooth learning experience and also to be a
-          part of a community. However, you can benefit from starting in other times, e.g. if you want to accumulate
-          knowledge about the track, or meeting other women.
-      </div>
-    </div>
-                <br>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingSeven">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
-           aria-controls="collapseSeven">
-          If I already know some programming, can I skip the introduction or other lessons?
-        </a>
-      </h5>
-    </div>
-    <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="card-block">
-        Once you have started the track, you cannot skip lessons. every lesson is very important. If you can't manage
-          to come to your branch in a certain date, you can go to another nearby branch before next class.
-            <br>
-        If you already know some of the language, you can always either explore deeper in the same issue, or simply
-          help your track-mates.
-      </div>
-    </div>
+  {% endfor %}
 </div>
-      <br>
+    <br>
 {% endblock %}
