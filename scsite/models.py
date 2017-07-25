@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from django.utils import timezone
+# from datetime import *
 # from django.contrib.auth.models import AbstractBaseUser as User
 # Create your models here.
 
@@ -19,6 +21,7 @@ class User(models.Model):
     track = models.ForeignKey('Track')
     personal_background = models.CharField(max_length=2000)
     join_date = models.DateTimeField()
+    avatar = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
 
     def __str__(self):
         full_name = "%s %s"%(self.first_name, self.surname)
@@ -75,3 +78,28 @@ class Faq(models.Model):
 
     def __str__(self):
         return self.question
+
+class News(models.Model):
+    itemTitle = models.CharField(max_length=50, default="Item title")
+    itemContent = models.TextField(default="content")
+    itemPhoto = models.CharField(max_length=50, default="pic1.jpg")
+
+class Job(models.Model):
+    jobTitle = models.CharField(max_length=50, default="Job title")
+    jobDescription = models.TextField(default="Description")
+    jobPhoto = models.CharField(max_length=50, default="pic1.jpg")
+    jobLink = models.TextField(default="#")
+    jobSkills = models.CharField(max_length=150, default="front end / data science / DevOps etc.") #In the future, for the sake of searching, it better be m2m item
+    seniority = models.CharField(max_length=150, default="Junior / Senior / Team Leader etc.") #In the future, for the sake of searching, it better be m2m item
+
+class Event(models.Model):
+    eventTitle = models.CharField(max_length=50, default="Event title")
+    eventDescription = models.TextField(default="Description")
+    eventPhoto = models.CharField(max_length=50, default="pic1.jpg")
+    eventLink = models.TextField(default="#")
+    event_date = models.DateTimeField(default=timezone.now())
+    # eventLocation = models.CharField(max_length=100, default="Israel") #Are the events always in existing branches? If so, better be FK.
+
+    def is_upcoming(self):
+        now = timezone.now()
+        return self.event_date >= now

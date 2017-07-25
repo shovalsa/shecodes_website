@@ -7,6 +7,7 @@
     <!--{% load bootstrap3 %}-->
     <!--{% bootstrap_javascript %}-->
     <!--{% bootstrap_css %}-->
+
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -23,7 +24,6 @@
     <div class= "navbar-responsive">
         <div class="container">
             <nav class = "navbar navbar-inverse navbar-fixed-top " id="navbar_whole">
-                <div class = "navbar-header" style="background-color: rgb(255,255,255)">
                     <button type= "button" class = "navbar-toggle collapsed" data-toggle= "collapse"
                             data-target= "#navbar" aria-expanded="false" aria-controls ="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -31,6 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                <div class = "navbar-header" style="background-color: rgb(255,255,255)">
                     <a class="navbar-brand" href="{% url 'home' %}">
                          <img class="img-responsive" style="auto; height:170%;" src="{% static "/images/sc_logo.png" %}">
                     </a>
@@ -39,6 +40,7 @@
                 <div id= "navbar" class="navbar-collapse collapse" style="background-color: rgb(19,125,73)">
 
                     <ul class="nav navbar-nav">
+                        <li><a href="/about/" style="color:white">About</a></li>
                         {% if request.user.is_authenticated %}
                             <li><a href="/members/" style="color:white">Community</a></li>
                         {% endif %}
@@ -47,9 +49,9 @@
                              aria-expanded="false" style="color:white">
                               Activities</a>
                           <ul class="dropdown-menu">
-                            <li><a href="/tracks/">Tracks</a></li>
+                            <li><a href="/tracks/" >Tracks</a></li>
                             <li><a href='/branches/'>Branches</a></li>
-                            <li><a href="/next-generation/">Next Generation</a></li>
+                            <li><a href="/next-generation/" >Next Generation</a></li>
                           </ul>
                         </li>
                         <li><a href="/faq/" style="color:white">FAQ</a></li>
@@ -65,7 +67,7 @@
                                   <ul class="dropdown-menu">
                                     <li><a href="/#/">My Profile</a></li> <!-- link to be replaced -->
                                     <li><a href="/logout/">Log out</a></li>
-                                  </ul>
+                                  </ul></a>
                                 </li>
                             {% else %}
                                 <a href="/login/" style="color:white">Login</a>
@@ -81,7 +83,7 @@
 </header>
 <body>
     <script type="text/javascript">
-        document.body.style.padding-top = "50px";
+        document.body.style.padding = "50px 0px 0px 0px";
     </script>
     {% load static %}
     <div class="container">

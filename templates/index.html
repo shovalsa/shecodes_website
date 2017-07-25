@@ -61,23 +61,73 @@
     <!-- I didn't know how to install a new font so I just use a picture here. Please replace.-->
     <center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>
 </div>
-<p style="text-align: justify; padding-left: 3%; padding-right: 3%;">
-    <font color="green">she codes;</font> is a community of women in technology, created to achieve an equal number of female
-    and male software developers in Israel. Founded in 2013 by Ruth Polachek and a small group of
-    volunteers from different tech fields, today <font color="green">she codes;</font> includes approximately 40,000 members.
-    Our members include women who want to learn software development or make a career shift into
-    high-tech, developers who want to advance their skills and network with other women in high-
-    tech and high school students who are learning to program. Our core values are
-    Confidence, Persistence, and Community.
-</p>
-<br>
-<p style="text-align: justify; padding-left: 3%; padding-right: 3%;">
-    We operate over 20 branches all over Israel. Branches include programming learning tracks, project
-    co-working with support from community volunteers, tech lectures, events with Inspirational Women,
-    career advising and more. Volunteer opportunities at <font color="green">she codes;</font> contribute to the personal and
-    professional development of members. Branches, learning track planning, events, and more are all
-    volunteer-run.
-</p>
-    <center><img class="img-responsive" src="{% static "/images/girls_code.png" %}" alt="All you need is a laptop and headphones" ></center>
-<!--how do I force the picture in the middle of the page?-->
+
+<div style="padding: 5% 5% 1% 1%;">
+    <h2 style="border-bottom: 1px solid #ccc">
+        <b>Events</b>
+    </h2>
+    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+        {% for event in events %}
+          <div class="col-xs-6 col-md-3s" style="width: 27%">
+            <div class="thumbnail">
+                <h4>{{event.event_date}}</h4>
+                <h4>{{event.eventLocation}}</h4>
+              <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+              <div class="caption">
+                <h4>{{event.eventTitle}}</h4>
+                <div>{{event.eventContent|slice:":100"}}</div>
+              <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">Go to Event</a>
+              </div>
+            </div>
+           </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div style="padding: 5% 5% 1% 1%;">
+    <h2 style="border-bottom: 1px solid #ccc">
+        <b>News and Articles</b>
+    </h2>
+    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+        {% for item in news %}
+          <div class="col-xs-6 col-md-3s" style="width: 27%">
+            <div class="thumbnail">
+              <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+              <div class="caption">
+                <h3>{{item.itemTitle}}</h3>
+                <div>{{item.itemContent|slice:":100"}}</div>
+              <!--<a href="/news/{{ item.id }}/" class="btn btn-default" role="button">Continue reading...</a>-->
+              <a href="#" class="btn btn-default" role="button">Continue reading...</a>
+              </div>
+            </div>
+           </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div style="padding: 5% 5% 1% 1%;">
+    <h2 style="border-bottom: 1px solid #ccc">
+        <b>Job Opportunities:</b>
+    </h2>
+    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+        {% for job in jobs %}
+          <div class="col-xs-6 col-md-3s" style="width: 27%">
+            <div class="thumbnail">
+              <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+              <div class="caption">
+                <h3>{{job.jobTitle}}</h3>
+                <div>{{job.jobDescription|slice:":100"}}...</div>
+                  <br>
+                  {% if request.user.is_authenticated %}
+                      <a href="/career-center/" class="btn btn-default" role="button">Learn more</a>
+                  {% else %}
+                      <a href="/login/" class="btn btn-default" role="button">Login to see job openning</a>
+                  {% endif %}
+              </div>
+            </div>
+           </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

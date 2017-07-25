@@ -1,13 +1,20 @@
 from django.shortcuts import render, get_object_or_404
-from .models import User, Branch, Track, Team, Faq
+from .models import User, Branch, Track, Team, Faq, News, Job, Event
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.utils import timezone
 # Create your views here.
 
 def index(request):
-    users = User.objects.all()
-    return render(request, "index.html")
+    jobs = Job.objects.all()
+    news = News.objects.all()
+    event_list = Event.objects.all()
+    events= []
+    for event in event_list:
+        if event.is_upcoming() == True:
+            events.append(event)
+    return render(request, "index.html", {'news': news, 'jobs':jobs, 'events': events})
 
 @login_required #only logged in users can enter this page.
 def members(request, id):
@@ -17,6 +24,11 @@ def members(request, id):
 def members_index(request):
     users = User.objects.all()
     return render(request, "members_index.html", {'users': users})
+
+# @login_required #only logged in users can enter this page.
+def jobs(request):
+    jobs = Job.objects.all()
+    return render(request, "jobs.html", {'jobs': jobs})
 
 def tracks(request):
     tracks = Track.objects.all()
@@ -49,5 +61,6 @@ def handler404(request):
     response.status_code = 404
     return response
 
-
+def about(request):
+    return render(request, "about.html")
 
