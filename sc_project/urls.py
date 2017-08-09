@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from scsite.views import index, members, members_index, tracks, branches, faq, team, contact, partners, \
-    next_generation, about, jobs
+    next_generation, about, jobs, signup
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), #this is for defining 'home' in settings.py
         name='home'),
+    url(r'^signup/$', signup, name='signup'),
 ]
 
 

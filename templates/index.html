@@ -3,63 +3,30 @@
 {% load static%}
 {% block content %}
 
-<div id="mainPageCarousel" class="carousel slide">
-    <ol class="carousel-indicators"><!-- this one is for the indicators at the bottom of the slide -->
-        <!--<li data-target="#mainPageCarousel" data-slide-to="0" class="active"></li> &lt;!&ndash; the hash # links the item to the main id above &ndash;&gt;-->
-        <!--<li data-target="#mainPageCarousel" data-slide-to="1"></li>-->
-        <!--<li data-target="#mainPageCarousel" data-slide-to="2" ></li>-->
-        <!--<li data-target="#mainPageCarousel" data-slide-to="3"></li>-->
-    </ol>
-    <div class="carousel-inner"> <!-- where the slides are stored -->
-        <div class="item active">
-            <img src="static/images/mainPageCarousel/SheCodesMainPage1.jpg" alt="img1" class="img-responsive"/>
-            <div class="carousel-caption">
-                <h1><b>Our Goal</b></h1>
-                <p>is to reach 50% female software developers
-                    <br>in the IT industry within a decade..</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="static/images/mainPageCarousel/SheCodesMainPage2.jpg" alt="img2" class="img-responsive">
-            <div class="carousel-caption">
-                <h1><b>Events</b></h1>
-                <p>We hold events several times a week across Israel.</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="static/images/mainPageCarousel/SheCodesMainPage3.jpg" alt="img3" class="img-responsive">
-            <div class="carousel-caption">
-                <h1><b>Community</b></h1>
-                <p>Come and work on a project, learn a new language,<br>
-                    hear an inspiring or technical lecture –<br>
-                    or learn to code in one of our meetups.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="static/images/mainPageCarousel/SheCodesMainPage4.jpg" alt="img4" class="img-responsive">
-            <div class="carousel-caption">
-                <h1><b>Education</b></h1>
-                <p>Learn some code with us. “The Next Generation” of our community.</p>
-            </div>
-        </div>
-    </div>
-
-
-
-            <div class="fill" style="background-image:static/images/mainPageCarousel/SheCodesMainPage1.jpg;">
-
-    <a class="carousel-control left" href="#mainPageCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="carousel-control right" href="#mainPageCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
-</div>
-    </div>
 <div>
     <!-- I didn't know how to install a new font so I just use a picture here. Please replace.-->
     <center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>
+</div>
+
+<div style="padding: 5% 5% 1% 1%;">
+    <h2 style="border-bottom: 1px solid #ccc">
+        <b>News and Articles</b>
+    </h2>
+    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+        {% for item in news %}
+          <div class="col-xs-6 col-md-3s" style="width: 27%">
+            <div class="thumbnail">
+              <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+              <div class="caption">
+                <h3>{{item.itemTitle}}</h3>
+                <div>{{item.itemContent|slice:":100"}}</div>
+              <!--<a href="/news/{{ item.id }}/" class="btn btn-default" role="button">Continue reading...</a>-->
+              <a href="#" class="btn btn-default" role="button">Continue reading...</a>
+              </div>
+            </div>
+           </div>
+        {% endfor %}
+    </div>
 </div>
 
 <div style="padding: 5% 5% 1% 1%;">
@@ -77,27 +44,6 @@
                 <h4>{{event.eventTitle}}</h4>
                 <div>{{event.eventContent|slice:":100"}}</div>
               <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">Go to Event</a>
-              </div>
-            </div>
-           </div>
-        {% endfor %}
-    </div>
-</div>
-
-<div style="padding: 5% 5% 1% 1%;">
-    <h2 style="border-bottom: 1px solid #ccc">
-        <b>News and Articles</b>
-    </h2>
-    <div class="row" style="padding: 2.5% 2% 1% 5%;">
-        {% for item in news %}
-          <div class="col-xs-6 col-md-3s" style="width: 27%">
-            <div class="thumbnail">
-              <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-              <div class="caption">
-                <h3>{{item.itemTitle}}</h3>
-                <div>{{item.itemContent|slice:":100"}}</div>
-              <!--<a href="/news/{{ item.id }}/" class="btn btn-default" role="button">Continue reading...</a>-->
-              <a href="#" class="btn btn-default" role="button">Continue reading...</a>
               </div>
             </div>
            </div>

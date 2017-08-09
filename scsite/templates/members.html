@@ -9,16 +9,15 @@
   <li><a href="/">{{ user }}</a></li>
 </ol>
 </div>
-    <h3 class="page-title">{{ user }}'s Profile:</h3>
-<p>
-    name: {{ user }}
+    <h3 class="page-title">{{ user.username }}'s Profile:</h3>
+<div>
+    Name: {{ user.first_name }} {{ user.last_name }}
     <br>
-    join date: {{user.join_date}}
+    A she codes; member since: {{profile.join_date}}
     <br>
-    Track: {{user.track}}
+    Track: {{profile.track}}
     <br>
-    Branch: {{user.main_branch}}
-</p>
+    Branch: {{profile.main_branch}}
+</div>
 <h4><a href="https://www.facebook.com/{{ user.first_name }}{{user.surname}}">facebook profile</a></h4>
-
 {% endblock %}

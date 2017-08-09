@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}she codes; home{% endblock %}
+{% block content %}
+<div class="page-header">
+ <ol class="breadcrumb">
+    <li><a href="/">she codes;</a></li>
+    <li><a href="/career-center/">career center</a></li>
+ </ol>
+</div>
+    <h3 class="page-title">Careers:</h3>
+    <div class="media">
+        {% for job in jobs %}
+          <div class="media-left media-middle">
+            <a href="/jobs/{{ job.jobLink }}/">
+              <img class="media-object" src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+            </a>
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading">{{job.jobTitle}}</h3>
+            {{job.jobDescription|safe}}
+          </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
