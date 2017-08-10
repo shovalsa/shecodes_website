@@ -37,10 +37,12 @@ def contact(request):
         contact = ContactForm(request.POST)
         if contact.is_valid():
             subject = contact.cleaned_data.get('subject')
-            from_email = contact.cleaned_data.get('from_email')
+            from_email = contact.cleaned_data.get('contact_email')
             message = contact.cleaned_data.get('message')
+            name = contact.cleaned_data.get('contact_name')
+            everything = "Name: %s\n\nSubject: %s\n\nEmail: %s \n\nMessage: %s \n\n"%(str(name), str(subject), str(from_email), str(message))
             try:
-                send_mail(subject, message, from_email, ['shovatz@gmail.com'])
+                send_mail(subject, everything, from_email, ['contact@she-codes.org'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return success(request)

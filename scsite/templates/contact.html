@@ -11,19 +11,12 @@
 
     <h3 class="page-title">Contact Us:
     <a href="mailto:contact@she-codes.org" target="_blank"><span id="et-info-email">contact@she-codes.org</span></a></h3>
-    <!--<form method="post">-->
-        <!--{% csrf_token %}-->
-        <!--{{ contact.as_contact }}-->
-        <!--<div class="form-actions">-->
-          <!--<button class="btn" type="submit">Send</button>-->
-        <!--</div>-->
-    <!--</form>-->
+    <form method="post">
+        {% csrf_token %}
+        {{ contact.as_contact }}
+        <div class="form-actions">
+          <button class="btn" type="submit">Send</button>
+        </div>
+    </form>
 
-
-<form method="POST" action="http://formspree.io/contact@she-codes.org">
-  <div style="padding: 2% 0% 2% 0%;"><strong>Name:</strong> <br><input type="name" name="name" placeholder="Your name"></div>
-  <div style="padding: 0% 0% 2% 0%;"><strong>Email: </strong><br><input type="email" name="email" placeholder="Your email address"></div>
-  <div style="padding: 0% 0% 2% 0%;"><strong>Message:</strong> <br><textarea name="message" placeholder="Your message"></textarea></div>
-  <button class="btn" type="submit">Send</button>
-</form>
 {% endblock %}
