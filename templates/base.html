@@ -23,7 +23,7 @@
 <div class="container clearfix">
     <div class= "navbar-responsive">
         <div class="container">
-            <nav class = "navbar navbar-inverse navbar-fixed-top " id="navbar_whole">
+            <nav class = "navbar navbar-inverse navbar-fixed-top" id="navbar_whole">
                     <button type= "button" class = "navbar-toggle collapsed" data-toggle= "collapse"
                             data-target= "#navbar" aria-expanded="false" aria-controls ="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -65,12 +65,13 @@
                                      aria-haspopup="true" aria-expanded="false">
                                         <span class="glyphicon glyphicon-user" style="color:white;"></span>
                                   <ul class="dropdown-menu">
-                                    <li><a href="/#/">My Profile</a></li> <!-- link to be replaced -->
+                                    <li><a href="/members/{{user.id}}/">My Profile</a></li> <!-- link to be replaced -->
                                     <li><a href="/logout/">Log out</a></li>
                                   </ul></a>
                                 </li>
                             {% else %}
-                                <a href="/login/" style="color:white">Login</a>
+                                <li><a href="/login/" style="color:white">Login</a></li>
+                                <li><a href="/signup/" style="color:white">Join Us!</a></li>
                             {% endif %}
                         </li>
                     </ul>

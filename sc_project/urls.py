@@ -20,7 +20,6 @@ from scsite.views import index, members, members_index, tracks, branches, faq, t
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="home"),

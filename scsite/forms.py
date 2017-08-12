@@ -1,14 +1,23 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from django.forms import ModelForm
+from .models import Profile
 
 class SignUpForm(UserCreationForm):
-    join_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
+    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
     class Meta:
         model = User
-        fields = ('username', 'join_date', 'password1', 'password2', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('track', 'main_branch', 'personal_background')
+
 
 class MyForm(forms.Form):
   def as_contact(self):

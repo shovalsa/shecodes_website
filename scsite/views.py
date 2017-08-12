@@ -1,34 +1,36 @@
 from django.shortcuts import render, get_object_or_404, render_to_response, redirect
-from .models import Profile, Branch, Track, Team, Faq, News, Job, Event, User
+from .models import Branch, Track, Team, Faq, News, Job, Event, User, Profile
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.utils import timezone
-from .forms import SignUpForm, ContactForm
+from .forms import SignUpForm, ContactForm, UserCreationForm, ProfileForm
 from django.contrib.auth import login, authenticate
 from django.db import transaction
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 
-
 @login_required()
 def home(request):
     return render(request, 'index.html')
 
+@transaction.atomic
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.join_date = form.cleaned_data.get('join_date')
-            user.save()
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
+        user_form = SignUpForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            user.refresh_from_db()  # This will load the Profile created by the Signal
+            profile_form = ProfileForm(request.POST, instance=user.profile)  # Reload the profile form with the profile instance
+            profile_form.full_clean()  # Manually clean the form this time. It is implicitly called by "is_valid()" method
+            profile_form.save()  # Gracefully save the form
             login(request, user)
             return redirect('home')
     else:
-        form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+        user_form = SignUpForm()
+        profile_form = ProfileForm()
+    return render(request, 'signup.html', {'user_form': user_form, 'profile_form': profile_form})
+
 
 def contact(request):
     if request.method == 'GET':
@@ -42,7 +44,7 @@ def contact(request):
             name = contact.cleaned_data.get('contact_name')
             everything = "Name: %s\n\nSubject: %s\n\nEmail: %s \n\nMessage: %s \n\n"%(str(name), str(subject), str(from_email), str(message))
             try:
-                send_mail(subject, everything, from_email, ['contact@she-codes.org'])
+                send_mail(subject, everything, from_email, ['contact.shecodes@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return success(request)
@@ -51,21 +53,6 @@ def contact(request):
 def success(request):
     # return HttpResponse('Success! Thank you for your message.')
     return render(request, "success.html")
-
-def send_email(request):
-    subject = request.POST.get('subject', '')
-    message = request.POST.get('message', '')
-    from_email = request.POST.get('from_email', '')
-    if subject and message and from_email:
-        try:
-            send_mail(subject, message, from_email, ['admin@example.com'])
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
-        return HttpResponseRedirect('/contact/thanks/')
-    else:
-        # In reality we'd use a form class
-        # to get proper validation errors.
-        return HttpResponse('Make sure all fields are entered and valid.')
 
 def index(request):
     jobs = Job.objects.all()
@@ -78,12 +65,10 @@ def index(request):
     return render(request, "index.html", {'news': news, 'jobs':jobs, 'events': events})
 
 
-
-
 @login_required #only logged in users can enter this page.
 def members(request, id):
     user = get_object_or_404(User, id=id)
-    profile = get_object_or_404(Profile, id=id)
+    profile = Profile.objects.all()
     return render(request, "members.html", {'user': user, 'profile': profile})
 
 def members_index(request):

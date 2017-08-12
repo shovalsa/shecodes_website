@@ -13,11 +13,11 @@
 <div>
     Name: {{ user.first_name }} {{ user.last_name }}
     <br>
-    A she codes; member since: {{profile.join_date}}
+    A she codes; member since: {{user.date_joined}}
     <br>
-    Track: {{profile.track}}
+   Track: {{user.profile.track}}
     <br>
-    Branch: {{profile.main_branch}}
+    Branch: {{user.profile.main_branch}}
 </div>
-<h4><a href="https://www.facebook.com/{{ user.first_name }}{{user.surname}}">facebook profile</a></h4>
+<h4><a href="https://www.facebook.com/{{ user.first_name }}{{user.last_name}}" target="_blank">facebook profile</a></h4>
 {% endblock %}

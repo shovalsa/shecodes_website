@@ -1,40 +1,28 @@
 from __future__ import unicode_literals
-import re
 from django.db import models
 from django.utils import timezone
-# from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin, UserManager)
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
-
+#
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
     main_branch = models.ForeignKey('Branch', blank=True, default=1) # this is a many-to-one relation, which means that many users can be in the same branch
     track = models.ForeignKey('Track', blank=True, default=1)
-    personal_background = models.TextField(max_length=2000, blank=True)
-    join_date = models.DateTimeField(null=True, blank=True)
+    personal_background = models.TextField('Personal Background', max_length=2000, blank=True)
 
     def __str__(self):
         """
         the str is also important for the admin GUI where it allows to distinguish between items.
         """
-        return str(self.user)
+        return self.user.username
 
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
+@receiver(post_save, sender=User)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
 
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
-
-    @receiver(post_save, sender=User)
-    def update_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-        instance.profile.save()
 
 class Track(models.Model):
     trackName = models.CharField(max_length=80)
