@@ -10,22 +10,23 @@
 
 <div style="padding: 5% 5% 1% 1%;">
     <h2 style="border-bottom: 1px solid #ccc">
-        <b>News and Articles</b>
+        <b>Newsletter</b>
     </h2>
     <div class="row" style="padding: 2.5% 2% 1% 5%;">
         {% for item in news %}
-          <div class="col-xs-6 col-md-3s" style="width: 27%">
-            <div class="thumbnail">
-              <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-              <div class="caption">
-                <h3>{{item.itemTitle}}</h3>
-                <div>{{item.itemContent|slice:":100"}}</div>
-              <!--<a href="/news/{{ item.id }}/" class="btn btn-default" role="button">Continue reading...</a>-->
-              <a href="#" class="btn btn-default" role="button">Continue reading...</a>
+          <!--<div class="col-xs-3">-->
+            <div class="thumbnail col-xs-4">
+              <a href="#" role="button">
+                <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+              </a>
+              <div class="caption" style="text-align:center;">
+                <h4><strong>{{item.itemTitle}}</strong></h4>
+                <div>{{item.itemContent|slice:":100"}}...</div>
               </div>
-            </div>
+            <!--</div>-->
            </div>
         {% endfor %}
+        <a href="#" class="btn btn-default" role="button" style="float:right;">Read more</a>
     </div>
 </div>
 
@@ -35,18 +36,17 @@
     </h2>
     <div class="row" style="padding: 2.5% 2% 1% 5%;">
         {% for event in events %}
-          <div class="col-xs-6 col-md-3s" style="width: 27%">
-            <div class="thumbnail">
+            <div class="thumbnail col-xs-4">
                 <h4>{{event.event_date}}</h4>
                 <h4>{{event.eventLocation}}</h4>
-              <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+              <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
+                  <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+              </a>
               <div class="caption">
-                <h4>{{event.eventTitle}}</h4>
+                <h4><strong>{{event.eventTitle}}</strong></h4>
                 <div>{{event.eventContent|slice:":100"}}</div>
-              <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">Go to Event</a>
               </div>
             </div>
-           </div>
         {% endfor %}
     </div>
 </div>
@@ -55,22 +55,25 @@
     <h2 style="border-bottom: 1px solid #ccc">
         <b>Job Opportunities:</b>
     </h2>
-    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+    <div class="row" style="text-align: center; padding: 2.5% 2% 1% 5%;">
         {% for job in jobs %}
-          <div class="col-xs-6 col-md-3s" style="width: 27%">
-            <div class="thumbnail">
-              <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+            <div class="thumbnail col-xs-4">
+              {% if request.user.is_authenticated %}
+              <a href="/career-center/" role="button">
+                <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+              </a>
               <div class="caption">
-                <h3>{{job.jobTitle}}</h3>
+                <h4><strong>{{job.jobTitle}}</strong></h4>
                 <div>{{job.jobDescription|slice:":100"}}...</div>
                   <br>
-                  {% if request.user.is_authenticated %}
-                      <a href="/career-center/" class="btn btn-default" role="button">Learn more</a>
-                  {% else %}
-                      <a href="/login/" class="btn btn-default" role="button">Login to see job openning</a>
-                  {% endif %}
+              {% else %}
+                  <a href="/login/" role="button">
+                      <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+                  </a>
+                    <h4>{{job.jobTitle}}</h4>
+                <div>{{job.jobDescription|slice:":100"}}...</div>
+              {% endif %}
               </div>
-            </div>
            </div>
         {% endfor %}
     </div>
