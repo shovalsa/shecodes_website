@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-15 19:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\about.html:11
+msgid "About she codes;"
+msgstr "מי אנחנו"
+
+#: .\templates\about.html:41
+msgid "Our Goal"
+msgstr "המטרה שלנו"
+
+#: .\templates\about.html:42
+msgid ""
+"is to reach 50 percent female software developers in the IT industry within "
+"a decade."
+msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ההיי טק תוך עשור."
+
+#: .\templates\about.html:45
+msgid "Community"
+msgstr "קהילה"
+
+#: .\templates\about.html:46
+msgid ""
+"Come and work on a project, learn a new language, hear an inspiring or "
+"technical lecture or learn to code in one of our meetups."
+msgstr "בואי לעבוד על פרויקט, להקשיב להרצאה טכנית או מעוררת השראה, ללמוד שפת תכנות חדשה או ללמוד לתכנת מאפס באחד המפגשים שלנו."
+
+#: .\templates\about.html:49
+msgid "Education"
+msgstr "חינוך"
+
+#: .\templates\about.html:50
+msgid "Learn some code with us. “The Next Generation” of our community."
+msgstr "בואי ללמוד לתכנת איתנו - של הקהילה שלנו. “הדור הבא” "
+
+#: .\templates\about.html:53
+msgid ""
+" <font color=\"green\">she codes;</font> is a community of women in "
+"technology, created to achieve an equal number of female and male software "
+"developers in Israel. Founded in 2013 by Ruth Polachek and a small group of "
+"volunteers from different tech fields, today <font color=\"green\">she codes;"
+"</font> includes approximately 40,000 members. Our members include women who "
+"want to learn software development or make a career shift into high-tech, "
+"developers who want to advance their skills and network with other women in "
+"high- tech and high school students who are learning to program. Our core "
+"values are Confidence, Persistence, and Community."
+msgstr "<font color=\"green\">she codes;</font>  היא קהילה טכנולוגית של נשים, שהוקמה במטרה להשוות את מספר מפתחות ומפתחי התוכנה בישראל. היא הוקמה ב-2013 בידי רות פולצ'ק וקבוצה קטנה של מתנדבות מתחומים טכנולוגיים שונים. בין חברותינו יש נשים שמבקשות ללמוד פיתוח תוכנה או לעשות הסבה מקצועית לתחום ההייטק, מפתחות שבאות במטרה להתפתח במקצוען ולפגוש מפתחות אחרות ונערות בגילאי תיכון שלומדות תכנות. ערכי הליבה שלנו הם אמונה בעצמך, התמדה וקהילה."
+
+#: .\templates\about.html:57
+msgid ""
+"We operate over 20 branches all over Israel. Branches include programming "
+"learning tracks, project co-working with support from community volunteers, "
+"tech lectures, events with Inspirational Women, career advising and more. "
+"Volunteer opportunities at <font color=\"green\">she codes;</font> "
+"contribute to the personal and professional development of members. "
+"Branches, learning track planning, events, and more are all volunteer-run."
+msgstr "אנחנו מפעילות מעל 20 סניפים ברחבי הארץ. בסניפים מתנהלים מסלולי לימוד תכנות, קבוצות לעבודה על פרויקטים בליווי מתנדבות מהקהילה, הרצאות טכנולוגיות, מפגשים עם נשים מעוררות השראה, יעוץ קריירה ועוד. אפשרויות להיות חברת צוות ב-<font color=\"green\">she codes;</font> תורמות גם הן להתפתחות המקצועית והאישית של החברות. המתנדבות מנהלות את הסניפים, מתכננות את מסלולי הלימוד, מפיקות את האירועים שלנו ועוד."
+
+#: .\templates\branches.html:9
+msgid "branches"
+msgstr "סניפים"
+
+#: .\templates\branches.html:13
+msgid "Branches:"
+msgstr "סניפים:"
+
+#: .\templates\branches.html:19 .\templates\next_generation.html:30
+msgid "Address:"
+msgstr "כתובת:"
+
+#: .\templates\branches.html:20 .\templates\next_generation.html:31
+msgid "Activity times:"
+msgstr "זמני פעילות:"
+
+#: .\templates\branches.html:21 .\templates\next_generation.html:32
+msgid "Available Tracks:"
+msgstr "מסלולים בסניף:"
+
+#: .\templates\contact.html:10 .\templates\success.html:9
+msgid "Contact Us"
+msgstr "צרי קשר"
+
+#: .\templates\contact.html:14
+msgid "Contact Us:"
+msgstr "צרי קשר:"
+
+#: .\templates\contact.html:20
+msgid "Send"
+msgstr "שלחי"
+
+#: .\templates\faq.html:9
+msgid "FAQ"
+msgstr "שאלות ותשובות"
+
+#: .\templates\faq.html:12
+msgid "FAQ:"
+msgstr "שאלות ותשובות:"
+
+#: .\templates\jobs.html:9
+msgid "career center"
+msgstr "מרכז קריירה"
+
+#: .\templates\jobs.html:12
+msgid "Careers:"
+msgstr "הצעות עבודה:"
+
+#: .\templates\members.html:9 .\templates\members_index.html:9
+msgid "members"
+msgstr "חברות קהילה"
+
+#: .\templates\members.html:10
+#, python-format
+msgid " %(user)s "
+msgstr ""
+
+#: .\templates\members.html:13
+#, python-format
+msgid " %(user)s's Profile: "
+msgstr "%(user)s הפרופיל של "
+
+#: .\templates\members.html:15
+msgid "Name: "
+msgstr "שם:"
+
+#: .\templates\members.html:17
+msgid "A she codes; member since: "
+msgstr "חברת  she codes; מאז:"
+
+#: .\templates\members.html:19
+msgid "Track: "
+msgstr "מסלול:"
+
+#: .\templates\members.html:21
+msgid "Branch: "
+msgstr "סניף:"
+
+#: .\templates\members_index.html:13
+msgid "Members:"
+msgstr "חברות קהילה:"
+
+#: .\templates\next_generation.html:9
+msgid "Next Generation"
+msgstr "הדור הבא"
+
+#: .\templates\next_generation.html:12
+msgid "Next Generation:"
+msgstr "הדור הבא:"
+
+#: .\templates\next_generation.html:15
+msgid ""
+"Are you a student in 9th-12th grade? Are you interested in technology? Do "
+"you need help with your programming homework? Do you want to go to "
+"interesting tech lectures?"
+msgstr "תלמידת כיתה ט' עד יב'? מתעניינת בטכנולוגיה? צריכה עזרה עם שיעורי הבית בתכנות? רוצה לשמוע הרצאות טכנולוגיה מעניינות?"
+
+#: .\templates\next_generation.html:17
+msgid "Join for free!"
+msgstr "הצטרפי אלינו!"
+
+#: .\templates\next_generation.html:20
+msgid ""
+"Come work on a project, learn a new language, listen to an inspiring lecture "
+"or a tech talk - or learn to code from scratch at one of our meetings."
+msgstr "בואי לעבוד על פרויקט, ללמוד שפה חדשה, להקשיב להרצאה מרשימה – או ללמוד לקודד מההתחלה באחד מהמפגשים שלנו."
+
+#: .\templates\next_generation.html:25
+msgid "Branches"
+msgstr "סניפים"
+
+#: .\templates\partners.html:9
+msgid "Partners"
+msgstr "שותפים"
+
+#: .\templates\partners.html:12
+msgid "Partners:"
+msgstr "שותפים"
+
+#: .\templates\registration\login.html:5
+msgid "Login"
+msgstr "התחברי"
+
+#: .\templates\registration\login.html:7
+msgid "Your username and password do not match. Please try again."
+msgstr "שם המשתמשת והסיסמה אינם תואמים. אנא נסי שוב"
+
+#: .\templates\registration\login.html:24
+msgid "Log in"
+msgstr "התחברי"
+
+#: .\templates\registration\login.html:25
+msgid "New to this site? Sign up"
+msgstr "חדשה באתר? הרשמי"
+
+#: .\templates\success.html:14
+msgid "Email sent. Thank you for your message."
+msgstr "ההודעה נשלחה. תודה לך!"
+
+#: .\templates\team.html:9
+msgid "Team"
+msgstr "צוות"
+
+#: .\templates\team.html:12
+msgid "Team:"
+msgstr "צוות:"
+
+#: .\templates\tracks.html:9
+msgid "tracks"
+msgstr "מסלולים"
+
+#: .\templates\tracks.html:12
+msgid "Tracks:"
+msgstr "מסלולים:"
+
+#: .\templates\tracks.html:16
+msgid "All the tracks are for free."
+msgstr "כל המסלולים הינם ללא תשלום"
+
+#: .\templates\tracks.html:17
+msgid "No prerequisites are required."
+msgstr "אין דרישות קדם"
+
+#: .\templates\tracks.html:18
+msgid "No registration is required, unless otherwise specified."
+msgstr "אין צורך בהרשמה מראש, אלא אם צוין אחרת."
+
+#: .\templates\tracks.html:19
+msgid "Please bring your laptop and headphones to each meeting."
+msgstr "יש להגיע עם לפטופ ואוזניות לכל מפגש."
+
+#: .\templates\tracks.html:20
+msgid ""
+"Each branch has a facebook group. It is best to join them and ask questions "
+"specific for the branch."
+msgstr "לכל סניף יש קבוצה בפייסבוק. כדאי להצטרף לקבוצות אלו כדי לשאול שאלות הנוגעות לסניף."
+
+#: .\templates\tracks.html:21
+msgid ""
+"In each track you study independently, with online lectures and exercises. "
+"There are no face-to-face lectures, but mentors are available in each branch "
+"to assist you."
+msgstr "הלמידה היא עצמאית, בליווי הרצאות מקוונות ותרגולים, ובכל סניף יש מנטוריות שעוזרות למשתתפות. "

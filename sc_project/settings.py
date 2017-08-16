@@ -26,7 +26,7 @@ SECRET_KEY = 's4dzp9iu-k-62x3u106z@=fvey@a)l$a5r)4u5dhwsi%^j%j$g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['schowall.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
