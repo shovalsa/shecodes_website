@@ -1,21 +1,23 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% load static%}
 {% block content %}
 <div class="page-header">
  <ol class="breadcrumb">
     <li><a href="/">she codes;</a></li>
-    <li><a href="/contact/">Contact Us</a></li>
+    <li><a href="/contact/">{% trans 'Contact Us' %}</a></li>
  </ol>
 </div>
 
-    <h3 class="page-title">Contact Us:
+    <h3 class="page-title">{% trans 'Contact Us:' %}
     <a href="mailto:contact@she-codes.org" target="_blank"><span id="et-info-email">contact@she-codes.org</span></a></h3>
     <form method="post">
         {% csrf_token %}
-        {{ contact.as_contact }}
+        {%trans contact.as_contact %}
         <div class="form-actions">
-          <button class="btn" type="submit">Send</button>
+          <button class="btn" type="submit">{% trans 'Send' %}</button>
         </div>
     </form>
 

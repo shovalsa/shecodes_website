@@ -3,11 +3,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from .models import Profile
+from django.utils.translation import ugettext_lazy as _
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    first_name = forms.CharField(max_length=30, required=False, help_text=_('Optional'), label=_('First name'))
+    last_name = forms.CharField(max_length=30, required=False, help_text=_('Optional'), label=_('Last name'))
+    email = forms.EmailField(max_length=254, help_text=_('Required. Inform a valid email address.'), label=_('Email address'))
 
     class Meta:
         model = User
@@ -29,7 +30,7 @@ class MyForm(forms.Form):
         errors_on_separate_row=True)
 
 class ContactForm(MyForm):
-    contact_name = forms.CharField(required=True, label="Name")
-    contact_email = forms.EmailField(required=True, label="Email")
-    subject = forms.CharField(required=True)
-    message = forms.CharField(required=True, widget=forms.Textarea)
+    contact_name = forms.CharField(required=True, label=_("Name"))
+    contact_email = forms.EmailField(required=True, label=_("Email"))
+    subject = forms.CharField(required=True, label=_('Subject'))
+    message = forms.CharField(required=True, widget=forms.Textarea, label=_('Message'))

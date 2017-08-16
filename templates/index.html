@@ -1,80 +1,148 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% if LANGUAGE_BIDI %}
+  {% set dir = "rtl" %}
+{% else %}
+  {% set dir = "ltr" %}
+{% endif %}
 {% block title %}she codes; home{% endblock %}
 {% load static%}
 {% block content %}
-
-<div>
-    <!-- I didn't know how to install a new font so I just use a picture here. Please replace.-->
-    <center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>
-</div>
-
+    {% if dir == "ltr" %}
+        <div>
+            <center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>
+        </div>
+    {% else %}
+        <div>
+            <center><img class="img-responsive" src="{% static "/images/motto hebrew.png" %}" alt="Self confidence. Persistence. Community"></center>
+        </div>
+    {% endif %}
 <div style="padding: 5% 5% 1% 1%;">
     <h2 style="border-bottom: 1px solid #ccc">
-        <b>Newsletter</b>
+        <b>{%trans 'Newsletter' %}</b>
     </h2>
     <div class="row" style="padding: 2.5% 2% 1% 5%;">
         {% for item in news %}
-          <!--<div class="col-xs-3">-->
-            <div class="thumbnail col-xs-4">
-              <a href="#" role="button">
-                <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-              </a>
-              <div class="caption" style="text-align:center;">
-                <h4><strong>{{item.itemTitle}}</strong></h4>
-                <div>{{item.itemContent|slice:":100"}}...</div>
-              </div>
-            <!--</div>-->
-           </div>
+            {% if dir == "ltr" %}
+                {% if item.itemTitle != "NA" %}
+                    <div class="thumbnail col-xs-4">
+                      <a href="#" role="button">
+                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+                      </a>
+                      <div class="caption" style="text-align:center;">
+                        <h4><strong>{%trans item.itemTitle %}</strong></h4>
+                        <div>{%trans item.itemContent|slice:":100" %}...</div>
+                      </div>
+                   </div>
+                {% endif %}
+            {% else %}
+                {% if item.itemTitle_hebrew != "NA" %}
+                    <div class="thumbnail col-xs-4" style="float:right;">
+                      <a href="#" role="button">
+                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+                      </a>
+                      <div class="caption" style="text-align:center;">
+                        <h4><strong>{%trans item.itemTitle_hebrew %}</strong></h4>
+                        <div>{%trans item.itemContent_hebrew|slice:":100" %}...</div>
+                      </div>
+                   </div>
+                {% endif %}
+            {% endif %}
         {% endfor %}
-        <a href="#" class="btn btn-default" role="button" style="float:right;">Read more</a>
     </div>
+        <a href="#" class="btn btn-default" role="button" style="float:right;">{%trans 'Read more' %}</a>
 </div>
 
 <div style="padding: 5% 5% 1% 1%;">
     <h2 style="border-bottom: 1px solid #ccc">
-        <b>Events</b>
+        <b>{%trans 'Events' %}</b>
     </h2>
     <div class="row" style="padding: 2.5% 2% 1% 5%;">
         {% for event in events %}
-            <div class="thumbnail col-xs-4">
-                <h4>{{event.event_date}}</h4>
-                <h4>{{event.eventLocation}}</h4>
-              <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
-                  <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
-              </a>
-              <div class="caption">
-                <h4><strong>{{event.eventTitle}}</strong></h4>
-                <div>{{event.eventContent|slice:":100"}}</div>
-              </div>
-            </div>
+            {% if dir == "ltr" %}
+                {%if event.eventTitle != "NA"%}
+                    <div class="thumbnail col-xs-4">
+                        <h4>{%trans event.event_date %}</h4>
+                        <h4>{%trans event.eventLocation %}</h4>
+                      <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
+                          <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+                      </a>
+                      <div class="caption">
+                        <h4><strong>{%trans event.eventTitle %}</strong></h4>
+                        <div>{%trans event.eventContent|slice:":100" %}</div>
+                      </div>
+                    </div>
+                {%endif%}
+            {% else %}
+                {%if event.eventTitle_hebrew != "NA"%}
+                    <div class="thumbnail col-xs-4">
+                        <h4>{%trans event.event_date %}</h4>
+                        <h4>{%trans event.eventLocation_hebrew %}</h4>
+                      <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
+                          <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+                      </a>
+                      <div class="caption">
+                        <h4><strong>{%trans event.eventTitle_hebrew %}</strong></h4>
+                        <div>{%trans event.eventContent_hebrew|slice:":100" %}</div>
+                      </div>
+                    </div>
+                {%endif%}
+            {% endif %}
         {% endfor %}
     </div>
 </div>
 
 <div style="padding: 5% 5% 1% 1%;">
     <h2 style="border-bottom: 1px solid #ccc">
-        <b>Job Opportunities:</b>
+        <b>{%trans 'Job Opportunities:' %}</b>
     </h2>
     <div class="row" style="text-align: center; padding: 2.5% 2% 1% 5%;">
         {% for job in jobs %}
-            <div class="thumbnail col-xs-4">
+            {% if dir == "ltr" %}
+                {%if event.job.jobTitle != "NA"%}
+                    <div class="thumbnail col-xs-4">
               {% if request.user.is_authenticated %}
               <a href="/career-center/" role="button">
                 <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
               </a>
               <div class="caption">
-                <h4><strong>{{job.jobTitle}}</strong></h4>
-                <div>{{job.jobDescription|slice:":100"}}...</div>
+                <h4><strong>{%trans job.jobTitle %}</strong></h4>
+                <div>{%trans job.jobDescription|slice:":100" %}...</div>
                   <br>
               {% else %}
                   <a href="/login/" role="button">
                       <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
                   </a>
-                    <h4>{{job.jobTitle}}</h4>
-                <div>{{job.jobDescription|slice:":100"}}...</div>
+                    <h4>{%trans job.jobTitle %}</h4>
+                <div>{%trans job.jobDescription|slice:":100" %}...</div>
               {% endif %}
               </div>
            </div>
+                {% endif %}
+            {% else %}
+                {%if job.jobTitle_hebrew != "NA"%}
+                    <div class="thumbnail col-xs-4">
+                      {% if request.user.is_authenticated %}
+                      <a href="/career-center/" role="button">
+                        <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+                      </a>
+                      <div class="caption">
+                        <h4><strong>{%trans job.jobTitle_hebrew %}</strong></h4>
+                        <div>{%trans job.jobDescription_hebrew|slice:":100" %}...</div>
+                          <br>
+                      {% else %}
+                          <a href="/login/" role="button">
+                              <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+                          </a>
+                            <h4>{%trans job.jobTitle_hebrew %}</h4>
+                        <div>{%trans job.jobDescription_hebrew|slice:":100" %}...</div>
+                      {% endif %}
+                      </div>
+                   </div>
+                {% endif %}
+            {% endif %}
         {% endfor %}
     </div>
 </div>

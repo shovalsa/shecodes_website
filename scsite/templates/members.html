@@ -1,23 +1,23 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}{{ user }}@she codes;{% endblock %}
 {% block content %}
 <div class="page-header">
 <ol class="breadcrumb">
-    <!-- that's the navigation at the top of the page.-->
   <li><a href="/">she codes;</a></li>
-  <li><a href="/members/">members</a></li>
-  <li><a href="/">{{ user }}</a></li>
+  <li><a href="/members/">{%trans 'members' %}</a></li>
+  <li><a href="/">{% blocktrans %} {{user}} {% endblocktrans %}</a></li>
 </ol>
 </div>
-    <h3 class="page-title">{{ user.username }}'s Profile:</h3>
+    <h3 class="page-title">{% blocktrans %} {{ user }}'s Profile: {% endblocktrans %}</h3>
 <div>
-    Name: {{ user.first_name }} {{ user.last_name }}
+    {% blocktrans %}Name: {% endblocktrans %}{{ user.first_name }} {{ user.last_name }}
     <br>
-    A she codes; member since: {{user.date_joined}}
+    {% blocktrans %}A she codes; member since: {% endblocktrans %}{{user.date_joined}}
     <br>
-   Track: {{user.profile.track}}
+   {% blocktrans %}Track: {% endblocktrans %}{{user.profile.track}}
     <br>
-    Branch: {{user.profile.main_branch}}
+    {% blocktrans %}Branch: {% endblocktrans %}{{user.profile.main_branch}}
 </div>
-<h4><a href="https://www.facebook.com/{{ user.first_name }}{{user.last_name}}" target="_blank">facebook profile</a></h4>
 {% endblock %}

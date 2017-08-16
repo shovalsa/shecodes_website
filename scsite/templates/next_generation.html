@@ -1,35 +1,42 @@
 {% extends "base.html" %}
-{% block title %}she codes; home{% endblock %}
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% if LANGUAGE_BIDI %}
+  {% set dir = "rtl" %}
+{% else %}
+  {% set dir = "ltr" %}
+{% endif %}
+{% block title %}she codes; Next Generation{% endblock %}
 {% block content %}
 <div class="page-header">
  <ol class="breadcrumb">
     <li><a href="/">she codes;</a></li>
-    <li><a href="/contact/">Next Generation</a></li>
+    <li><a href="/contact/">{%trans 'Next Generation' %}</a></li>
  </ol>
 </div>
-<h3 class="page-title">Next Generation:</h3>
+<h3 class="page-title">{%trans 'Next Generation:' %}</h3>
 <div>
     <p class="mainPar">
-    Are you a student in 9th-12th grade? Are you interested in technology? Do you need help with your programming
-        homework? Do you want to go to interesting tech lectures?
+    {%trans 'Are you a student in 9th-12th grade? Are you interested in technology? Do you need help with your programming homework? Do you want to go to interesting tech lectures?' %}
     </p>
-        <center><a href="https://www.facebook.com/groups/shecodesNG/" target="_blank"><button class="btn">Join for free!</button></a></center>
+        <center><a href="https://www.facebook.com/groups/shecodesNG/" target="_blank"><button class="btn">{%trans 'Join for free!' %}</button></a></center>
     <br>
     <p class="mainPar">
-    Come work on a project, learn a new language, listen to an inspiring lecture or a tech talk - or learn to code
-        from scratch at one of our meetings.
+    {%trans 'Come work on a project, learn a new language, listen to an inspiring lecture or a tech talk - or learn to code from scratch at one of our meetings.' %}
     </p>
 </div>
 <br>
 <div>
-    <h3>Branches</h3>
+{% if dir == "ltr" %}
+    <h3>{%trans 'Branches' %}</h3>
     <ul class="list-group">
       {% for branch in branches %}
-        {% if branch.nextGeneration == "NG" %}
+        {% if branch.nextGeneration %}
           <li class="list-group-item"><h3>{{ branch }}</h3>
-            <b>Address:</b> {{ branch.address }}
-            <br><b>Activity times:</b> {{ branch.activityTimes }}
-              <br><b>Available Tracks:</b>
+            <b>{%trans 'Address:' %}</b> {{ branch.address }}
+            <br><b>{%trans 'Activity times:' %}</b> {{ branch.activityTimes }}
+              <br><b>{%trans 'Available Tracks:' %}</b>
             <ul>
             {% for trackName in branch.availableTracks.all %}
                 <li>{{ trackName }}</li>
@@ -38,5 +45,23 @@
         {% endif %}
       {% endfor %}
     </ul>
+{% else %}
+    <h3>{%trans 'Branches' %}</h3>
+    <ul class="list-group">
+      {% for branch in branches %}
+        {% if branch.nextGeneration %}
+          <li class="list-group-item"><h3>{{ branch.branchName_hebrew }}</h3>
+            <b>{%trans 'Address:' %}</b> {{ branch.address_hebrew }}
+            <br><b>{%trans 'Activity times:' %}</b> {{ branch.activityTimes_hebrew }}
+              <br><b>{%trans 'Available Tracks:' %}</b>
+            <ul>
+            {% for trackName in branch.availableTracks.all %}
+                <li>{{ trackName }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+      {% endfor %}
+    </ul>
+{% endif %}
 </div>
 {% endblock %}

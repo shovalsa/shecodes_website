@@ -1,33 +1,63 @@
 {% extends "base.html" %}
-{% block title %}she codes; home{% endblock %}
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% if LANGUAGE_BIDI %}
+  {% set dir = "rtl" %}
+{% else %}
+  {% set dir = "ltr" %}
+{% endif %}
+{% block title %}she codes; FAQ{% endblock %}
 {% block content %}
 <div class="page-header">
  <ol class="breadcrumb">
     <li><a href="/">she codes;</a></li>
-    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/faq/">{%trans 'FAQ' %}</a></li>
  </ol>
 </div>
-<h3 class="page-title">FAQ:</h3>
-<div id="accordion" role="tablist" aria-multiselectable="true">
+<h3 class="page-title">{%trans 'FAQ:' %}</h3>
+{% if dir == "ltr" %}
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+      {% for qu in faq %}
+          <div class="card">
+            <div class="card-header" role="tab" id="heading{{qu.id}}">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{qu.id}}" aria-expanded="true"
+                   aria-controls="collapse{{qu.id}}">
+                  <span class="collapsed">{{ qu.question}}</span>
+                </a>
+              </h5>
+            </div>
+
+            <div id="collapse{{qu.id}}" class="collapse" role="tabpanel" aria-labelledby="heading{{qu.id}}">
+              <div class="card-block">
+                {{ qu.answer }}
+              </div>
+            </div>
+          </div>
+        <br>
+      {% endfor %}
+    </div>
+{% else %}
+    <div id="accordion" role="tablist" aria-multiselectable="true">
   {% for qu in faq %}
   <div class="card">
     <div class="card-header" role="tab" id="heading{{qu.id}}">
-      <!--<h5 class="mb-0">-->
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{qu.id}}" aria-expanded="true"
            aria-controls="collapse{{qu.id}}">
-          <span class="collapsed">{{qu.question}}</span>
+          <span class="collapsed">{{ qu.question_hebrew }}</span>
         </a>
       </h5>
     </div>
 
     <div id="collapse{{qu.id}}" class="collapse" role="tabpanel" aria-labelledby="heading{{qu.id}}">
       <div class="card-block">
-        {{qu.answer}}
+        {{ qu.answer_hebrew }}
       </div>
     </div>
   </div>
     <br>
   {% endfor %}
 </div>
-    <br>
+{% endif %}
+<br>
 {% endblock %}

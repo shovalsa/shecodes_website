@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate
 from django.db import transaction
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
+from django.utils.translation import ugettext_lazy as _
 
 @login_required()
 def home(request):
@@ -46,7 +47,7 @@ def contact(request):
             try:
                 send_mail(subject, everything, from_email, ['contact.shecodes@gmail.com'])
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+                return HttpResponse(_('Invalid header found.'))
             return success(request)
     return render(request, "contact.html", {'contact': contact})
 

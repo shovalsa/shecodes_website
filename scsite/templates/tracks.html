@@ -1,23 +1,24 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% block content %}
 <div class="page-header">
  <ol class="breadcrumb">
     <li><a href="/">she codes;</a></li>
-    <li><a href="/tracks/">tracks</a></li>
+    <li><a href="/tracks/">{%trans 'tracks' %}</a></li>
  </ol>
 </div>
-    <h3 class="page-title">Tracks:</h3>
+    <h3 class="page-title">{%trans 'Tracks:' %}</h3>
 <div>
     <p>
         <ul>
-        <li>All the tracks are for free.</li>
-        <li>No prerequisites are required.</li>
-        <li>No registration is required, unless otherwise specified.</li>
-        <li>Please bring your laptop and headphones to each meeting.</li>
-        <li>Each branch has a facebook group. It is best to join them and ask questions specific for the branch.</li>
-        <li>In each track you study independently, with online lectures and exercises.
-        There are no face-to-face lectures, but mentors are available in each branch to assist you.</li>
+        <li>{%trans 'All the tracks are for free.' %}</li>
+        <li>{%trans 'No prerequisites are required.' %}</li>
+        <li>{%trans 'No registration is required, unless otherwise specified.' %}</li>
+        <li>{%trans 'Please bring your laptop and headphones to each meeting.' %}</li>
+        <li>{%trans 'Each branch has a facebook group. It is best to join them and ask questions specific for the branch.' %}</li>
+        <li>{%trans 'In each track you study independently, with online lectures and exercises. There are no face-to-face lectures, but mentors are available in each branch to assist you.' %}</li>
         </ul>
     </p>
         <ul class="list-group">
@@ -25,7 +26,7 @@
             <div style="float: left;">
             {%if track.trackDescription != "N/A"%}
               <li class="list-group-item"><h3>{{ track }}</h3>  <!-- the logo doesn't work. -->
-                {{ track.trackDescription|safe }}</li>
+                 {%trans track.trackDescription|safe %}</li>
             {% endif %}
             </div>
           {% endfor %}

@@ -1,15 +1,18 @@
 {% extends "base.html" %}
-
-{% block title %}הדף לא נמצא{% endblock %}
-{% block header_text %}הדף לא נמצא{% endblock %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block title %}Page not found{% endblock %}
+{% block header_text %}Page not found{% endblock %}
 
 {% block content %}
 
     <p>
-        הדף שביקשת אינו נמצא, או שאינך יכולה לראות אותו.
-        שימי לב: חלק מהתכנים באתר זמינים רק לחברות she codes;
-        להתחברות למערכת לחצי <a href="/login/">כאן</a>
-        או חזרי ל<a href="/home/">עמוד הבית</a>
+        {%trans
+        The page you have requested does not exist or is unavailable. Please note that some of the content in this site
+        is only available for logged in members. If you are a member,
+        please <a href="/login/">login</a>, <a href="/signup/">join our community</a> or go
+        back to <a href="/home/">homepage</a>.
+        %}
     </p>
 
 {% endblock %}

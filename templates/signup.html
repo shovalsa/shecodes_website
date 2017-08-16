@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block content %}
-  <h3 class="page-title">Sign up</h3>
+  <h3 class="page-title">{% trans 'Sign up' %}</h3>
   <form method="post">
     <div style="float:left">
     {% csrf_token %}
@@ -33,6 +34,6 @@
       </p>
     {% endfor %}
       </div>
-    <button class="btn" type="submit">Sign up</button>
+    <button class="btn" type="submit">{% trans 'Sign up' %}</button>
   </form>
 {% endblock %}

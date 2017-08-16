@@ -46,11 +46,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'sc_project.urls'
@@ -66,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -130,4 +133,20 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = sensitive.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = sensitive.EMAIL_HOST_PASSWORD
-# these details are sensitive and should probably sit somewhere outside github. any idea how?
+# when online, please change username and password to that of contact@she-codes.org
+
+# MEDIA_ROOT = '/static/images/avatars/'
+# MEDIA_URL
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+    os.path.join(BASE_DIR, 'scsite/locale/'),
+    os.path.join(BASE_DIR, 'scsite/templates/locale/'),
+
+)
+
+ugettext = lambda s: s
+LANGUAGES = (
+    ('en', ugettext('English')),
+    ('he', ugettext('Hebrew')),
+)
+prefix_default_language = False

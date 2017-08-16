@@ -1,13 +1,15 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% block content %}
 <div class="page-header">
  <ol class="breadcrumb">
     <li><a href="/">she codes;</a></li>
-    <li><a href="/career-center/">career center</a></li>
+    <li><a href="/career-center/">{%trans 'career center' %}</a></li>
  </ol>
 </div>
-    <h3 class="page-title">Careers:</h3>
+    <h3 class="page-title">{%trans 'Careers:' %}</h3>
     <div class="media">
         {% for job in jobs %}
           <div class="media-left media-middle">
@@ -16,8 +18,8 @@
             </a>
           </div>
           <div class="media-body">
-            <h3 class="media-heading">{{job.jobTitle}}</h3>
-            {{job.jobDescription|safe}}
+            <h3 class="media-heading">{%trans job.jobTitle %}</h3>
+            {%trans job.jobDescription|safe %}
           </div>
         {% endfor %}
     </div>

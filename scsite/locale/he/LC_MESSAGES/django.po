@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-15 19:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\forms.py:9 .\forms.py:10
+msgid "Optional"
+msgstr "אופציונלי"
+
+#: .\forms.py:9
+msgid "First name"
+msgstr "שם פרטי"
+
+#: .\forms.py:10
+msgid "Last name"
+msgstr "שם משפחה"
+
+#: .\forms.py:11
+msgid "Required. Inform a valid email address."
+msgstr "שדה חובה. אנא כתבי כתובת אימייל תקינה"
+
+#: .\forms.py:11
+msgid "Email address"
+msgstr "כתובת אימייל"
+
+#: .\forms.py:33
+msgid "Name"
+msgstr "שם"
+
+#: .\forms.py:34
+msgid "Email"
+msgstr "אימייל"
+
+#: .\forms.py:35
+msgid "Subject"
+msgstr "נושא"
+
+#: .\forms.py:36
+msgid "Message"
+msgstr "הודעה"
+
+#: .\models.py:31
+msgid "N/A"
+msgstr "חסר"
+
+#: .\models.py:45
+msgid "e.g. Mondays at 18:30"
+msgstr "למשל, ימי שני ב-18:30"
+
+#: .\models.py:82
+msgid "Item title"
+msgstr "כותרת הכתבה"
+
+#: .\models.py:83
+msgid "content"
+msgstr "תוכן"
+
+#: .\models.py:84
+msgid "pic1.jpg"
+msgstr ""
+
+#: .\models.py:90
+msgid "Job title"
+msgstr "שם המשרה"
+
+#: .\models.py:91 .\models.py:103
+msgid "Description"
+msgstr "תיאור"
+
+#: .\models.py:94
+msgid "Required skill level"
+msgstr "רמת מיומנות דרושה"
+
+#: .\models.py:94
+msgid "Junior"
+msgstr ""
+
+#: .\models.py:94
+msgid "Senior"
+msgstr ""
+
+#: .\models.py:94
+msgid "Team Leader"
+msgstr "ראשת צוות"
+
+#: .\models.py:95
+msgid "front end / data science / DevOps etc."
+msgstr "front end / data science / DevOps וכו'"
+
+#: .\models.py:102
+msgid "Event title"
+msgstr "שם האירוע"
+
+#: .\views.py:50
+msgid "Invalid header found."
+msgstr ""

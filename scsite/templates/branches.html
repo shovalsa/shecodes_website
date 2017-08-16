@@ -1,28 +1,47 @@
 {% extends "base.html" %}
-{% block title %}she codes; home{% endblock %}
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% if LANGUAGE_BIDI %}
+  {% set dir = "rtl" %}
+{% else %}
+  {% set dir = "ltr" %}
+{% endif %}
+{% block title %}she codes; Branches{% endblock %}
 {% block content %}
 <div class="page-header">
  <ol class="breadcrumb">
     <li><a href="/">she codes;</a></li>
-    <li><a href="/branches/">branches</a></li>
+    <li><a href="/branches/">{% trans 'branches' %}</a></li>
  </ol>
 </div>
 <div>
-    <h3 class="page-title">Branches:</h3>
-    <!--<hr class="divider">-->
+    <h3 class="page-title">{% trans 'Branches:' %}</h3>
         <ul class="list-group">
           {% for branch in branches %}
-            <!--<div style="float: left;">-->
-              <li class="list-group-item"><h3>{{ branch }}</h3>
-                <b>Address:</b> {{ branch.address }}
-                <br><b>Activity times:</b> {{ branch.activityTimes }}
-                  <br><b>Available Tracks:</b>
-                <ul>
-                {% for trackName in branch.availableTracks.all %}
-                    <li>{{ trackName }}</li>
-                {% endfor %}
-                </ul>
-            <!--</div>-->
+            {% if dir == "ltr" %}
+                <li class="list-group-item"><h3>{{ branch }}</h3>
+                    <b>{% trans 'Address:' %}</b> {{ branch.address }}
+                    <br><b>{% trans 'Activity times:' %}</b> {{ branch.activityTimes }}
+                    <br><b>{% trans 'Available Tracks:' %}</b>
+                    <ul>
+                        {% for trackName in branch.availableTracks.all %}
+                        <li>{{ trackName }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <li class="list-group-item"><h3>{{ branch.branchName_hebrew }}</h3>
+                    <b>{% trans 'Address:' %}</b> {{ branch.address_hebrew }}
+                    <br><b>{% trans 'Activity times:' %}</b> {{ branch.activityTimes_hebrew }}
+                    <br><b>{% trans 'Available Tracks:' %}</b>
+                    <ul>
+                        {% for trackName in branch.availableTracks.all %}
+                        <li>{{ trackName }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {%endif%}
           {% endfor %}
         </ul>
 </div>
