@@ -20,9 +20,9 @@
         <meta name="keywords" content="she codes; is an Israeli based community for women programmers.">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!--{% block css %}//-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito|Quicksand|Assistant" />
     <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/style.css" %}">
-      <!--{% endblock %}//-->
+
 </head>
 <header>
 <div class="container clearfix">
@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 {% else %}
-                <div class = "navbar-header" style="background-color: rgb(255,255,255); float:right;">
+                <div class = "navbar-header" style="background-color: rgb(255,255,255);">
                     <a class="navbar-brand" href="{% url 'home' %}">
                          <img class="img-responsive" style="auto; height:170%;" src="{% static "/images/sc_logo.png" %}">
                     </a>
@@ -109,7 +109,7 @@
 </header>
 <body>
     <script type="text/javascript">
-        document.body.style.padding = "50px 0px 0px 0px";
+        document.body.style.padding = "70px 0px 0px 0px";
     </script>
     {% load static %}
     <div class="container">
