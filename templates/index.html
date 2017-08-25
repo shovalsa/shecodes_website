@@ -64,7 +64,6 @@
             {% if dir == "ltr" %}
                 {%if event.eventTitle != "NA"%}
                     <div class="thumbnail col-xs-4">
-                        <h4>{%trans event.event_date %}</h4>
                         <h4>{%trans event.eventLocation %}</h4>
                       <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
                           <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
@@ -78,7 +77,6 @@
             {% else %}
                 {%if event.eventTitle_hebrew != "NA"%}
                     <div class="thumbnail col-xs-4">
-                        <h4>{%trans event.event_date %}</h4>
                         <h4>{%trans event.eventLocation_hebrew %}</h4>
                       <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
                           <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
