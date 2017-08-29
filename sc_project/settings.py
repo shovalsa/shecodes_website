@@ -113,13 +113,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Israel'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -135,8 +135,8 @@ EMAIL_HOST_USER = sensitive.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = sensitive.EMAIL_HOST_PASSWORD
 # when online, please change username and password to that of contact@she-codes.org
 
-# MEDIA_ROOT = '/static/images/avatars/'
-# MEDIA_URL
+MEDIA_ROOT = ''
+MEDIA_URL = '/static/images/'
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
     os.path.join(BASE_DIR, 'scsite/locale/'),
@@ -150,3 +150,5 @@ LANGUAGES = (
     ('he', ugettext('Hebrew')),
 )
 prefix_default_language = False
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+SITE_ID = 1
