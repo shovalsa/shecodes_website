@@ -18,101 +18,135 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="she codes; is an Israeli based community for women programmers.">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!-- although the above is newer, some browsers may not support it. see https://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito|Quicksand|Assistant" />
+    <script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito|Quicksand|Assistant|Special+Elite" />
     <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/style.css" %}">
 
 </head>
 <header>
-<div class="container clearfix">
-    <div class= "navbar-responsive">
-        <div class="container">
-            <nav class = "navbar navbar-inverse navbar-fixed-top" id="navbar_whole">
-                    <button type= "button" class = "navbar-toggle collapsed" data-toggle= "collapse"
-                            data-target= "#navbar" aria-expanded="false" aria-controls ="navbar" style="background-color:rgb(19,125,73)">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-            {% if dir == "ltr" %}
-                <div class = "navbar-header" style="background-color: rgb(255,255,255);">
-                    <a class="navbar-brand" href="{% url 'home' %}">
-                         <img class="img-responsive" style="auto; height:170%;" src="{% static "/images/sc_logo.png" %}">
-                    </a>
-                </div>
-                {% else %}
-                <div class = "navbar-header" style="background-color: rgb(255,255,255);">
-                    <a class="navbar-brand" href="{% url 'home' %}">
-                         <img class="img-responsive" style="auto; height:170%;" src="{% static "/images/sc_logo.png" %}">
-                    </a>
-                </div>
-            {% endif %}
-                <div id= "navbar" class="navbar-collapse collapse" style="background-color: rgb(19,125,73)">
-
-                    <ul class="nav navbar-nav">
-                        <li><a href="/about/" style="color:white">{%trans 'About' %}</a></li>
-                        {% if request.user.is_authenticated %}
-                            <li><a href="/members/" style="color:white">{%trans 'Community' %}</a></li>
-                        {% endif %}
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                             aria-expanded="false" style="color:white;">
-                              {%trans 'Activities' %}</a>
-                          <ul class="dropdown-menu" style="text-align:center;">
-                            <li><a href="/tracks/" >{%trans 'Tracks' %}</a></li>
-                            <li><a href='/branches/'>{%trans 'Branches' %}</a></li>
-                            <li><a href="/next-generation/" >{%trans 'Next Generation' %}</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="/faq/" style="color:white">{%trans 'FAQ' %}</a></li>
-                        <li><a href="/team/" style="color:white">{%trans 'Team' %}</a></li>
-                        <li><a href="/partners/" style="color:white">{%trans 'Partners' %}</a></li>
-                        <li><a href="/contact/" style="color:white">{%trans 'Contact Us' %}</a></li>
-                        <li>
-                            {% if request.user.is_authenticated %}
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                     aria-haspopup="true" aria-expanded="false">
-                                        <span class="glyphicon glyphicon-user" style="color:white;"></span>
-                                  <ul class="dropdown-menu" style="text-align:center;">
-                                    <li><a href="/members/{{user.id}}/">{%trans 'My Profile' %}</a></li> <!-- link to be replaced -->
-                                    <li><a href="/logout/">{%trans 'Log out' %}</a></li>
-                                  </ul></a>
-                                </li>
-                            {% else %}
-                                <li><a href="/login/" style="color:white">{%trans 'Login' %}</a></li>
-                                <li><a href="/signup/" style="color:white">{%trans 'Join Us!' %}</a></li>
-                            {% endif %}
-                        </li>
-                        <li>
-                            <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
-                              <input name="next" type="hidden" value="{{ redirect_to }}" />
-                              <select name="language" onchange="this.form.submit()">
-                                {% get_language_info_list for LANGUAGES as languages %}
-                                  {% for language in languages %}
-                                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                                      {{ language.name_local }}
-                                    </option>
-                                  {% endfor %}
-                              </select>
-                            </form>
-
-                        </li>
-                    </ul>
+        <nav style="border-bottom: 3px solid rgb(19,125,73);">
+            <!--<div class="navbar-collapse collapse">-->
+                <div style="float:center"></div>
+                    <center><a class="logo" href="{% url 'home' %}">
+                        <img class="img-responsive logo" src="{% static "/images/sc_logo.png" %}">
+                    </a></center>
                 </div>
         </nav>
+    </header>
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- Sidebar -->
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation" >
+            <ul class="nav sidebar-nav" >
+                <center><li style="font-size:18px; padding-top: 10%; padding-bottom:10%">
+                    <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
+                      <input name="next" type="hidden" value="{{ redirect_to }}" />
+                      <select name="language" onchange="this.form.submit()">
+                        {% get_language_info_list for LANGUAGES as languages %}
+                          {% for language in languages %}
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                              {{ language.name_local }}
+                            </option>
+                          {% endfor %}
+                      </select>
+                    </form>
+                </center>
+
+                    {% if request.user.is_authenticated %}
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false" style="color:white;">
+                                <span class="glyphicon glyphicon-user" style="color:white;"></span>
+                          <ul class="dropdown-menu">
+                            <li><a href="/members/{{user.id}}/">{%trans 'My Profile' %}</a></li>
+                            <li><a href="/logout/">{%trans 'Log out' %}</a></li>
+                          </ul></a>
+                        </li>
+                    {% else %}
+                        <li><a href="/login/" style="color:white">{%trans 'Login' %}</a></li>
+                        <li><a href="/signup/" style="color:white">{%trans 'Join Us!' %}</a></li>
+                    {% endif %}
+                </li>
+               <li><a href="/about/" style="color:white">{%trans 'About' %}</a></li>
+                {% if request.user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false" style="color:white;">
+                              {%trans 'Community' %}</a>
+                          <ul class="dropdown-menu">
+                            <li><a href="/members/">{%trans 'members' %}</a></li>
+                            <li><a href="/newsletter/">{%trans 'newsletter' %}</a></li>
+                          </ul>
+                    </li>
+                {% endif %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                     aria-expanded="false" style="color:white;">
+                      {%trans 'Activities' %}</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/tracks/" >{%trans 'Tracks' %}</a></li>
+                    <li><a href='/branches/'>{%trans 'Branches' %}</a></li>
+                    <li><a href="/next-generation/" >{%trans 'Next Generation' %}</a></li>
+                  </ul>
+                </li>
+                <li><a href="/faq/" style="color:white">{%trans 'FAQ' %}</a></li>
+                <li><a href="/team/" style="color:white">{%trans 'Team' %}</a></li>
+                <li><a href="/partners/" style="color:white">{%trans 'Partners' %}</a></li>
+                <li><a href="/contact/" style="color:white">{%trans 'Contact Us' %}</a></li>
+            </ul>
+        </nav>
     </div>
+            <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+        </div>
 </div>
-</div>
-</header>
+        <script>
+            $(document).ready(function () {
+              var trigger = $('.hamburger'),
+                  overlay = $('.overlay'),
+                 isClosed = false;
+
+                trigger.click(function () {
+                  hamburger_cross();
+                });
+
+                function hamburger_cross() {
+
+                  if (isClosed == true) {
+                    overlay.hide();
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                  } else {
+                    overlay.show();
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                  }
+              }
+
+              $('[data-toggle="offcanvas"]').click(function () {
+                    $('#wrapper').toggleClass('toggled');
+              });
+
+            });
+        </script>
+
 <body>
-    <script type="text/javascript">
-        document.body.style.padding = "70px 0px 0px 0px";
-    </script>
+
     {% load static %}
-    <div class="container">
     {%block content%}
     {%endblock%}
 </div>

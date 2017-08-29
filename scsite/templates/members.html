@@ -3,13 +3,6 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}{{ user }}@she codes;{% endblock %}
 {% block content %}
-<div class="page-header">
-<ol class="breadcrumb">
-  <li><a href="/">she codes;</a></li>
-  <li><a href="/members/">{%trans 'members' %}</a></li>
-  <li><a href="/">{% blocktrans %} {{user}} {% endblocktrans %}</a></li>
-</ol>
-</div>
     <h3 class="page-title">{% blocktrans %} {{ user }}'s Profile: {% endblocktrans %}</h3>
 <div>
     {% blocktrans %}Name: {% endblocktrans %}{{ user.first_name }} {{ user.last_name }}

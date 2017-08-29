@@ -1,12 +1,12 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.utils import timezone
+from django.utils import timezone as tz
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
-
-
+from datetime import datetime as dt
+import pytz
 class Profile(models.Model):
     user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
     main_branch = models.ForeignKey('Branch', blank=True, default=1) # this is a many-to-one relation, which means that many users can be in the same branch
@@ -61,14 +61,14 @@ class Branch(models.Model):
     Parking_hebrew = models.CharField(max_length=200, default="NA")
     staff_members = models.CharField(max_length=200, default="NA")
     staff_members_hebrew = models.CharField(max_length=200, default="NA")
-    track_openning_time = models.DateField(default=timezone.now)
+    track_openning_time = models.DateField(default=tz.now)
     # how to insert items into such a model: https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/
 
     def __str__(self):
         return self.branchName
 
     class Meta:
-        ordering = ('branchName',)
+        ordering = ('-area', 'branchName', )
 
 class Team(models.Model):
     team_id = models.IntegerField('team_id', unique=True)
@@ -122,7 +122,7 @@ class Event(models.Model):
     eventTitle_hebrew = models.CharField(max_length=50, default="NA")
     eventDescription = models.TextField(default="NA")
     eventDescription_hebrew = models.TextField(default="NA")
-    eventPhoto = models.CharField(max_length=50, default="pic1.jpg")
+    eventPhoto = models.ImageField(upload_to = 'static/images/events')
     eventLink = models.TextField(default="#")
     event_date = models.DateTimeField(default=timezone.now)
     eventLocation = models.CharField(max_length=100, default="NA") #Are the events always in existing branches? If so, better be FK.
@@ -132,5 +132,6 @@ class Event(models.Model):
         return self.eventTitle
 
     def is_upcoming(self):
-        now = timezone.now()
-        return self.event_date >= now
+        now = dt.now()
+        eventTime = self.event_date
+        return eventTime >= now

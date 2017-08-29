@@ -3,13 +3,6 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% block content %}
-<div class="page-header">
- <ol class="breadcrumb">
-    <li><a href="/">she codes;</a></li>
-    <li><a href="/members/">{%trans 'members' %}</a></li>
- </ol>
-</div>
-<div>
     <h3 class="page-title">{%trans 'Members:' %}</h3>
         <ul class="list-group">
           {% for user in users %}
@@ -18,6 +11,5 @@
             {% endif %}
           {% endfor %}
         </ul>
-</div>
 
 {% endblock %}

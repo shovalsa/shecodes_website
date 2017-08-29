@@ -7,13 +7,22 @@
 {% else %}
   {% set dir = "ltr" %}
 {% endif %}
-{% block title %}she codes; Next Generation{% endblock %}
+{% block title %}she codes; home{% endblock %}
+{% load static%}
+{% load zinnia %}
 {% block content %}
-<div class="page-header">
- <ol class="breadcrumb">
-    <li><a href="/">she codes;</a></li>
-    <li><a href="/contact/">{%trans 'Next Generation' %}</a></li>
- </ol>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
+
+<div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="{% static "/images/parallax12.png" %}" data-natural-width="100%">
+    <div style="color:white;">
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%; ">
+            <h1 class="parallax-title"><b>{% trans 'Education' %}</b></h1>
+            <h1>{% trans 'Learn some code with us.' %}</h1>
+    <h3 style="line-height:1.6">{%trans 'Come work on a project, <br>learn a new language, <br>listen to an inspiring lecture or a tech talk - <br>or learn to code from scratch at one of our meetings.' %}</h3>
+
+        </div>
+    </div>
 </div>
 <h3 class="page-title">{%trans 'Next Generation:' %}</h3>
 <div>

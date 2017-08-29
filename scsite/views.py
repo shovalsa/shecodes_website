@@ -9,6 +9,8 @@ from django.db import transaction
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
+from django.utils import formats
+
 
 @login_required()
 def home(request):
@@ -63,6 +65,8 @@ def index(request):
     for event in event_list:
         if event.is_upcoming() == True:
             events.append(event)
+            formatted_datetime = formats.date_format(event.event_date, "SHORT_DATETIME_FORMAT")
+            event.event_date = str(formatted_datetime)
     return render(request, "index.html", {'news': news, 'jobs':jobs, 'events': events})
 
 
@@ -80,6 +84,16 @@ def members_index(request):
 def jobs(request):
     jobs = Job.objects.all()
     return render(request, "jobs.html", {'jobs': jobs})
+
+def newsletter(request, id):
+    news = get_object_or_404(News, id=id)
+    return render(request, "newsletter.html", {'news': news})
+
+def newsletter_index(request):
+    news = News.objects.all()
+    return render(request, "newsletter_index.html", {'news': news})
+
+
 
 def tracks(request):
     tracks = Track.objects.all()

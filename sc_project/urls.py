@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from scsite.views import index, members, members_index, tracks, branches, faq, team, contact, partners, \
-    next_generation, about, jobs, signup
+    next_generation, about, jobs, signup, newsletter, newsletter_index
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf.urls.i18n import i18n_patterns
 # from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
+from django.conf.urls.static import static
 
 js_info_dict = {
     'packages': ('scsite',)
@@ -37,6 +39,8 @@ urlpatterns = [
     url(r'^next-generation/$', next_generation),
     url(r'^faq/$', faq),
     url(r'^team/$', team),
+    url(r'^newsletter/(?P<id>[^/]+)/$', newsletter),
+    url(r'^newsletter/$', newsletter_index, name='newsletter'),
     url(r'^about/$', about),
     url(r'^contact/$', contact),
     url(r'^partners/$', partners),

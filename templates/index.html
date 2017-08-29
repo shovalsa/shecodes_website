@@ -9,17 +9,33 @@
 {% endif %}
 {% block title %}she codes; home{% endblock %}
 {% load static%}
+{% load zinnia %}
 {% block content %}
-    {% if dir == "ltr" %}
-        <div>
-            <center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>
+
+<div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
+    <div style="color:white;">
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
+            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+            <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
         </div>
-    {% else %}
-        <div>
-            <center><img class="img-responsive" src="{% static "/images/motto hebrew.png" %}" alt="Self confidence. Persistence. Community"></center>
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
+            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+            <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
         </div>
-    {% endif %}
-<div style="padding: 5% 5% 1% 1%;">
+
+    </div>
+</div>
+    <!--{% if dir == "ltr" %}-->
+        <!--<div>-->
+            <!--<center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>-->
+        <!--</div>-->
+    <!--{% else %}-->
+        <!--<div>-->
+            <!--<center><img class="img-responsive" src="{% static "/images/motto hebrew.png" %}" alt="Self confidence. Persistence. Community"></center>-->
+        <!--</div>-->
+    <!--{% endif %}-->
+<div class="container">
+<div>
     <h2 class="page-title" style="border-bottom: 1px solid #ccc">
         <b>{%trans 'Newsletter' %}</b>
     </h2>
@@ -28,7 +44,7 @@
             {% if dir == "ltr" %}
                 {% if item.itemTitle != "NA" %}
                     <div class="thumbnail col-xs-4">
-                      <a href="#" role="button">
+                      <a href="/newsletter/{{item.id}}" role="button">
                         <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
                       </a>
                       <div class="caption" style="text-align:center;">
@@ -40,11 +56,11 @@
             {% else %}
                 {% if item.itemTitle_hebrew != "NA" %}
                     <div class="thumbnail col-xs-4" style="float:right;">
-                      <a href="#" role="button">
+                        <h4><strong>{%trans item.itemTitle_hebrew %}</strong></h4>
+                      <a href="/newsletter/{{item.id}}" role="button">
                         <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
                       </a>
                       <div class="caption" style="text-align:center;">
-                        <h4><strong>{%trans item.itemTitle_hebrew %}</strong></h4>
                         <div>{%trans item.itemContent_hebrew|slice:":100" %}...</div>
                       </div>
                    </div>
@@ -52,10 +68,9 @@
             {% endif %}
         {% endfor %}
     </div>
-        <a href="#" class="btn btn-default" role="button" style="float:right;">{%trans 'Read more' %}</a>
+        <a href="/newsletter/" class="btn btn-default" role="button" style="float:right;">{%trans 'Read more' %}</a>
 </div>
-
-<div style="padding: 5% 5% 1% 1%;">
+    <div style="padding: 5% 5% 1% 1%;">
     <h2 class="page-title" style="border-bottom: 1px solid #ccc">
         <b>{%trans 'Events' %}</b>
     </h2>
@@ -65,11 +80,12 @@
                 {%if event.eventTitle != "NA"%}
                     <div class="thumbnail col-xs-4">
                         <h4>{%trans event.eventLocation %}</h4>
-                      <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
-                          <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+                        <h4>{%trans event.event_date %}</h4>
+                        <h4><strong>{%trans event.eventTitle %}</strong></h4>
+                      <a href="{{event.eventLink}}" target="_blank"  role="button">
+                          <img src="/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
                       </a>
                       <div class="caption">
-                        <h4><strong>{%trans event.eventTitle %}</strong></h4>
                         <div>{%trans event.eventContent|slice:":100" %}</div>
                       </div>
                     </div>
@@ -77,9 +93,10 @@
             {% else %}
                 {%if event.eventTitle_hebrew != "NA"%}
                     <div class="thumbnail col-xs-4">
+                        <h4>{%trans event.event_date %}</h4>
                         <h4>{%trans event.eventLocation_hebrew %}</h4>
-                      <a href="{{event.eventLink}}" target="_blank" class="btn btn-default" role="button">
-                          <img src="/static/images/events/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
+                      <a href="{{event.eventLink}}" target="_blank" role="button">
+                          <img src="/{{event.eventPhoto}}" alt="{{event.eventTitle_hebrew}}">
                       </a>
                       <div class="caption">
                         <h4><strong>{%trans event.eventTitle_hebrew %}</strong></h4>
@@ -92,6 +109,7 @@
     </div>
 </div>
 
+
 <div style="padding: 5% 5% 1% 1%;">
     <h2 class="page-title" style="border-bottom: 1px solid #ccc">
         <b>{%trans 'Job Opportunities:' %}</b>
@@ -99,7 +117,7 @@
     <div class="row" style="text-align: center; padding: 2.5% 2% 1% 5%;">
         {% for job in jobs %}
             {% if dir == "ltr" %}
-                {%if event.job.jobTitle != "NA"%}
+                {%if job.jobTitle != "NA"%}
                     <div class="thumbnail col-xs-4">
               {% if request.user.is_authenticated %}
               <a href="/career-center/" role="button">
@@ -144,5 +162,5 @@
         {% endfor %}
     </div>
 </div>
-
+</div>
 {% endblock %}

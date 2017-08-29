@@ -3,12 +3,6 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% block content %}
-<div class="page-header">
- <ol class="breadcrumb">
-    <li><a href="/">she codes;</a></li>
-    <li><a href="/team/">{%trans 'Team' %}</a></li>
- </ol>
-</div>
 <h3 class="page-title">{%trans 'Team:' %}</h3>
             <div style="float: left; text-align:center; padding-right: 30px">
                   {% for member in team %}

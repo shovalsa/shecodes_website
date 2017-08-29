@@ -3,12 +3,6 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% block content %}
-<div class="page-header">
- <ol class="breadcrumb">
-    <li><a href="/">she codes;</a></li>
-    <li><a href="/career-center/">{%trans 'career center' %}</a></li>
- </ol>
-</div>
     <h3 class="page-title">{%trans 'Careers:' %}</h3>
     <div class="media">
         {% for job in jobs %}

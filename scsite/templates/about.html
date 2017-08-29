@@ -5,49 +5,47 @@
 {% load static%}
 PERCENT = '%'
 {% block content %}
-<div class="page-header">
- <ol class="breadcrumb">
-    <li><a href="/">she codes;</a></li>
-    <li><a href="/about/">{% trans 'About she codes;' %}</a></li>
- </ol>
-</div>
-<div id="mainPageCarousel" class="carousel slide">
-    <div class="carousel-inner"> <!-- where the slides are stored -->
-        <div class="item active">
-            <img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage1.jpg" %}" alt="img1" class="img-responsive"/>
+<div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/mainPageCarousel/chached photos/SheCodesMainPage1.jpg" data-natural-width="100%">
+    <div style="color:white;">
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
+            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+            <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
         </div>
-        <div class="item">
-            <img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage2.jpg" %}" alt="img2" class="img-responsive">
-        </div>
-        <div class="item">
-            <img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage3.jpg" %}" alt="img3" class="img-responsive">
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
+            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+            <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
         </div>
 
-        <div class="item">
-            <img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage4.jpg" %}" alt="img4" class="img-responsive">
-        </div>
-    </div>
-    <div class="fill" style="background-image:static/images/mainPageCarousel/SheCodesMainPage1.jpg;">
-        <a class="carousel-control left" href="#mainPageCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="carousel-control right" href="#mainPageCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
     </div>
 </div>
-<div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-    <h1><b>{% trans 'Our Goal' %}</b></h1>
-    <p>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</p>
-</div>
-<div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-    <h1><b>{% trans 'Community' %}</b></h1>
-    <p>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</p>
-</div>
-<div style="text-align:center; padding: 2.5% 10% 0% 10%; ">
-    <h1><b>{% trans 'Education' %}</b></h1>
-    <p>{% trans 'Learn some code with us. “The Next Generation” of our community.' %}</p>
-</div>
+    <h3 class="page-title">{% trans 'About she codes;' %}</h3>
+
+<!--<div id="mainPageCarousel" class="carousel slide">-->
+    <!--<div class="carousel-inner"> &lt;!&ndash; where the slides are stored &ndash;&gt;-->
+        <!--<div class="item active">-->
+            <!--<img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage1.jpg" %}" alt="img1" class="img-responsive"/>-->
+        <!--</div>-->
+        <!--<div class="item">-->
+            <!--<img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage2.jpg" %}" alt="img2" class="img-responsive">-->
+        <!--</div>-->
+        <!--<div class="item">-->
+            <!--<img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage3.jpg" %}" alt="img3" class="img-responsive">-->
+        <!--</div>-->
+
+        <!--<div class="item">-->
+            <!--<img src="{% static "/images/mainPageCarousel/chached photos/SheCodesMainPage4.jpg" %}" alt="img4" class="img-responsive">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="fill" style="background-image:static/images/mainPageCarousel/SheCodesMainPage1.jpg;">-->
+        <!--<a class="carousel-control left" href="#mainPageCarousel" data-slide="prev">-->
+            <!--<span class="icon-prev"></span>-->
+        <!--</a>-->
+        <!--<a class="carousel-control right" href="#mainPageCarousel" data-slide="next">-->
+            <!--<span class="icon-next"></span>-->
+        <!--</a>-->
+    <!--</div>-->
+<!--</div>-->
+
 <div style="text-align: justify; padding: 2.5% 10% 0% 10%;">
     {% trans ' <font color="green">she codes;</font> is a community of women in technology, created to achieve an equal number of female and male software developers in Israel. Founded in 2013 by Ruth Polachek and a small group of volunteers from different tech fields, today <font color="green">she codes;</font> includes approximately 40,000 members. Our members include women who want to learn software development or make a career shift into high-tech, developers who want to advance their skills and network with other women in high- tech and high school students who are learning to program. Our core values are Confidence, Persistence, and Community.' %}
 </div>
