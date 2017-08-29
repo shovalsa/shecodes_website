@@ -3,12 +3,27 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; home{% endblock %}
 {% block content %}
+<div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
+    <div style="color:white;">
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
+            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+            <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
+        </div>
+        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
+            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+            <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
     <h3 class="page-title">{%trans 'Careers:' %}</h3>
     <div class="media">
         {% for job in jobs %}
           <div class="media-left media-middle">
             <a href="/jobs/{{ job.jobLink }}/">
-              <img class="media-object" src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+              <img class="media-object" src="/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
             </a>
           </div>
           <div class="media-body">
@@ -17,5 +32,5 @@
           </div>
         {% endfor %}
     </div>
-
+</div>
 {% endblock %}

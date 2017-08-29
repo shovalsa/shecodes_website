@@ -34,133 +34,102 @@
             <!--<center><img class="img-responsive" src="{% static "/images/motto hebrew.png" %}" alt="Self confidence. Persistence. Community"></center>-->
         <!--</div>-->
     <!--{% endif %}-->
-<div class="container">
-<div>
-    <h2 class="page-title" style="border-bottom: 1px solid #ccc">
-        <b>{%trans 'Newsletter' %}</b>
-    </h2>
-    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+<div class="container" style="padding-top: 5%; padding-bottom: 5%">
+  <div class='column'>
+    <div class='col-md-4'>
+        <h2 style="border-bottom: 1px solid #ccc; font-family: 'Special Elite', cursive;">
+            <b>{%trans 'Newsletter' %}</b>
+        </h2>
+      <div class="carousel slide media-carousel" id="media-news">
+        <div class="carousel-inner">
         {% for item in news %}
-            {% if dir == "ltr" %}
-                {% if item.itemTitle != "NA" %}
-                    <div class="thumbnail col-xs-4">
-                      <a href="/newsletter/{{item.id}}" role="button">
-                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-                      </a>
-                      <div class="caption" style="text-align:center;">
-                        <h4><strong>{%trans item.itemTitle %}</strong></h4>
-                        <div>{%trans item.itemContent|slice:":100" %}...</div>
-                      </div>
-                   </div>
-                {% endif %}
-            {% else %}
-                {% if item.itemTitle_hebrew != "NA" %}
-                    <div class="thumbnail col-xs-4" style="float:right;">
-                        <h4><strong>{%trans item.itemTitle_hebrew %}</strong></h4>
-                      <a href="/newsletter/{{item.id}}" role="button">
-                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-                      </a>
-                      <div class="caption" style="text-align:center;">
-                        <div>{%trans item.itemContent_hebrew|slice:":100" %}...</div>
-                      </div>
-                   </div>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
-    </div>
-        <a href="/newsletter/" class="btn btn-default" role="button" style="float:right;">{%trans 'Read more' %}</a>
-</div>
-    <div style="padding: 5% 5% 1% 1%;">
-    <h2 class="page-title" style="border-bottom: 1px solid #ccc">
-        <b>{%trans 'Events' %}</b>
-    </h2>
-    <div class="row" style="padding: 2.5% 2% 1% 5%;">
-        {% for event in events %}
-            {% if dir == "ltr" %}
-                {%if event.eventTitle != "NA"%}
-                    <div class="thumbnail col-xs-4">
-                        <h4>{%trans event.eventLocation %}</h4>
-                        <h4>{%trans event.event_date %}</h4>
-                        <h4><strong>{%trans event.eventTitle %}</strong></h4>
-                      <a href="{{event.eventLink}}" target="_blank"  role="button">
-                          <img src="/{{event.eventPhoto}}" alt="{{event.eventTitle}}">
-                      </a>
-                      <div class="caption">
-                        <div>{%trans event.eventContent|slice:":100" %}</div>
-                      </div>
-                    </div>
-                {%endif%}
-            {% else %}
-                {%if event.eventTitle_hebrew != "NA"%}
-                    <div class="thumbnail col-xs-4">
-                        <h4>{%trans event.event_date %}</h4>
-                        <h4>{%trans event.eventLocation_hebrew %}</h4>
-                      <a href="{{event.eventLink}}" target="_blank" role="button">
-                          <img src="/{{event.eventPhoto}}" alt="{{event.eventTitle_hebrew}}">
-                      </a>
-                      <div class="caption">
-                        <h4><strong>{%trans event.eventTitle_hebrew %}</strong></h4>
-                        <div>{%trans event.eventContent_hebrew|slice:":100" %}</div>
-                      </div>
-                    </div>
-                {%endif%}
-            {% endif %}
-        {% endfor %}
-    </div>
-</div>
-
-
-<div style="padding: 5% 5% 1% 1%;">
-    <h2 class="page-title" style="border-bottom: 1px solid #ccc">
-        <b>{%trans 'Job Opportunities:' %}</b>
-    </h2>
-    <div class="row" style="text-align: center; padding: 2.5% 2% 1% 5%;">
-        {% for job in jobs %}
-            {% if dir == "ltr" %}
-                {%if job.jobTitle != "NA"%}
-                    <div class="thumbnail col-xs-4">
-              {% if request.user.is_authenticated %}
-              <a href="/career-center/" role="button">
-                <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
-              </a>
-              <div class="caption">
-                <h4><strong>{%trans job.jobTitle %}</strong></h4>
-                <div>{%trans job.jobDescription|slice:":100" %}...</div>
-                  <br>
-              {% else %}
-                  <a href="/login/" role="button">
-                      <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
-                  </a>
-                    <h4>{%trans job.jobTitle %}</h4>
-                <div>{%trans job.jobDescription|slice:":100" %}...</div>
-              {% endif %}
+            {% if item.id == 1  %}
+              <div class="item active">
+                <div class="row" style="margin-right: 0px; margin-left: 0px">
+                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="/{{item.itemPhoto}}" style="height:1000; width:auto;"></a>
+                    <center><h3>{{item.itemTitle}}</h3>
+                    <span>{{item.itemContent|slice:":100"}}</span></center>
+                </div>
               </div>
-           </div>
-                {% endif %}
             {% else %}
-                {%if job.jobTitle_hebrew != "NA"%}
-                    <div class="thumbnail col-xs-4">
-                      {% if request.user.is_authenticated %}
-                      <a href="/career-center/" role="button">
-                        <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
-                      </a>
-                      <div class="caption">
-                        <h4><strong>{%trans job.jobTitle_hebrew %}</strong></h4>
-                        <div>{%trans job.jobDescription_hebrew|slice:":100" %}...</div>
-                          <br>
-                      {% else %}
-                          <a href="/login/" role="button">
-                              <img src="/static/images/jobs/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
-                          </a>
-                            <h4>{%trans job.jobTitle_hebrew %}</h4>
-                        <div>{%trans job.jobDescription_hebrew|slice:":100" %}...</div>
-                      {% endif %}
-                      </div>
-                   </div>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
+              <div class="item">
+                <div class="row">
+                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="/{{item.itemPhoto}}" style="height:1000; width:auto;"></a>
+                    <center><h3>{{item.itemTitle}}</h3>
+                    <span>{{item.itemContent}}</span></center>
+                </div>
+              </div>
+          {% endif %}
+      {% endfor %}
+        <a data-slide="prev" href="#media-news" class="left carousel-control"><span class="glyphicon glyphicon-menu-left" style="color:white;"></span></a>
+        <a data-slide="next" href="#media-news" class="right carousel-control"><span class="glyphicon glyphicon-menu-right" style="color:white;"></span></a>
+      </div>
     </div>
-</div>
+      </div>
+    </div>
+  <div class='column'>
+    <div class='col-md-4'>
+        <h2 style="border-bottom: 1px solid #ccc; font-family: 'Special Elite', cursive;">
+            <b>{%trans 'Events' %}</b>
+        </h2>
+      <div class="carousel slide media-carousel" id="media-events">
+        <div class="carousel-inner">
+        {% for event in events %}
+            {% if event.id == 1  %}
+              <div class="item active">
+                <div class="row" style="margin-right: 0px; margin-left: 0px">
+                    <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="/{{event.eventPhoto}}" style="height:1000; width:auto;"></a>
+                    <center><h3>{{event.eventTitle}}</h3>
+                    <span>{{event.eventDescription|slice:":100"}}</span></center>
+                </div>
+              </div>
+            {% else %}
+              <div class="item">
+                <div class="row">
+                    <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="/{{event.eventPhoto}} target="_blank" style="height:1000; width:auto;"></a>
+                    <center><h3>{{event.eventTitle}}</h3>
+                    <span>{{event.eventDescription|slice:":100"}}</span></center>
+                </div>
+              </div>
+          {% endif %}
+      {% endfor %}
+        <a data-slide="prev" href="#media-events" class="left carousel-control"><span class="glyphicon glyphicon-menu-left" style="color:white;"></span></a>
+        <a data-slide="next" href="#media-events" class="right carousel-control"><span class="glyphicon glyphicon-menu-right" style="color:white;"></span></a>
+      </div>
+    </div>
+      </div>
+    </div>
+  <div class='column'>
+    <div class='col-md-4'>
+        <h2 style="border-bottom: 1px solid #ccc; font-family: 'Special Elite', cursive;">
+            <b>{%trans 'Job Opportunity' %}</b>
+        </h2>
+      <div class="carousel slide media-carousel" id="media-jobs">
+        <div class="carousel-inner">
+        {% for job in jobs %}
+            {% if job.id == 1  %}
+              <div class="job active">
+                <div class="row" style="margin-right: 0px; margin-left: 0px">
+                    <a class="thumbnail" href="/career-center/"><img alt="" src="/{{job.jobPhoto}}" style="height:1000; width:auto;"></a>
+                    <center><h3>{{job.jobTitle}}</h3>
+                    <span>{{job.jobDescription|slice:":100"}}</span></center>
+                </div>
+              </div>
+            {% else %}
+              <div class="item">
+                <div class="row">
+                    <a class="thumbnail" href="/career-center/"><img alt="" src="/{{job.jobPhoto}}" style="height:1000; width:auto;"></a>
+                    <center><h3>{{job.jobTitle}}</h3>
+                    <span>{{job.jobDescription|slice:":100"}}</span></center>
+                </div>
+              </div>
+          {% endif %}
+      {% endfor %}
+        <a data-slide="prev" href="#media-jobs" class="left carousel-control"><span class="glyphicon glyphicon-menu-left" style="color:white;"></span></a>
+        <a data-slide="next" href="#media-jobs" class="right carousel-control"><span class="glyphicon glyphicon-menu-right" style="color:white;"></span></a>
+      </div>
+    </div>
+      </div>
+    </div>
 </div>
 {% endblock %}

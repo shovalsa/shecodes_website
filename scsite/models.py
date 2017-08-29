@@ -13,6 +13,7 @@ class Profile(models.Model):
     track = models.ForeignKey('Track', blank=True, default=1)
     personal_background = models.TextField('Personal Background', max_length=2000, blank=True)
     personal_background_hebrew = models.TextField('Personal Background', max_length=2000, blank=True)
+    avatar = models.ImageField(upload_to = 'static/images/avatars', default="/static/images/avatars/default_member.png")
 
     def __str__(self):
         """
@@ -32,7 +33,7 @@ class Track(models.Model):
     trackName_hebrew = models.CharField(max_length=80, null=True, blank=True, default="NA")
     trackDescription = models.TextField(default="NA")
     trackDescription_hebrew = models.TextField(default="NA", null=True, blank=True)
-    # trackLogo = models.ImageField(upload_to='static/track icons', default="/static/favicon.ico")
+    trackLogo = models.ImageField(upload_to='static/images/tracks', default="/static/favicon.ico")
 
     def __str__(self):
         return self.trackName
@@ -97,7 +98,7 @@ class News(models.Model):
     itemTitle_hebrew = models.CharField(max_length=50, default="NA")
     itemContent = models.TextField(default="NA")
     itemContent_hebrew = models.TextField(default="NA")
-    itemPhoto = models.CharField(max_length=50, default="pic1.jpg")
+    itemPhoto = models.ImageField(upload_to = 'static/images/news', default='static/images/news/pic1.png')
 
 
     def __str__(self):
@@ -108,7 +109,7 @@ class Job(models.Model):
     jobTitle_hebrew = models.CharField(max_length=50, default="NA")
     jobDescription = models.TextField(default=_("NA"))
     jobDescription_hebrew = models.TextField(default="NA")
-    jobPhoto = models.CharField(max_length=50, default="pic1.jpg")
+    jobPhoto = models.ImageField(upload_to = 'static/images/jobs', default='static/images/jobs/pic1.png')
     jobLink = models.TextField(default="#")
     is_senior = ((None, _("Required skill level")), ('junior', _('Junior')), ('senior', _('Senior')), ('teamLeader', _('Team Leader')),)
     jobSkills = models.CharField(max_length=150, default="NA", help_text="front end / data science / DevOps etc.") #In the future, for the sake of searching, it better be m2m item
