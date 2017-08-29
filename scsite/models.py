@@ -124,7 +124,7 @@ class Event(models.Model):
     eventDescription_hebrew = models.TextField(default="NA")
     eventPhoto = models.ImageField(upload_to = 'static/images/events')
     eventLink = models.TextField(default="#")
-    event_date = models.DateTimeField(default=timezone.now)
+    event_date = models.DateTimeField()
     eventLocation = models.CharField(max_length=100, default="NA") #Are the events always in existing branches? If so, better be FK.
     eventLocation_hebrew = models.CharField(max_length=100, default="NA") #Are the events always in existing branches? If so, better be FK.
 
