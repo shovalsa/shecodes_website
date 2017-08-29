@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.utils import timezone as tz
+from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -61,7 +61,7 @@ class Branch(models.Model):
     Parking_hebrew = models.CharField(max_length=200, default="NA")
     staff_members = models.CharField(max_length=200, default="NA")
     staff_members_hebrew = models.CharField(max_length=200, default="NA")
-    track_openning_time = models.DateField(default=tz.now)
+    track_openning_time = models.DateField(default=timezone.now)
     # how to insert items into such a model: https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/
 
     def __str__(self):
