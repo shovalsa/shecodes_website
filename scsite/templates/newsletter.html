@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% if LANGUAGE_BIDI %}
+  {% set dir = "rtl" %}
+{% else %}
+  {% set dir = "ltr" %}
+{% endif %}
+{% block title %}she codes; FAQ{% endblock %}
+{% load zinnia %}
+{% block content %}
+{% if dir == "ltr" %}
+    <h3 class="page-title">{{news.itemTitle}}</h3>
+    <div style="float:left">
+        <img src="/static/images/news/{{news.itemPhoto}}" alt=".">
+    </div>
+    <div style="padding-left: 5%">
+        {{news.itemContent|safe}}
+    </div>
+{% else %}
+    <h3 class="page-title" style="font-family: assistant;">{{news.itemTitle_hebrew}}</h3>
+    <div>
+        <img src="/static/images/news/{{news.itemPhoto}}" alt="." style="width: 400px; height: auto">
+    </div>
+    <div style="float:left padding-right: 15%">
+        {{news.itemContent_hebrew|safe|linebreaks}}
+    </div>
+{% endif %}
+{% endblock %}

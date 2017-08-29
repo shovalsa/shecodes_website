@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block title %}she codes; home{% endblock %}
+{% block content %}
+    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+        {% for item in news %}
+            {% if dir == "ltr" %}
+                {% if item.itemTitle != "NA" %}
+                    <div class="thumbnail col-xs-4">
+                      <a href="/newsletter/{{item.id}}" role="button">
+                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+                      </a>
+                      <div class="caption" style="text-align:center;">
+                        <h4><strong>{%trans item.itemTitle %}</strong></h4>
+                        <div>{%trans item.itemContent|slice:":100" %}...</div>
+                      </div>
+                   </div>
+                {% endif %}
+            {% else %}
+                {% if item.itemTitle_hebrew != "NA" %}
+                    <div class="thumbnail col-xs-4" style="float:right;">
+                      <a href="/newsletter/{{item.id}}" role="button">
+                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+                      </a>
+                      <div class="caption" style="text-align:center;">
+                        <h4><strong>{%trans item.itemTitle_hebrew %}</strong></h4>
+                        <div>{%trans item.itemContent_hebrew|slice:":100" %}...</div>
+                      </div>
+                   </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
