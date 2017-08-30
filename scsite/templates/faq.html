@@ -38,7 +38,7 @@
 
             <div id="collapse{{qu.id}}" class="collapse" role="tabpanel" aria-labelledby="heading{{qu.id}}">
               <div class="card-block">
-                {{ qu.answer }}
+                {{ qu.answer|safe|linebreaks }}
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
 
     <div id="collapse{{qu.id}}" class="collapse" role="tabpanel" aria-labelledby="heading{{qu.id}}">
       <div class="card-block">
-        {{ qu.answer_hebrew }}
+        {{ qu.answer_hebrew|safe|linebreaks }}
       </div>
     </div>
   </div>
