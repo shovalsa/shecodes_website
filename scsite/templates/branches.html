@@ -7,6 +7,7 @@
 {% else %}
   {% set dir = "ltr" %}
 {% endif %}
+{% set project = False %}
 {% block title %}she codes; Branches{% endblock %}
 {% block content %}
 <div>
@@ -25,33 +26,44 @@
 </div>
 <div class="container">
     <h3 class="page-title">{% trans 'Branches:' %}</h3>
-        <ul class="list-group">
           {% for branch in branches %}
             {% if dir == "ltr" %}
-                <li class="list-group-item"><h3>{{ branch }}</h3>
-                    <b>{% trans 'Address:' %}</b> {{ branch.address }}
-                    <br><b>{% trans 'Activity times:' %}</b> {{ branch.activityTimes }}
-                    <br><b>{% trans 'Available Tracks:' %}</b>
-                    <ul>
-                        {% for trackName in branch.availableTracks.all %}
-                        <li>{{ trackName }}</li>
+                <div class="thumbnail col-md-12" style="padding-left: 5%;"><h3>{{ branch }}</h3>
+                <ul style="list-style-type: none;">
+                    {% if branch not in project_branches %}
+                        <li><b>{% trans 'Tracks openning time:' %}</b>
+                                {{ branch.track_openning_time }}</li>
+                    {% endif %}
+                    <li><b>{% trans 'Address:' %}</b> {{ branch.address }}</li>
+                    <li><b>{% trans 'Activity times:' %}</b> {{ branch.activityTimes }}</li>
+                    <li><b>{% trans 'Available Tracks:' %}</b></li>
+                    <ul style="list-style-type: none;">
+                        {% for track in branch.availableTracks.all %}
+                            <li>{{track}}</li>
                         {% endfor %}
                     </ul>
-                </li>
+                </ul>
+
+                </div>
             {% else %}
-                <li class="list-group-item"><h3>{{ branch.branchName_hebrew }}</h3>
-                    <b>{% trans 'Address:' %}</b> {{ branch.address_hebrew }}
-                    <br><b>{% trans 'Activity times:' %}</b> {{ branch.activityTimes_hebrew }}
-                    <br><b>{% trans 'Available Tracks:' %}</b>
-                    <ul>
-                        {% for trackName in branch.availableTracks.all %}
-                        <li>{{ trackName }}</li>
+                <div class="thumbnail col-md-12" style="padding-left: 5%;"><h3>{{ branch.branchName_hebrew }}</h3>
+                <ul style="list-style-type: none;">
+                    {% if branch not in project_branches %}
+                        <li><b>{% trans 'Tracks openning time:' %}</b>
+                                {{ branch.track_openning_time }}</li>
+                    {% endif %}
+                    <li><b>{% trans 'Address:' %}</b> {{ branch.address_hebrew }}</li>
+                    <li><b>{% trans 'Activity times:' %}</b> {{ branch.activityTimes_hebrew }}</li>
+                    <li><b>{% trans 'Available Tracks:' %}</b></li>
+                    <ul style="list-style-type: none;">
+                        {% for track in branch.availableTracks.all %}
+                            <li>{{track}}</li>
                         {% endfor %}
                     </ul>
-                </li>
-            {%endif%}
-          {% endfor %}
-        </ul>
+                </ul>
+                </div>
+            {% endif %}
+        {% endfor %}
 </div>
 </div>
 {% endblock %}

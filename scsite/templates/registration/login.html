@@ -2,6 +2,7 @@
 {% load i18n %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block content %}
+<div class="container">
   <h3 class="page-title">{%trans 'Login' %}</h3>
   {% if form.errors %}
     <p style="color: red">{%trans 'Your username and password do not match. Please try again.' %}</p>
@@ -24,4 +25,5 @@
     <button class="btn" type="submit">{%trans 'Log in' %}</button>
     <a href="{% url 'signup' %}">{%trans 'New to this site? Sign up' %}</a>
   </form>
+  </div>
 {% endblock %}

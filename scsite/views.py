@@ -105,7 +105,12 @@ def team(request):
 
 def branches(request):
     branches = Branch.objects.all()
-    return render(request, "branches.html", {'branches': branches})
+    proj = Track.objects.all()[1]
+    project_branches = []
+    for branch in branches:
+            if proj in branch.availableTracks.all():
+                project_branches.append(branch)
+    return render(request, "branches.html", {'branches': branches, 'project_branches': project_branches})
 
 def next_generation(request):
     branches = Branch.objects.all()

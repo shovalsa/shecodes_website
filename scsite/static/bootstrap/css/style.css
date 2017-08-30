@@ -6,11 +6,9 @@
 }
 
 body {
-  line-height: 2;
+  line-height: 200%;
   font-family: quicksand, assistant;
   font-size: 16px
-  padding:0;
-  margin:0;
 }
 
 .page-header {
@@ -356,28 +354,6 @@ body {
     background-color: rgba(250,250,250,.8);
     z-index: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.navbar-brand {
-  float: center;
-  height: auto;
-  padding: 15px 15px;
-  line-height: 20px;
-}
-
 
 
 

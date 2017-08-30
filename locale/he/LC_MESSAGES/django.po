@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-15 17:43+0300\n"
+"POT-Creation-Date: 2017-08-30 13:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,86 +17,132 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sc_project\settings.py:148
+#: .\sc_project\settings.py:154
 msgid "English"
 msgstr ""
 
-#: .\sc_project\settings.py:149
+#: .\sc_project\settings.py:155
 msgid "Hebrew"
 msgstr "עברית"
 
-#: .\templates\base.html:40
-msgid "About"
-msgstr "עלינו"
-
-#: .\templates\base.html:42
-msgid "Community"
-msgstr "קהילה"
-
-#: .\templates\base.html:47
-msgid "Activities"
-msgstr "פעילויות"
-
-#: .\templates\base.html:49
-msgid "Tracks"
-msgstr "מסלולים"
-
-#: .\templates\base.html:50
-msgid "Branches"
-msgstr "סניפים"
-
-#: .\templates\base.html:51
-msgid "Next Generation"
-msgstr "הדור הבא"
-
-#: .\templates\base.html:54
-msgid "FAQ"
-msgstr "שאלות ותשובות"
-
-#: .\templates\base.html:55
-msgid "Team"
-msgstr "צוות"
-
-#: .\templates\base.html:56
-msgid "Partners"
-msgstr "שותפים"
-
-#: .\templates\base.html:57
-msgid "Contact Us"
-msgstr "צרי קשר"
-
-#: .\templates\base.html:65
+#: .\templates\base.html:66
 msgid "My Profile"
 msgstr "הפרופיל שלי"
 
-#: .\templates\base.html:66
+#: .\templates\base.html:67
 msgid "Log out"
 msgstr "התנתקי"
 
-#: .\templates\base.html:70
+#: .\templates\base.html:71
 msgid "Login"
 msgstr "התחברי"
 
-#: .\templates\base.html:71
+#: .\templates\base.html:72
 msgid "Join Us!"
 msgstr "הצטרפי אלינו!"
 
-#: .\templates\index.html:15
+#: .\templates\base.html:75
+msgid "About"
+msgstr "עלינו"
+
+#: .\templates\base.html:80 .\templates\index.html:22
+msgid "Community"
+msgstr "קהילה"
+
+#: .\templates\base.html:82
+msgid "members"
+msgstr "חברות קהילה"
+
+#: .\templates\base.html:83
+#, fuzzy
+#| msgid "Newsletter"
+msgid "newsletter"
+msgstr "ניוזלטר"
+
+#: .\templates\base.html:90
+msgid "Activities"
+msgstr "פעילויות"
+
+#: .\templates\base.html:92
+msgid "Tracks"
+msgstr "מסלולים"
+
+#: .\templates\base.html:93
+msgid "Branches"
+msgstr "סניפים"
+
+#: .\templates\base.html:94
+msgid "Next Generation"
+msgstr "הדור הבא"
+
+#: .\templates\base.html:97
+msgid "FAQ"
+msgstr "שאלות ותשובות"
+
+#: .\templates\base.html:98
+msgid "Team"
+msgstr "צוות"
+
+#: .\templates\base.html:99
+msgid "Partners"
+msgstr "שותפים"
+
+#: .\templates\base.html:100
+msgid "Contact Us"
+msgstr "צרי קשר"
+
+#: .\templates\base.html:158
+msgid ""
+"she codes; is a community of women in technology, created to achieve an "
+"equal number of female and male software developers in Israel."
+msgstr "she codes;  היא קהילה טכנולוגית של נשים, שהוקמה "
+"במטרה להשוות את מספר מפתחות ומפתחי התוכנה בישראל."
+
+#: .\templates\base.html:180
+msgid " Street number, St. name, Tel Aviv - Israel."
+msgstr "אחד העם 28 תל אביב, ישראל"
+
+#: .\templates\base.html:181
+msgid " Phone (Israel) : +972 9999 999 999."
+msgstr "טלפון: "
+
+#: .\templates\base.html:182
+msgid " E-mail : contact@she-codes.org."
+msgstr "אימייל: contact@she-codes.org"
+
+#: .\templates\index.html:18
+msgid "Our Goal"
+msgstr "המטרה שלנו "
+
+#: .\templates\index.html:19
+msgid ""
+"is to reach 50 percent female software developers in the IT industry within "
+"a decade."
+msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ההיי טק תוך עשור."
+
+#: .\templates\index.html:23
+msgid ""
+"Come and work on a project, learn a new language, hear an inspiring or "
+"technical lecture or learn to code in one of our meetups."
+msgstr "בואי לעבוד על פרויקט, להקשיב להרצאה טכנית או מעוררת השראה, ללמוד שפת תכנות "
+"חדשה או ללמוד לתכנת מאפס באחד המפגשים שלנו."
+
+
+#: .\templates\index.html:41
 msgid "Newsletter"
 msgstr "ניוזלטר"
 
-#: .\templates\index.html:30
-msgid "Read more"
-msgstr "קראי עוד"
-
-#: .\templates\index.html:36
+#: .\templates\index.html:73
 msgid "Events"
 msgstr "אירועים"
 
-#: .\templates\index.html:57
-msgid "Job Opportunities:"
+#: .\templates\index.html:105
+msgid "Job Opportunity"
 msgstr "הזדמנויות תעסוקה"
 
-#: .\templates\signup.html:5 .\templates\signup.html:37
+#: .\templates\signup.html:6 .\templates\signup.html:38
 msgid "Sign up"
 msgstr "הרשמי"
+
+#~ msgid "Read more"
+#~ msgstr "קראי עוד"
