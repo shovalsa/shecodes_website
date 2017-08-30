@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}she codes; home{% endblock %}
+{% if LANGUAGE_BIDI %}
+  {% set dir = "rtl" %}
+{% else %}
+  {% set dir = "ltr" %}
+{% endif %}
+{% block title %}she codes; tracks{% endblock %}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
     <div style="color:white;">
@@ -29,9 +35,12 @@
     </ul>
         <div class="column col-md-4" style="float:right">
           {% for track in tracks %}
-            {%if track.trackDescription != "NA"%}
+            {%if dir == 'ltr'%}
                 <div class="thumbnail"><img class="img-responsive" src="/{{track.trackLogo}}" alt="" style="float:left"><h3>&nbsp;{{ track }}</h3>  <!-- the logo doesn't work. -->
                  {%trans track.trackDescription|safe %}</div>
+            {%else%}
+                <div class="thumbnail"><img class="img-responsive" src="/{{track.trackLogo}}" alt="" style="float:left"><h3>&nbsp;{{ track.trackName_hebrew }}</h3>  <!-- the logo doesn't work. -->
+                 {%trans track.trackDescription_hebrew|safe %}</div>
             {% endif %}
           {% endfor %}
         </div>
