@@ -95,10 +95,11 @@ class Faq(models.Model):
 
 class News(models.Model):
     itemTitle = models.CharField(max_length=50, default="NA")
-    itemTitle_hebrew = models.CharField(max_length=50, default="NA")
     itemContent = models.TextField(default="NA")
-    itemContent_hebrew = models.TextField(default="NA")
     itemPhoto = models.ImageField(upload_to = 'static/images/news', default='static/images/news/pic1.png')
+    languages = ((None, _("Choose Article Language")), ('english', _('English')), ('hebrew', _('עברית')), ('arabic', _('عربى')), ('russian', _('русский')),)
+    itemLanguage = models.CharField(max_length=150, choices=languages, null=True)
+
 
 
     def __str__(self):
@@ -106,28 +107,28 @@ class News(models.Model):
 
 class Job(models.Model):
     jobTitle = models.CharField(max_length=50, default=_("NA"))
-    jobTitle_hebrew = models.CharField(max_length=50, default="NA")
     jobDescription = models.TextField(default=_("NA"))
-    jobDescription_hebrew = models.TextField(default="NA")
     jobPhoto = models.ImageField(upload_to = 'static/images/jobs', default='static/images/jobs/pic1.png')
     jobLink = models.TextField(default="#")
     is_senior = ((None, _("Required skill level")), ('junior', _('Junior')), ('senior', _('Senior')), ('teamLeader', _('Team Leader')),)
     jobSkills = models.CharField(max_length=150, default="NA", help_text="front end / data science / DevOps etc.") #In the future, for the sake of searching, it better be m2m item
     seniority = models.CharField(max_length=150, choices=is_senior, null=True)
+    languages = ((None, _("Choose Offer Language")), ('english', _('English')), ('hebrew', _('עברית')), ('arabic', _('عربى')), ('russian', _('русский')),)
+    jobLanguage = models.CharField(max_length=150, choices=languages, null=True)
 
     def __str__(self):
         return self.jobTitle
 
 class Event(models.Model):
     eventTitle = models.CharField(max_length=50, default="NA")
-    eventTitle_hebrew = models.CharField(max_length=50, default="NA")
     eventDescription = models.TextField(default="NA")
-    eventDescription_hebrew = models.TextField(default="NA")
     eventPhoto = models.ImageField(upload_to = 'static/images/events')
     eventLink = models.TextField(default="#")
     event_date = models.DateTimeField()
-    eventLocation = models.CharField(max_length=100, default="NA") #Are the events always in existing branches? If so, better be FK.
-    eventLocation_hebrew = models.CharField(max_length=100, default="NA") #Are the events always in existing branches? If so, better be FK.
+    eventLocation = models.CharField(max_length=100, default="NA")
+    languages = ((None, _("Choose item Language")), ('english', _('English')), ('hebrew', _('עברית')), ('arabic', _('عربى')), ('russian', _('русский')),)
+    eventLanguage = models.CharField(max_length=150, choices=languages, null=True)
+
 
     def __str__(self):
         return self.eventTitle

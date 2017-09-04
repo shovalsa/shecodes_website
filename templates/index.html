@@ -2,11 +2,11 @@
 {% load i18n %}
 {% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% if LANGUAGE_BIDI %}
-  {% set dir = "rtl" %}
-{% else %}
-  {% set dir = "ltr" %}
-{% endif %}
+<!--{% if LANGUAGE_BIDI %}-->
+  <!--{% set dir = "rtl" %}-->
+<!--{% else %}-->
+  <!--{% set dir = "ltr" %}-->
+<!--{% endif %}-->
 {% block title %}she codes; home{% endblock %}
 {% load static%}
 {% block content %}
@@ -21,18 +21,9 @@
             <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
             <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
         </div>
-
     </div>
 </div>
-    <!--{% if dir == "ltr" %}-->
-        <!--<div>-->
-            <!--<center><img class="img-responsive" src="{% static "/images/motto english.png" %}" alt="Self confidence. Persistence. Community"></center>-->
-        <!--</div>-->
-    <!--{% else %}-->
-        <!--<div>-->
-            <!--<center><img class="img-responsive" src="{% static "/images/motto hebrew.png" %}" alt="Self confidence. Persistence. Community"></center>-->
-        <!--</div>-->
-    <!--{% endif %}-->
+
 <div class="container" style="padding-top: 5%; padding-bottom: 5%">
   <div class='column'>
     <div class='col-md-4'>
@@ -47,7 +38,7 @@
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="/{{item.itemPhoto}}" style="height:1000; width:auto;"></a>
                     <center><h3>{{item.itemTitle}}</h3>
-                    <span>{{item.itemContent|slice:":100"}}</span></center>
+                    <span>{{item.itemContent|slice:":100"|safe}}</span></center>
                 </div>
               </div>
             {% else %}
@@ -55,7 +46,7 @@
                 <div class="row">
                     <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="/{{item.itemPhoto}}" style="height:1000; width:auto;"></a>
                     <center><h3>{{item.itemTitle}}</h3>
-                    <span>{{item.itemContent}}</span></center>
+                    <span>{{item.itemContent|safe}}</span></center>
                 </div>
               </div>
           {% endif %}
@@ -79,7 +70,7 @@
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="/{{event.eventPhoto}}" style="height:1000; width:auto;"></a>
                     <center><h3>{{event.eventTitle}}</h3>
-                    <span>{{event.eventDescription|slice:":100"}}</span></center>
+                    <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
                 </div>
               </div>
             {% else %}
@@ -87,7 +78,7 @@
                 <div class="row">
                     <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="/{{event.eventPhoto}} target="_blank" style="height:1000; width:auto;"></a>
                     <center><h3>{{event.eventTitle}}</h3>
-                    <span>{{event.eventDescription|slice:":100"}}</span></center>
+                    <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
                 </div>
               </div>
           {% endif %}
@@ -111,7 +102,7 @@
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="/career-center/"><img alt="" src="/{{job.jobPhoto}}" style="height:1000; width:auto;"></a>
                     <center><h3>{{job.jobTitle}}</h3>
-                    <span>{{job.jobDescription|slice:":100"}}</span></center>
+                    <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
                 </div>
               </div>
             {% else %}
@@ -119,7 +110,7 @@
                 <div class="row">
                     <a class="thumbnail" href="/career-center/"><img alt="" src="/{{job.jobPhoto}}" style="height:1000; width:auto;"></a>
                     <center><h3>{{job.jobTitle}}</h3>
-                    <span>{{job.jobDescription|slice:":100"}}</span></center>
+                    <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
                 </div>
               </div>
           {% endif %}

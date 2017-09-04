@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 13:54+0300\n"
+"POT-Creation-Date: 2017-09-04 14:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,27 +61,55 @@ msgstr ""
 msgid "אזור"
 msgstr ""
 
-#: .\scsite\models.py:54 .\scsite\models.py:108 .\scsite\models.py:110
+#: .\scsite\models.py:54 .\scsite\models.py:109 .\scsite\models.py:110
 #, fuzzy
 #| msgid "N/A"
 msgid "NA"
 msgstr "חסר"
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:100
+msgid "Choose Article Language"
+msgstr ""
+
+#: .\scsite\models.py:100 .\scsite\models.py:116 .\scsite\models.py:129
+msgid "English"
+msgstr ""
+
+#: .\scsite\models.py:100 .\scsite\models.py:116 .\scsite\models.py:129
+msgid "עברית"
+msgstr ""
+
+#: .\scsite\models.py:100 .\scsite\models.py:116 .\scsite\models.py:129
+msgid "عربى"
+msgstr ""
+
+#: .\scsite\models.py:100 .\scsite\models.py:116 .\scsite\models.py:129
+msgid "русский"
+msgstr ""
+
+#: .\scsite\models.py:113
 msgid "Required skill level"
 msgstr "רמת מיומנות דרושה"
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:113
 msgid "Junior"
 msgstr ""
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:113
 msgid "Senior"
 msgstr ""
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:113
 msgid "Team Leader"
 msgstr "ראשת צוות"
+
+#: .\scsite\models.py:116
+msgid "Choose Offer Language"
+msgstr ""
+
+#: .\scsite\models.py:129
+msgid "Choose item Language"
+msgstr ""
 
 #: .\scsite\views.py:52
 msgid "Invalid header found."

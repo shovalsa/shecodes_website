@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 13:54+0300\n"
+"POT-Creation-Date: 2017-09-04 14:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,10 +21,10 @@ msgstr ""
 #: .\scsite\templates\contact.html:10 .\scsite\templates\faq.html:15
 #: .\scsite\templates\jobs.html:9 .\scsite\templates\members.html:9
 #: .\scsite\templates\members_index.html:9
-#: .\scsite\templates\newsletter.html:16
-#: .\scsite\templates\newsletter_index.html:9
+#: .\scsite\templates\newsletter.html:10
+#: .\scsite\templates\newsletter_index.html:10
 #: .\scsite\templates\partners.html:9 .\scsite\templates\team.html:9
-#: .\scsite\templates\tracks.html:9
+#: .\scsite\templates\tracks.html:15
 msgid "Our Goal"
 msgstr "המטרה שלנו"
 
@@ -32,10 +32,10 @@ msgstr "המטרה שלנו"
 #: .\scsite\templates\contact.html:11 .\scsite\templates\faq.html:16
 #: .\scsite\templates\jobs.html:10 .\scsite\templates\members.html:10
 #: .\scsite\templates\members_index.html:10
-#: .\scsite\templates\newsletter.html:17
-#: .\scsite\templates\newsletter_index.html:10
+#: .\scsite\templates\newsletter.html:11
+#: .\scsite\templates\newsletter_index.html:11
 #: .\scsite\templates\partners.html:10 .\scsite\templates\team.html:10
-#: .\scsite\templates\tracks.html:10
+#: .\scsite\templates\tracks.html:16
 msgid ""
 "is to reach 50 percent female software developers in the IT industry within "
 "a decade."
@@ -45,10 +45,10 @@ msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ה�
 #: .\scsite\templates\contact.html:14 .\scsite\templates\faq.html:19
 #: .\scsite\templates\jobs.html:13 .\scsite\templates\members.html:13
 #: .\scsite\templates\members_index.html:13
-#: .\scsite\templates\newsletter.html:20
-#: .\scsite\templates\newsletter_index.html:13
+#: .\scsite\templates\newsletter.html:14
+#: .\scsite\templates\newsletter_index.html:14
 #: .\scsite\templates\partners.html:13 .\scsite\templates\team.html:13
-#: .\scsite\templates\tracks.html:13
+#: .\scsite\templates\tracks.html:19
 msgid "Community"
 msgstr "קהילה"
 
@@ -56,10 +56,10 @@ msgstr "קהילה"
 #: .\scsite\templates\contact.html:15 .\scsite\templates\faq.html:20
 #: .\scsite\templates\jobs.html:14 .\scsite\templates\members.html:14
 #: .\scsite\templates\members_index.html:14
-#: .\scsite\templates\newsletter.html:21
-#: .\scsite\templates\newsletter_index.html:14
+#: .\scsite\templates\newsletter.html:15
+#: .\scsite\templates\newsletter_index.html:15
 #: .\scsite\templates\partners.html:14 .\scsite\templates\team.html:14
-#: .\scsite\templates\tracks.html:14
+#: .\scsite\templates\tracks.html:20
 msgid ""
 "Come and work on a project, learn a new language, hear an inspiring or "
 "technical lecture or learn to code in one of our meetups."
@@ -83,7 +83,7 @@ msgid ""
 "high- tech and high school students who are learning to program. Our core "
 "values are Confidence, Persistence, and Community."
 msgstr ""
-"<font color=\"green\">she codes;</font>  היא קהילה טכנולוגית של נשים, שהוקמה "
+"<font color=\"green\">;she codes</font>  היא קהילה טכנולוגית של נשים, שהוקמה "
 "במטרה להשוות את מספר מפתחות ומפתחי התוכנה בישראל. היא הוקמה ב-2013 בידי רות "
 "פולצ'ק וקבוצה קטנה של מתנדבות מתחומים טכנולוגיים שונים. בין חברותינו יש נשים "
 "שמבקשות ללמוד פיתוח תוכנה או לעשות הסבה מקצועית לתחום ההייטק, מפתחות שבאות "
@@ -102,7 +102,7 @@ msgstr ""
 "אנחנו מפעילות מעל 20 סניפים ברחבי הארץ. בסניפים מתנהלים מסלולי לימוד תכנות, "
 "קבוצות לעבודה על פרויקטים בליווי מתנדבות מהקהילה, הרצאות טכנולוגיות, מפגשים "
 "עם נשים מעוררות השראה, יעוץ קריירה ועוד. אפשרויות להיות חברת צוות ב-<font "
-"color=\"green\">she codes;</font> תורמות גם הן להתפתחות המקצועית והאישית של "
+"color=\"green\">;she codes</font> תורמות גם הן להתפתחות המקצועית והאישית של "
 "החברות. המתנדבות מנהלות את הסניפים, מתכננות את מסלולי הלימוד, מפיקות את "
 "האירועים שלנו ועוד."
 
@@ -111,24 +111,25 @@ msgid "Branches:"
 msgstr "סניפים:"
 
 #: .\scsite\templates\branches.html:34 .\scsite\templates\branches.html:52
-#: .\scsite\templates\next_generation.html:47
+#: .\scsite\templates\next_generation.html:46
+#: .\scsite\templates\next_generation.html:64
 msgid "Tracks openning time:"
 msgstr "פתיחת מסלולים"
 
 #: .\scsite\templates\branches.html:37 .\scsite\templates\branches.html:55
-#: .\scsite\templates\next_generation.html:48
+#: .\scsite\templates\next_generation.html:47
 #: .\scsite\templates\next_generation.html:65
 msgid "Address:"
 msgstr "כתובת:"
 
 #: .\scsite\templates\branches.html:38 .\scsite\templates\branches.html:56
-#: .\scsite\templates\next_generation.html:49
+#: .\scsite\templates\next_generation.html:48
 #: .\scsite\templates\next_generation.html:66
 msgid "Activity times:"
 msgstr "זמני פעילות:"
 
 #: .\scsite\templates\branches.html:39 .\scsite\templates\branches.html:57
-#: .\scsite\templates\next_generation.html:50
+#: .\scsite\templates\next_generation.html:49
 #: .\scsite\templates\next_generation.html:67
 msgid "Available Tracks:"
 msgstr "מסלולים בסניף:"
@@ -174,15 +175,33 @@ msgstr "סניף:"
 msgid "Members:"
 msgstr "חברות קהילה:"
 
-#: .\scsite\templates\next_generation.html:20
+#: .\scsite\templates\newsletter.html:38
+msgid "This article is not in the selected language. What do you want to do?"
+msgstr "הכתבה אינה בשפה שבחרת. מה ברצונך לעשות?"
+
+#: .\scsite\templates\newsletter.html:41
+msgid "Switch languages:"
+msgstr "להחליף שפה"
+
+#: .\scsite\templates\newsletter.html:55
+msgid ""
+"Go back to the newsletter index and search for the same article in your own "
+"language."
+msgstr "לחזור לאינדקס ולחפש את אותו המאמר בשפה שלי."
+
+#: .\scsite\templates\newsletter.html:56
+msgid "Take me to index"
+msgstr "קחי אותי לאינדקס"
+
+#: .\scsite\templates\next_generation.html:19
 msgid "Education"
 msgstr "חינוך"
 
-#: .\scsite\templates\next_generation.html:21
+#: .\scsite\templates\next_generation.html:20
 msgid "Learn some code with us."
 msgstr ""
 
-#: .\scsite\templates\next_generation.html:22
+#: .\scsite\templates\next_generation.html:21
 #, fuzzy
 #| msgid ""
 #| "Come work on a project, learn a new language, listen to an inspiring "
@@ -196,11 +215,11 @@ msgstr ""
 "בואי לעבוד על פרויקט, ללמוד שפה חדשה, להקשיב להרצאה מרשימה – או ללמוד לקודד "
 "מההתחלה באחד מהמפגשים שלנו."
 
-#: .\scsite\templates\next_generation.html:28
+#: .\scsite\templates\next_generation.html:27
 msgid "Next Generation:"
 msgstr "הדור הבא:"
 
-#: .\scsite\templates\next_generation.html:31
+#: .\scsite\templates\next_generation.html:30
 msgid ""
 "Are you a student in 9th-12th grade? Are you interested in technology? Do "
 "you need help with your programming homework? Do you want to go to "
@@ -209,11 +228,11 @@ msgstr ""
 "תלמידת כיתה ט' עד יב'? מתעניינת בטכנולוגיה? צריכה עזרה עם שיעורי הבית "
 "בתכנות? רוצה לשמוע הרצאות טכנולוגיה מעניינות?"
 
-#: .\scsite\templates\next_generation.html:33
+#: .\scsite\templates\next_generation.html:32
 msgid "Join for free!"
 msgstr "הצטרפי אלינו!"
 
-#: .\scsite\templates\next_generation.html:36
+#: .\scsite\templates\next_generation.html:35
 msgid ""
 "Come work on a project, learn a new language, listen to an inspiring lecture "
 "or a tech talk - or learn to code from scratch at one of our meetings."
@@ -221,8 +240,8 @@ msgstr ""
 "בואי לעבוד על פרויקט, ללמוד שפה חדשה, להקשיב להרצאה מרשימה – או ללמוד לקודד "
 "מההתחלה באחד מהמפגשים שלנו."
 
-#: .\scsite\templates\next_generation.html:42
-#: .\scsite\templates\next_generation.html:60
+#: .\scsite\templates\next_generation.html:41
+#: .\scsite\templates\next_generation.html:59
 msgid "Branches"
 msgstr "סניפים"
 
@@ -254,27 +273,27 @@ msgstr "ההודעה נשלחה. תודה לך!"
 msgid "Team:"
 msgstr "צוות:"
 
-#: .\scsite\templates\tracks.html:21
+#: .\scsite\templates\tracks.html:27
 msgid "Tracks:"
 msgstr "מסלולים:"
 
-#: .\scsite\templates\tracks.html:23
+#: .\scsite\templates\tracks.html:29
 msgid "All the tracks are for free."
 msgstr "כל המסלולים הינם ללא תשלום"
 
-#: .\scsite\templates\tracks.html:24
+#: .\scsite\templates\tracks.html:30
 msgid "No prerequisites are required."
 msgstr "אין דרישות קדם"
 
-#: .\scsite\templates\tracks.html:25
+#: .\scsite\templates\tracks.html:31
 msgid "No registration is required, unless otherwise specified."
 msgstr "אין צורך בהרשמה מראש, אלא אם צוין אחרת."
 
-#: .\scsite\templates\tracks.html:26
+#: .\scsite\templates\tracks.html:32
 msgid "Please bring your laptop and headphones to each meeting."
 msgstr "יש להגיע עם לפטופ ואוזניות לכל מפגש."
 
-#: .\scsite\templates\tracks.html:27
+#: .\scsite\templates\tracks.html:33
 msgid ""
 "Each branch has a facebook group. It is best to join them and ask questions "
 "specific for the branch."
@@ -282,7 +301,7 @@ msgstr ""
 "לכל סניף יש קבוצה בפייסבוק. כדאי להצטרף לקבוצות אלו כדי לשאול שאלות הנוגעות "
 "לסניף."
 
-#: .\scsite\templates\tracks.html:28
+#: .\scsite\templates\tracks.html:34
 #, fuzzy
 #| msgid ""
 #| "In each track you study independently, with online lectures and "

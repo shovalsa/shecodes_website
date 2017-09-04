@@ -21,15 +21,24 @@
     <h3 class="page-title">{%trans 'Careers:' %}</h3>
     <div class="media">
         {% for job in jobs %}
-          <div class="media-left media-middle">
-            <a href="/jobs/{{ job.jobLink }}/">
-              <img class="media-object" src="/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
-            </a>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">{%trans job.jobTitle %}</h3>
-            {%trans job.jobDescription|safe %}
-          </div>
+            {% if LANGUAGE_BIDI and job.jobLanguage == 'hebrew' %}
+              {% set dir = True %}
+            {% elif LANGUAGE_BIDI == False and job.jobLanguage == 'english' %}
+              {% set dir = True %}
+            {% else %}
+              {% set dir = False %}
+            {% endif %}
+            {% if dir == True %}
+              <div class="media-left media-middle">
+                <a href="/jobs/{{ job.jobLink }}/">
+                  <img class="media-object" src="/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <h3 class="media-heading">{%trans job.jobTitle %}</h3>
+                {%trans job.jobDescription|safe %}
+              </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>

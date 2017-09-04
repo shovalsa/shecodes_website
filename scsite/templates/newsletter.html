@@ -2,11 +2,6 @@
 {% load i18n %}
 {% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% if LANGUAGE_BIDI %}
-  {% set dir = "rtl" %}
-{% else %}
-  {% set dir = "ltr" %}
-{% endif %}
 {% block title %}she codes; Newsletter{% endblock %}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
@@ -24,7 +19,14 @@
 </div>
 
 <div class="container">
-{% if dir == "ltr" %}
+{% if LANGUAGE_BIDI and news.itemLanguage == 'hebrew' %}
+  {% set dir = True %}
+{% elif LANGUAGE_BIDI == False and news.itemLanguage == 'english' %}
+  {% set dir = True %}
+{% else %}
+  {% set dir = False %}
+{% endif %}
+{% if dir == True %}
     <h3 class="page-title">{{news.itemTitle}}</h3>
     <div style="float:left">
         <img src="/static/images/news/{{news.itemPhoto}}" alt=".">
@@ -33,13 +35,27 @@
         {{news.itemContent|safe}}
     </div>
 {% else %}
-    <h3 class="page-title" style="font-family: assistant;">{{news.itemTitle_hebrew}}</h3>
-    <div>
-        <img src="/static/images/news/{{news.itemPhoto}}" alt="." style="width: 400px; height: auto">
-    </div>
-    <div style="float:left padding-right: 15%">
-        {{news.itemContent_hebrew|safe|linebreaks}}
-    </div>
+    {% trans 'This article is not in the selected language. What do you want to do?' %}
+    <ol>
+        <li>
+            {% trans 'Switch languages:' %}
+            <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
+              <input name="next" type="hidden" value="{{ redirect_to }}" />
+              <select name="language" onchange="this.form.submit()">
+                {% get_language_info_list for LANGUAGES as languages %}
+                  {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                      {{ language.name_local }}
+                    </option>
+                  {% endfor %}
+              </select>
+            </form>
+        </li>
+        <li>
+            {% trans 'Go back to the newsletter index and search for the same article in your own language.' %}<br>
+            <a href="/newsletter/"><button class="btn">{%trans 'Take me to index' %}</button></a>
+        </li>
+    </ol>
 {% endif %}
     </div>
 

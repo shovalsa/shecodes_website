@@ -2,11 +2,6 @@
 {% load i18n %}
 {% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% if LANGUAGE_BIDI %}
-  {% set dir = "rtl" %}
-{% else %}
-  {% set dir = "ltr" %}
-{% endif %}
 {% block title %}she codes; Newsletter{% endblock %}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
@@ -26,30 +21,23 @@
 <div class="container">
     <div class="row" style="padding: 2.5% 2% 1% 5%;">
         {% for item in news %}
-            {% if dir == "ltr" %}
-                {% if item.itemTitle != "NA" %}
+            {% if LANGUAGE_BIDI and item.itemLanguage == 'hebrew' %}
+              {% set dir = True %}
+            {% elif LANGUAGE_BIDI == False and item.itemLanguage == 'english' %}
+              {% set dir = True %}
+            {% else %}
+              {% set dir = False %}
+            {% endif %}
+            {% if dir == True %}
                     <div class="thumbnail col-xs-4">
                       <a href="/newsletter/{{item.id}}" role="button">
-                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
+                        <img src="/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
                       </a>
                       <div class="caption" style="text-align:center;">
                         <h4><strong>{%trans item.itemTitle %}</strong></h4>
-                        <div>{%trans item.itemContent|slice:":100" %}...</div>
+                        <div>{%trans item.itemContent|safe|slice:":100" %}...</div>
                       </div>
                    </div>
-                {% endif %}
-            {% else %}
-                {% if item.itemTitle_hebrew != "NA" %}
-                    <div class="thumbnail col-xs-4" style="float:right;">
-                      <a href="/newsletter/{{item.id}}" role="button">
-                        <img src="/static/images/news/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-                      </a>
-                      <div class="caption" style="text-align:center;">
-                        <h4><strong>{%trans item.itemTitle_hebrew %}</strong></h4>
-                        <div>{%trans item.itemContent_hebrew|slice:":100" %}...</div>
-                      </div>
-                   </div>
-                {% endif %}
             {% endif %}
         {% endfor %}
     </div>
