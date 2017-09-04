@@ -28,15 +28,14 @@
 
 </head>
 <header>
-        <nav style="border-bottom: 3px solid rgb(19,125,73);">
-            <!--<div class="navbar-collapse collapse">-->
-                <div style="float:center"></div>
-                    <center><a class="logo" href="{% url 'home' %}">
-                        <img class="img-responsive logo" src="{% static "/images/sc_logo.png" %}">
-                    </a></center>
-                </div>
+        <nav class="navbar row">
+            <center>
+                <a class="logo" href="{% url 'home' %}">
+                    <img class="img-responsive logo" src="{% static "/images/sc_logo.png" %}">
+                </a>
+            </center>
         </nav>
-    </header>
+</header>
     <div id="wrapper">
         <div class="overlay"></div>
         <!-- Sidebar -->

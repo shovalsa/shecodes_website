@@ -306,6 +306,8 @@ body {
 }
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
+  right: 800%;
+  margin-right: 200px;
   top: 50%;
   margin-top: -2px;
 }
