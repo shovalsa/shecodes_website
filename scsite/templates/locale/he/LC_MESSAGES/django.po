@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-04 14:35+0300\n"
+"POT-Creation-Date: 2017-09-05 22:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: .\scsite\templates\about.html:11 .\scsite\templates\branches.html:17
 #: .\scsite\templates\contact.html:10 .\scsite\templates\faq.html:15
-#: .\scsite\templates\jobs.html:9 .\scsite\templates\members.html:9
+#: .\scsite\templates\jobs.html:10 .\scsite\templates\members.html:9
 #: .\scsite\templates\members_index.html:9
 #: .\scsite\templates\newsletter.html:10
 #: .\scsite\templates\newsletter_index.html:10
@@ -30,7 +30,7 @@ msgstr "המטרה שלנו"
 
 #: .\scsite\templates\about.html:12 .\scsite\templates\branches.html:18
 #: .\scsite\templates\contact.html:11 .\scsite\templates\faq.html:16
-#: .\scsite\templates\jobs.html:10 .\scsite\templates\members.html:10
+#: .\scsite\templates\jobs.html:11 .\scsite\templates\members.html:10
 #: .\scsite\templates\members_index.html:10
 #: .\scsite\templates\newsletter.html:11
 #: .\scsite\templates\newsletter_index.html:11
@@ -43,7 +43,7 @@ msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ה�
 
 #: .\scsite\templates\about.html:15 .\scsite\templates\branches.html:21
 #: .\scsite\templates\contact.html:14 .\scsite\templates\faq.html:19
-#: .\scsite\templates\jobs.html:13 .\scsite\templates\members.html:13
+#: .\scsite\templates\jobs.html:14 .\scsite\templates\members.html:13
 #: .\scsite\templates\members_index.html:13
 #: .\scsite\templates\newsletter.html:14
 #: .\scsite\templates\newsletter_index.html:14
@@ -54,7 +54,7 @@ msgstr "קהילה"
 
 #: .\scsite\templates\about.html:16 .\scsite\templates\branches.html:22
 #: .\scsite\templates\contact.html:15 .\scsite\templates\faq.html:20
-#: .\scsite\templates\jobs.html:14 .\scsite\templates\members.html:14
+#: .\scsite\templates\jobs.html:15 .\scsite\templates\members.html:14
 #: .\scsite\templates\members_index.html:14
 #: .\scsite\templates\newsletter.html:15
 #: .\scsite\templates\newsletter_index.html:15
@@ -175,21 +175,21 @@ msgstr "סניף:"
 msgid "Members:"
 msgstr "חברות קהילה:"
 
-#: .\scsite\templates\newsletter.html:38
+#: .\scsite\templates\newsletter.html:39
 msgid "This article is not in the selected language. What do you want to do?"
 msgstr "הכתבה אינה בשפה שבחרת. מה ברצונך לעשות?"
 
-#: .\scsite\templates\newsletter.html:41
+#: .\scsite\templates\newsletter.html:42
 msgid "Switch languages:"
 msgstr "להחליף שפה"
 
-#: .\scsite\templates\newsletter.html:55
+#: .\scsite\templates\newsletter.html:56
 msgid ""
 "Go back to the newsletter index and search for the same article in your own "
 "language."
 msgstr "לחזור לאינדקס ולחפש את אותו המאמר בשפה שלי."
 
-#: .\scsite\templates\newsletter.html:56
+#: .\scsite\templates\newsletter.html:59
 msgid "Take me to index"
 msgstr "קחי אותי לאינדקס"
 

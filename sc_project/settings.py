@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -121,29 +122,6 @@ USE_L10N = True
 
 USE_TZ = False
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = 'home'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = sensitive.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = sensitive.EMAIL_HOST_PASSWORD
-# when online, please change username and password to that of contact@she-codes.org
-
-MEDIA_ROOT = ''
-MEDIA_URL = '/static/images/'
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
-    os.path.join(BASE_DIR, 'scsite/locale/'),
-    os.path.join(BASE_DIR, 'scsite/templates/locale/'),
-
-)
-
 ugettext = lambda s: s
 LANGUAGES = (
     ('en', ugettext('English')),
@@ -152,3 +130,31 @@ LANGUAGES = (
 prefix_default_language = False
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 SITE_ID = 1
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+    os.path.join(BASE_DIR, 'scsite/locale/'),
+    os.path.join(BASE_DIR, 'scsite/templates/locale/'),
+)
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '..')
+SITE_ROOT = PROJECT_ROOT
+
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media')
+MEDIA_URL = '/sc_project/media/'
+
+
+LOGIN_REDIRECT_URL = 'home'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = sensitive.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = sensitive.EMAIL_HOST_PASSWORD
+# when online, please change username and password to that of contact@she-codes.org

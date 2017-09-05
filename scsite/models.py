@@ -13,7 +13,7 @@ class Profile(models.Model):
     track = models.ForeignKey('Track', blank=True, default=1)
     personal_background = models.TextField('Personal Background', max_length=2000, blank=True)
     personal_background_hebrew = models.TextField('Personal Background', max_length=2000, blank=True)
-    avatar = models.ImageField(upload_to = 'static/images/avatars', default="/static/images/avatars/default_member.png")
+    avatar = models.ImageField(upload_to = 'images/avatars/', default="images/avatars/default_member.png")
 
     def __str__(self):
         """
@@ -96,7 +96,8 @@ class Faq(models.Model):
 class News(models.Model):
     itemTitle = models.CharField(max_length=50, default="NA")
     itemContent = models.TextField(default="NA")
-    itemPhoto = models.ImageField(upload_to = 'static/images/news', default='static/images/news/pic1.png')
+    itemPhoto = models.ImageField(upload_to = 'images/news/', default='images/news/pic1.png')
+    postDate = models.DateField(default=timezone.now)
     languages = ((None, _("Choose Article Language")), ('english', _('English')), ('hebrew', _('עברית')), ('arabic', _('عربى')), ('russian', _('русский')),)
     itemLanguage = models.CharField(max_length=150, choices=languages, null=True)
 
@@ -108,13 +109,15 @@ class News(models.Model):
 class Job(models.Model):
     jobTitle = models.CharField(max_length=50, default=_("NA"))
     jobDescription = models.TextField(default=_("NA"))
-    jobPhoto = models.ImageField(upload_to = 'static/images/jobs', default='static/images/jobs/pic1.png')
+    jobPhoto = models.ImageField(upload_to = 'images/jobs/', default='images/jobs/pic1.png')
     jobLink = models.TextField(default="#")
     is_senior = ((None, _("Required skill level")), ('junior', _('Junior')), ('senior', _('Senior')), ('teamLeader', _('Team Leader')),)
     jobSkills = models.CharField(max_length=150, default="NA", help_text="front end / data science / DevOps etc.") #In the future, for the sake of searching, it better be m2m item
     seniority = models.CharField(max_length=150, choices=is_senior, null=True)
     languages = ((None, _("Choose Offer Language")), ('english', _('English')), ('hebrew', _('עברית')), ('arabic', _('عربى')), ('russian', _('русский')),)
     jobLanguage = models.CharField(max_length=150, choices=languages, null=True)
+    postDate = models.DateField(default=timezone.now)
+    company = models.CharField(max_length=50, default=_("NA"))
 
     def __str__(self):
         return self.jobTitle
@@ -122,7 +125,7 @@ class Job(models.Model):
 class Event(models.Model):
     eventTitle = models.CharField(max_length=50, default="NA")
     eventDescription = models.TextField(default="NA")
-    eventPhoto = models.ImageField(upload_to = 'static/images/events')
+    eventPhoto = models.ImageField(upload_to = 'images/events/')
     eventLink = models.TextField(default="#")
     event_date = models.DateTimeField()
     eventLocation = models.CharField(max_length=100, default="NA")

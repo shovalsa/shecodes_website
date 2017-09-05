@@ -17,7 +17,7 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('track', 'main_branch', 'personal_background')
+        fields = ('track', 'main_branch', 'personal_background', 'avatar')
 
 
 class MyForm(forms.Form):

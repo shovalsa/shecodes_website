@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}she codes; career center{% endblock %}
 {% block content %}
@@ -16,7 +17,6 @@
 
     </div>
 </div>
-
 <div class="container">
     <h3 class="page-title">{%trans 'Careers:' %}</h3>
     <div class="media">
@@ -29,7 +29,45 @@
               {% set dir = False %}
             {% endif %}
             {% if dir == True %}
+                <article>
+                    <div class="thumb col-md-4">
+                        <a href="#">
+                            <img src="/{{job.jobPhoto}}" alt=""/>
+                        </a>
+                    </div>
+                    <div class="preview col-md-8">
+                        <ul class="meta">
+                        <h2>{{job.jobTitle}}</h2>
+                            <li><a href="#">{{job.company}}</a></li>
+                            <li><a href="#">{{job.jobSkills}}</a></li>
+                            <li><a href="#">for {{job.seniority}} position</a></li>
+                            <li><a href="#">Published on {{job.postDate}}</a></li>
+                        </ul>
+                        <div class="body">
+                            <p>
+                                {{job.jobDescription|safe}}
+                            </p>
+                            <a href="#">Continue</a>
+                        </div>
+                    </div>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="media">
+        {% for job in jobs %}
               <div class="media-left media-middle">
+            {% if dir == True %}
                 <a href="/jobs/{{ job.jobLink }}/">
                   <img class="media-object" src="/{{job.jobPhoto}}" alt="{{job.jobTitle}}">
                 </a>

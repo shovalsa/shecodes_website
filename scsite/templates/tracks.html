@@ -25,15 +25,7 @@
 <div class="container">
 
     <h3 class="page-title">{%trans 'Tracks:' %}</h3>
-    <ul style="float: left">
-        <li>{%trans 'All the tracks are for free.' %}</li>
-        <li>{%trans 'No prerequisites are required.' %}</li>
-        <li>{%trans 'No registration is required, unless otherwise specified.' %}</li>
-        <li>{%trans 'Please bring your laptop and headphones to each meeting.' %}</li>
-        <li>{%trans 'Each branch has a facebook group. It is best to join them and ask questions specific for the branch.' %}</li>
-        <li>{%trans 'In each track you study independently, with online lectures and exercises. <br>There are no face-to-face lectures, but mentors are available in each branch to assist you.' %}</li>
-    </ul>
-        <div class="column col-md-4" style="float:right">
+    <section class="column col-md-6">
           {% for track in tracks %}
             {%if dir == 'ltr'%}
                 <div class="thumbnail"><img class="img-responsive" src="/{{track.trackLogo}}" alt="" style="float:left"><h3>&nbsp;{{ track }}</h3>  <!-- the logo doesn't work. -->
@@ -43,6 +35,16 @@
                  {%trans track.trackDescription_hebrew|safe %}</div>
             {% endif %}
           {% endfor %}
-        </div>
+    </section>
+    <section class="column col-md-6">
+    <ul>
+        <li>{%trans 'All the tracks are for free.' %}</li>
+        <li>{%trans 'No prerequisites are required.' %}</li>
+        <li>{%trans 'No registration is required, unless otherwise specified.' %}</li>
+        <li>{%trans 'Please bring your laptop and headphones to each meeting.' %}</li>
+        <li>{%trans 'Each branch has a facebook group. It is best to join them and ask questions specific for the branch.' %}</li>
+        <li>{%trans 'In each track you study independently, with online lectures and exercises. <br>There are no face-to-face lectures, but mentors are available in each branch to assist you.' %}</li>
+    </ul>
+    </section>
 </div>
 {% endblock %}

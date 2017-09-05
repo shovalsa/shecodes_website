@@ -18,8 +18,7 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row" style="padding: 2.5% 2% 1% 5%;">
+<div class="container" style="padding: 2.5% 2% 1% 5%;">
         {% for item in news %}
             {% if LANGUAGE_BIDI and item.itemLanguage == 'hebrew' %}
               {% set dir = True %}
@@ -28,18 +27,43 @@
             {% else %}
               {% set dir = False %}
             {% endif %}
+            <div class="media">
             {% if dir == True %}
-                    <div class="thumbnail col-xs-4">
-                      <a href="/newsletter/{{item.id}}" role="button">
-                        <img src="/{{item.itemPhoto}}" alt="{{item.itemTitle}}">
-                      </a>
-                      <div class="caption" style="text-align:center;">
-                        <h4><strong>{%trans item.itemTitle %}</strong></h4>
-                        <div>{%trans item.itemContent|safe|slice:":100" %}...</div>
-                      </div>
-                   </div>
+                <article>
+                    <div class="thumb col-md-4">
+                        <a href="#">
+                            <img src="/{{item.itemPhoto}}" alt=""/>
+                        </a>
+                    </div>
+                    <div class="preview col-md-8">
+                        <ul class="meta">
+                        <h2>{{item.itemTitle}}</h2>
+                            <!--<li><a href="#">{{item.tags}}</a></li>-->
+                            <!--<li><a href="#">{{item.itemLanguage}}</a></li>-->
+                            <li><a href="#">Published on {{item.postDate}}</a></li>
+                        </ul>
+                        <div class="body">
+                            <p>
+                                {{item.itemContent|safe|slice:":150"}}
+                            </p>
+                            <a href="/newsletter/{{item.id}}">Continue reading</a>
+                        </div>
+                    </div>
+                </article>
+                    <!--<div class="thumbnail col-sm-3">-->
+                      <!--<a href="/newsletter/{{item.id}}" role="button">-->
+                        <!--<img src="/{{item.itemPhoto}}" alt="{{item.itemTitle}}">-->
+                      <!--</a>-->
+                      <!--<div class="caption" style="text-align:center;">-->
+                        <!--<h4><strong>{%trans item.itemTitle %}</strong></h4>-->
+                        <!--<div>{%trans item.itemContent|safe|slice:":100" %}...</div>-->
+                      <!--</div>-->
+                   <!--</div>-->
+            </div>
             {% endif %}
         {% endfor %}
     </div>
-    </div>
+    <!--</div>-->
+
+
 {% endblock %}

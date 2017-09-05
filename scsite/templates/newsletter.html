@@ -31,10 +31,11 @@
     <div style="float:left">
         <img src="/static/images/news/{{news.itemPhoto}}" alt=".">
     </div>
-    <div style="padding-left: 5%">
+    <div class="article" style="padding-left: 5%">
         {{news.itemContent|safe}}
     </div>
 {% else %}
+    <section style="margin: 7%;">
     {% trans 'This article is not in the selected language. What do you want to do?' %}
     <ol>
         <li>
@@ -53,9 +54,10 @@
         </li>
         <li>
             {% trans 'Go back to the newsletter index and search for the same article in your own language.' %}<br>
-            <a href="/newsletter/"><button class="btn">{%trans 'Take me to index' %}</button></a>
         </li>
     </ol>
+        <a href="/newsletter/"><button class="btn">{%trans 'Take me to index' %}</button></a>
+    </section>
 {% endif %}
     </div>
 

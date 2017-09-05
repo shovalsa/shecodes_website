@@ -36,7 +36,7 @@
             {% if item.id == 1  %}
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="/{{item.itemPhoto}}" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}" style="height:270px; width:auto;"></a>
                     <center><h3>{{item.itemTitle}}</h3>
                     <span>{{item.itemContent|slice:":100"|safe}}</span></center>
                 </div>
@@ -44,9 +44,9 @@
             {% else %}
               <div class="item">
                 <div class="row">
-                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="/{{item.itemPhoto}}" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}" style="height:270px; width:auto;"></a>
                     <center><h3>{{item.itemTitle}}</h3>
-                    <span>{{item.itemContent|safe}}</span></center>
+                    <span>{{item.itemContent|slice:":100"|safe}}</span></center>
                 </div>
               </div>
           {% endif %}
@@ -68,7 +68,7 @@
             {% if event.id == 1  %}
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="/{{event.eventPhoto}}" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}" style="height:1000; width:auto;"></a>
                     <center><h3>{{event.eventTitle}}</h3>
                     <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
                 </div>
@@ -76,7 +76,7 @@
             {% else %}
               <div class="item">
                 <div class="row">
-                    <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="/{{event.eventPhoto}} target="_blank" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}" target="_blank" style="height:270px; width:auto;"></a>
                     <center><h3>{{event.eventTitle}}</h3>
                     <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
                 </div>
@@ -100,7 +100,7 @@
             {% if job.id == 1  %}
               <div class="job active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="/career-center/"><img alt="" src="/{{job.jobPhoto}}" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}" style="height:270px; width:auto;"></a>
                     <center><h3>{{job.jobTitle}}</h3>
                     <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
                 </div>
@@ -108,7 +108,7 @@
             {% else %}
               <div class="item">
                 <div class="row">
-                    <a class="thumbnail" href="/career-center/"><img alt="" src="/{{job.jobPhoto}}" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}" style="height:270px; width:auto;"></a>
                     <center><h3>{{job.jobTitle}}</h3>
                     <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
                 </div>

@@ -11,31 +11,34 @@
 
 <html dir="{{ dir }}">
 <head>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
-        <link rel="shortcut icon" href="{% static "/images/favicon.ico" %}">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="she codes; is an Israeli based community for women programmers.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="she codes; is an Israeli based community for women programmers.">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{% static "/images/favicon.ico" %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito|Quicksand|Assistant|Special+Elite" />
+    <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/style.css" %}">
+
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <!-- although the above is newer, some browsers may not support it. see https://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito|Quicksand|Assistant|Special+Elite" />
-    <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/style.css" %}">
 
 </head>
-<header>
-        <nav class="navbar row">
-            <center>
-                <a class="logo" href="{% url 'home' %}">
-                    <img class="img-responsive logo" src="{% static "/images/sc_logo.png" %}">
-                </a>
-            </center>
-        </nav>
-</header>
+<body>
+    <header >
+            <nav class="container" id="navbar_top">
+                <center>
+                    <a class="logo" href="{% url 'home' %}">
+                        <img class="img-responsive logo" src="{% static "/images/sc_logo.png" %}">
+                    </a>
+                </center>
+            </nav>
+    </header>
+
     <div id="wrapper">
         <div class="overlay"></div>
         <!-- Sidebar -->
@@ -142,18 +145,16 @@
 
             });
         </script>
-
-<body>
-
     {% load static %}
-    {%block content%}
-    {%endblock%}
-</body>
+    <main style="margin-top: 70px;">
+        {%block content%}
+        {%endblock%}
+    </main>
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-sm-6 footerleft ">
-        <div class="logofooter" style="font-family: 'Special Elite', cursive;"> she codes;</div>
+      <div class="col-md-4 col-sm-6 footerleft">
+        <div class="logofooter" style="font-family: 'Special Elite', cursive;">{% trans 'she codes;' %}</div>
         <p>{% trans 'she codes; is a community of women in technology, created to achieve an equal number of female and male software developers in Israel.' %}</p>
       </div>
       <div class="col-md-2 col-sm-6 paddingtop-bottom">
@@ -175,15 +176,14 @@
         </ul>
       </div>
       <div class="col-md-4 col-sm-6 footerleft ">
-        <div class="paddingtop-bottom"></div>
-        <p><i class="fa fa-map-pin"></i>{% trans ' Street number, St. name, Tel Aviv - Israel.' %}</p>
+        <h6 class="heading7">CONTACT US</h6>
+        <p><i class="fa fa-home"></i>{% trans ' Street number, St. name, Tel Aviv - Israel.' %}</p>
         <p><i class="fa fa-phone"></i>{% trans ' Phone (Israel) : +972 9999 999 999.' %}</p>
         <p><i class="fa fa-envelope"></i>{% trans ' E-mail : contact@she-codes.org.' %}</p>
       </div>
     </div>
   </div>
 </footer>
-<!--footer start from here-->
 
 <div class="copyright">
   <div class="container">
@@ -192,4 +192,5 @@
     </div>
   </div>
 </div>
+</body>
 </html>

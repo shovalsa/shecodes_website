@@ -5,37 +5,43 @@
 <div class="container">
   <h3 class="page-title">{% trans 'Sign up' %}</h3>
   <form method="post">
-    <div style="float:left">
+    <div class="col-md-5">
     {% csrf_token %}
     {% for field in user_form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
+      <ul style="list-style: none;">
+        <li>{{ field.label_tag }}</li>
+        <li>{{ field }}</li>
         {% if field.help_text %}
-          <br><small style="color: grey">{{ field.help_text|safe}}</small>
+          <li><small style="color: grey">{{ field.help_text|safe}}</small></li>
         {% endif %}
         {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <li style="color: red">{{ error }}</li>
         {% endfor %}
-      </p>
+      </ul>
     {% endfor %}
       </div>
-        <div>
+      <div class="col-md-5">
     {% csrf_token %}
     {% for field in profile_form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
+      <ul style="list-style:none;">
+        <li>{% trans field.label_tag %}</li>
+        <li>{{ field }}</li>
         {% if field.help_text %}
-          <br><small style="color: grey">{{ field.help_text|safe}}</small>
+          <li><small style="color: #ccc;">{{ field.help_text|safe}}</small></li>
         {% endif %}
         {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <li style="color: red">{{ error }}</li>
         {% endfor %}
-      </p>
+      </ul>
     {% endfor %}
       </div>
+    {% if LANGUAGE_BIDI %}
+    <div class="col-md-2">
     <button class="btn" type="submit">{% trans 'Sign up' %}</button>
+    </div>
+    {% else %}
+    <button class="btn" type="submit">{% trans 'Sign up' %}</button>
+    {% endif %}
   </form>
   </div>
 {% endblock %}
