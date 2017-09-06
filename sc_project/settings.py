@@ -147,7 +147,7 @@ STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'media')
-MEDIA_URL = '/sc_project/media/'
+MEDIA_URL = '/media/'
 
 
 LOGIN_REDIRECT_URL = 'home'

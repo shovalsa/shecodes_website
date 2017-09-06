@@ -45,7 +45,7 @@
     <div>
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation" >
             <ul class="nav sidebar-nav" >
-                <center><li style="font-size:18px; padding-top: 10%; padding-bottom:10%">
+                <center><li>
                     <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
                       <input name="next" type="hidden" value="{{ redirect_to }}" />
                       <select name="language" onchange="this.form.submit()">
@@ -56,29 +56,28 @@
                             </option>
                           {% endfor %}
                       </select>
-                    </form>
+                    </form></li>
                 </center>
 
                     {% if request.user.is_authenticated %}
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false" style="color:white;">
-                                <span class="glyphicon glyphicon-user" style="color:white;"></span>
+                            aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>
                           <ul class="dropdown-menu">
                             <li><a href="/members/{{user.id}}/">{%trans 'My Profile' %}</a></li>
                             <li><a href="/logout/">{%trans 'Log out' %}</a></li>
                           </ul></a>
                         </li>
                     {% else %}
-                        <li><a href="/login/" style="color:white">{%trans 'Login' %}</a></li>
-                        <li><a href="/signup/" style="color:white">{%trans 'Join Us!' %}</a></li>
+                        <li><a href="/login/">{%trans 'Login' %}</a></li>
+                        <li><a href="/signup/">{%trans 'Join Us!' %}</a></li>
                     {% endif %}
-                </li>
-               <li><a href="/about/" style="color:white">{%trans 'About' %}</a></li>
+               <li><a href="/about/">{%trans 'About' %}</a></li>
                 {% if request.user.is_authenticated %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false" style="color:white;">
+                            aria-expanded="false">
                               {%trans 'Community' %}</a>
                           <ul class="dropdown-menu">
                             <li><a href="/members/">{%trans 'members' %}</a></li>
@@ -88,7 +87,7 @@
                 {% endif %}
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false" style="color:white;">
+                     aria-expanded="false">
                       {%trans 'Activities' %}</a>
                   <ul class="dropdown-menu">
                     <li><a href="/tracks/" >{%trans 'Tracks' %}</a></li>
@@ -96,10 +95,10 @@
                     <li><a href="/next-generation/" >{%trans 'Next Generation' %}</a></li>
                   </ul>
                 </li>
-                <li><a href="/faq/" style="color:white">{%trans 'FAQ' %}</a></li>
-                <li><a href="/team/" style="color:white">{%trans 'Team' %}</a></li>
-                <li><a href="/partners/" style="color:white">{%trans 'Partners' %}</a></li>
-                <li><a href="/contact/" style="color:white">{%trans 'Contact Us' %}</a></li>
+                <li><a href="/faq/">{%trans 'FAQ' %}</a></li>
+                <li><a href="/team/">{%trans 'Team' %}</a></li>
+                <li><a href="/partners/">{%trans 'Partners' %}</a></li>
+                <li><a href="/contact/">{%trans 'Contact Us' %}</a></li>
             </ul>
         </nav>
     </div>
@@ -146,7 +145,7 @@
             });
         </script>
     {% load static %}
-    <main style="margin-top: 70px;">
+    <main>
         {%block content%}
         {%endblock%}
     </main>
@@ -154,7 +153,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-sm-6 footerleft">
-        <div class="logofooter" style="font-family: 'Special Elite', cursive;">{% trans 'she codes;' %}</div>
+        <div class="logofooter">{% trans 'she codes;' %}</div>
         <p>{% trans 'she codes; is a community of women in technology, created to achieve an equal number of female and male software developers in Israel.' %}</p>
       </div>
       <div class="col-md-2 col-sm-6 paddingtop-bottom">

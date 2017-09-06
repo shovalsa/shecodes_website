@@ -12,22 +12,20 @@
 {% block content %}
 
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
-    <div style="color:white;">
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+        <figcaption>
+            <h1><b>{% trans 'Our Goal' %}</b></h1>
             <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
-        </div>
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+        </figcaption>
+        <figcaption>
+            <h1><b>{% trans 'Community' %}</b></h1>
             <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
-        </div>
-    </div>
+        </figcaption>
 </div>
 
-<div class="container" style="padding-top: 5%; padding-bottom: 5%">
+<div class="container">
   <div class='column'>
     <div class='col-md-4'>
-        <h2 style="border-bottom: 1px solid #ccc; font-family: 'Special Elite', cursive;">
+        <h2 class="page-title">
             <b>{%trans 'Newsletter' %}</b>
         </h2>
       <div class="carousel slide media-carousel" id="media-news">
@@ -36,7 +34,7 @@
             {% if item.id == 1  %}
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}" style="height:270px; width:auto;"></a>
+                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}"></a>
                     <center><h3>{{item.itemTitle}}</h3>
                     <span>{{item.itemContent|slice:":100"|safe}}</span></center>
                 </div>
@@ -44,22 +42,22 @@
             {% else %}
               <div class="item">
                 <div class="row">
-                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}" style="height:270px; width:auto;"></a>
+                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}"></a>
                     <center><h3>{{item.itemTitle}}</h3>
                     <span>{{item.itemContent|slice:":100"|safe}}</span></center>
                 </div>
               </div>
           {% endif %}
       {% endfor %}
-        <a data-slide="prev" href="#media-news" class="left carousel-control"><span class="glyphicon glyphicon-menu-left" style="color:white;"></span></a>
-        <a data-slide="next" href="#media-news" class="right carousel-control"><span class="glyphicon glyphicon-menu-right" style="color:white;"></span></a>
+        <a data-slide="prev" href="#media-news" class="left carousel-control"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a data-slide="next" href="#media-news" class="right carousel-control"><span class="glyphicon glyphicon-menu-right"></span></a>
       </div>
     </div>
       </div>
     </div>
   <div class='column'>
     <div class='col-md-4'>
-        <h2 style="border-bottom: 1px solid #ccc; font-family: 'Special Elite', cursive;">
+        <h2 class="page-title">
             <b>{%trans 'Events' %}</b>
         </h2>
       <div class="carousel slide media-carousel" id="media-events">
@@ -68,7 +66,7 @@
             {% if event.id == 1  %}
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}" style="height:1000; width:auto;"></a>
+                    <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}"></a>
                     <center><h3>{{event.eventTitle}}</h3>
                     <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
                 </div>
@@ -76,22 +74,22 @@
             {% else %}
               <div class="item">
                 <div class="row">
-                    <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}" target="_blank" style="height:270px; width:auto;"></a>
+                    <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}" target="_blank"></a>
                     <center><h3>{{event.eventTitle}}</h3>
                     <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
                 </div>
               </div>
           {% endif %}
       {% endfor %}
-        <a data-slide="prev" href="#media-events" class="left carousel-control"><span class="glyphicon glyphicon-menu-left" style="color:white;"></span></a>
-        <a data-slide="next" href="#media-events" class="right carousel-control"><span class="glyphicon glyphicon-menu-right" style="color:white;"></span></a>
+        <a data-slide="prev" href="#media-events" class="left carousel-control"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a data-slide="next" href="#media-events" class="right carousel-control"><span class="glyphicon glyphicon-menu-right"></span></a>
       </div>
     </div>
       </div>
     </div>
   <div class='column'>
     <div class='col-md-4'>
-        <h2 style="border-bottom: 1px solid #ccc; font-family: 'Special Elite', cursive;">
+        <h2 class="page-title">
             <b>{%trans 'Job Opportunity' %}</b>
         </h2>
       <div class="carousel slide media-carousel" id="media-jobs">
@@ -99,8 +97,8 @@
         {% for job in jobs %}
             {% if job.id == 1  %}
               <div class="job active">
-                <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}" style="height:270px; width:auto;"></a>
+                <div class="row">
+                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}"></a>
                     <center><h3>{{job.jobTitle}}</h3>
                     <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
                 </div>
@@ -108,15 +106,15 @@
             {% else %}
               <div class="item">
                 <div class="row">
-                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}" style="height:270px; width:auto;"></a>
+                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}"></a>
                     <center><h3>{{job.jobTitle}}</h3>
                     <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
                 </div>
               </div>
           {% endif %}
       {% endfor %}
-        <a data-slide="prev" href="#media-jobs" class="left carousel-control"><span class="glyphicon glyphicon-menu-left" style="color:white;"></span></a>
-        <a data-slide="next" href="#media-jobs" class="right carousel-control"><span class="glyphicon glyphicon-menu-right" style="color:white;"></span></a>
+        <a data-slide="prev" href="#media-jobs" class="left carousel-control"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a data-slide="next" href="#media-jobs" class="right carousel-control"><span class="glyphicon glyphicon-menu-right"></span></a>
       </div>
     </div>
       </div>

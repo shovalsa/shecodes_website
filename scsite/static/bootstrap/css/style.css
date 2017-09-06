@@ -11,18 +11,32 @@ body {
   font-size: 16px
 }
 
+main {
+    margin-top: 70px;
+}
+
 .page-header {
   padding-bottom: 0px;
   border-bottom: 0px solid #eee;
 }
 
-.carousel-caption {
-    background-color:black;
-    opacity:0.6;
+.page-title{
+    border-bottom: 1px solid #ccc; /* This is the line replacing the hr*/
+    margin-bottom: 10px; /* This is the space below the line */
+    padding-top: 30px;
+    padding-bottom: 5px; /* This is the space between the heading text and the line */
+    border-color: black;
+    font-family: 'Special Elite', cursive, 'yiddishkeit';
+	font-size: 32px;
 }
 
-.carousel-control.left, .carousel-control.right { /* this eliminates some gray stripes that the carousel had*/
-    background-image: none
+.btn {
+  background-color: rgb(19,125,73);
+  color: white;
+}
+
+.noBorder {
+    border:none !important;
 }
 
 .mainPar{
@@ -32,7 +46,14 @@ body {
     text-align: justify
 }
 
-.parallax-title{
+.parallax-container figcaption {
+    color:white;
+    text-align:center;
+    padding: 2.5% 10% 0% 10%;
+}
+
+
+.parallax-container figcaption h1{
     font-family: 'Special Elite', Assitant, cursive;
     font-size: 300%
 }
@@ -77,32 +98,14 @@ body {
     padding: 3px 3px 3px 3px;
 }
 
-.page-title{
-    border-bottom: 1px solid #ccc; /* This is the line replacing the hr*/
-    margin-bottom: 10px; /* This is the space below the line */
-    padding-top: 30px;
-    padding-bottom: 5px; /* This is the space between the heading text and the line */
-    border-color: black;
-    font-family: 'Special Elite', cursive, 'yiddishkeit';
-	font-size: 32px;
 
-}
-
-.btn {
-  background-color: rgb(19,125,73);
-  color: white;
-}
-
-.noBorder {
-    border:none !important;
-}
 
 
 .thumbnail a > img,
  {
   display: block;
-  width: 80%;
-  height: auto;
+  height:270px;
+  width:auto;
 }
 
 /*-------------------------------*/
@@ -224,6 +227,13 @@ article .meta li:last-child:after
     line-height: 20px;
     display: inline-block;
     width: 100%;
+    color: white;
+}
+
+.sidebar-nav center li {
+    font-size:18px;
+    padding: 10% 0;
+    color: black;
 }
 
 .sidebar-nav li:before {
@@ -486,10 +496,11 @@ footer {
  padding:7px 36px;
  }
 .logofooter {
- margin-bottom:10px;
+    margin-bottom:10px;
     font-size:25px;
     color:#fff;
     font-weight:700;
+    font-family: 'Special Elite', cursive;
 }
 
 .footerleft p {
