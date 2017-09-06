@@ -52,7 +52,8 @@ urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
     url(r'^he/', include('django.conf.urls.i18n')), # this enables the set language redirect view
     # url(r'^jsi8n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # this is unsafe in production. Replace!
 
 #
 urlpatterns += i18n_patterns(
