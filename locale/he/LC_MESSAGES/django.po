@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-05 22:13+0300\n"
+"POT-Creation-Date: 2017-09-11 23:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sc_project\settings.py:149
+#: .\sc_project\settings.py:127
 msgid "English"
 msgstr ""
 
-#: .\sc_project\settings.py:150
+#: .\sc_project\settings.py:128
 msgid "Hebrew"
 msgstr "עברית"
 
-#: .\templates\base.html:68
+#: .\templates\base.html:69
 msgid "My Profile"
 msgstr "הפרופיל שלי"
 
-#: .\templates\base.html:69
+#: .\templates\base.html:70
 msgid "Log out"
 msgstr "התנתקי"
 
-#: .\templates\base.html:73
+#: .\templates\base.html:74
 msgid "Login"
 msgstr "התחברי"
 
-#: .\templates\base.html:74
+#: .\templates\base.html:75
 msgid "Join Us!"
 msgstr "הצטרפי אלינו!"
 
@@ -45,7 +45,7 @@ msgstr "הצטרפי אלינו!"
 msgid "About"
 msgstr "עלינו"
 
-#: .\templates\base.html:82 .\templates\index.html:21
+#: .\templates\base.html:82 .\templates\index.html:20
 msgid "Community"
 msgstr "קהילה"
 
@@ -91,41 +91,17 @@ msgstr "שותפים"
 msgid "Contact Us"
 msgstr "צרי קשר"
 
-#: .\templates\base.html:157
-msgid "she codes;"
-msgstr ""
-
-#: .\templates\base.html:158
-msgid ""
-"she codes; is a community of women in technology, created to achieve an "
-"equal number of female and male software developers in Israel."
-msgstr ""
-"she codes;  היא קהילה טכנולוגית של נשים, שהוקמה במטרה להשוות את מספר מפתחות "
-"ומפתחי התוכנה בישראל."
-
-#: .\templates\base.html:180
-msgid " Street number, St. name, Tel Aviv - Israel."
-msgstr "אחד העם 28 תל אביב, ישראל"
-
-#: .\templates\base.html:181
-msgid " Phone (Israel) : +972 9999 999 999."
-msgstr "טלפון: "
-
-#: .\templates\base.html:182
-msgid " E-mail : contact@she-codes.org."
-msgstr "אימייל: contact@she-codes.org"
-
-#: .\templates\index.html:17
+#: .\templates\index.html:16
 msgid "Our Goal"
 msgstr "המטרה שלנו "
 
-#: .\templates\index.html:18
+#: .\templates\index.html:17
 msgid ""
 "is to reach 50 percent female software developers in the IT industry within "
 "a decade."
 msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ההיי טק תוך עשור."
 
-#: .\templates\index.html:22
+#: .\templates\index.html:21
 msgid ""
 "Come and work on a project, learn a new language, hear an inspiring or "
 "technical lecture or learn to code in one of our meetups."
@@ -133,21 +109,46 @@ msgstr ""
 "בואי לעבוד על פרויקט, להקשיב להרצאה טכנית או מעוררת השראה, ללמוד שפת תכנות "
 "חדשה או ללמוד לתכנת מאפס באחד המפגשים שלנו."
 
-#: .\templates\index.html:31
+#: .\templates\index.html:24
+msgid "Education"
+msgstr "חינוך"
+
+#: .\templates\index.html:25
+msgid "Learn some code with us. “The Next Generation” of our community."
+msgstr "למדי איתנו איך לתכנת. הדור הבא של הקהילה."
+
+#: .\templates\index.html:33
 msgid "Newsletter"
 msgstr "ניוזלטר"
 
-#: .\templates\index.html:63
+#: .\templates\index.html:65
 msgid "Events"
 msgstr "אירועים"
 
-#: .\templates\index.html:95
+#: .\templates\index.html:97
 msgid "Job Opportunity"
 msgstr "הזדמנויות תעסוקה"
 
-#: .\templates\signup.html:6 .\templates\signup.html:38
+#: .\templates\signup.html:6 .\templates\signup.html:40
+#: .\templates\signup.html:43
 msgid "Sign up"
 msgstr "הרשמי"
+
+#~ msgid ""
+#~ "she codes; is a community of women in technology, created to achieve an "
+#~ "equal number of female and male software developers in Israel."
+#~ msgstr ""
+#~ ";she codes  היא קהילה טכנולוגית של נשים, שהוקמה במטרה להשוות את מספר "
+#~ "מפתחות ומפתחי התוכנה בישראל."
+
+#~ msgid " Street number, St. name, Tel Aviv - Israel."
+#~ msgstr "אחד העם 28 תל אביב, ישראל"
+
+#~ msgid " Phone (Israel) : +972 9999 999 999."
+#~ msgstr "טלפון: +972 9999 999 999 "
+
+#~ msgid " E-mail : contact@she-codes.org."
+#~ msgstr "אימייל: contact@she-codes.org"
 
 #~ msgid "Read more"
 #~ msgstr "קראי עוד"

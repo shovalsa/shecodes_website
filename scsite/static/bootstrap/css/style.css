@@ -1,5 +1,7 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-@import url("//fonts.googleapis.com/earlyaccess/opensanshebrew.css");
+/*@import url("//fonts.googleapis.com/earlyaccess/opensanshebrew.css"); */
+@import url("//fonts.googleapis.com/css?family=Quicksand|Assistant|Special+Elite");
+
 @font-face {
     font-family: 'yiddishkeit';
     src: url('{% static 'fonts/YiddishkeitAlefAlefAlef-Bold.otf' %}');
@@ -7,7 +9,7 @@
 
 body {
   line-height: 200%;
-  font-family: quicksand, assistant;
+  font-family: quicksand, assistant, sans-serif;
   font-size: 16px
 }
 
@@ -58,54 +60,26 @@ main {
     font-size: 300%
 }
 
-.navbar-nav { /* this and the following one make the nav bar stretch across the screen*/
-    display:table;
-    width:80%;
-    margin: 0;
-}
-.navbar-nav > li {
-    float:none;
-    text-align:right;
-}
-
-
-
-#navbar_top{
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99;
-
-}
-
-.collapsed{
-    color:rgb(19,125,73);
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.collapsed.in{
-    color:rgb(19,125,73);
-    font-weight: bold;
-    font-size: 18px;
-}
-
 .card-header{
     border-left: 6px solid rgb(19,125,73);
     background-color: #f9fffa;
     padding: 3px 3px 3px 3px;
 }
 
+figcaption h3{
+    padding-bottom: 15px;
+}
 
 
-
-.thumbnail a > img,
+.thumbnail a > img
  {
   display: block;
   height:270px;
   width:auto;
+}
+
+.glyphicon .glyphicon-menu-left {
+    color:white;
 }
 
 /*-------------------------------*/
@@ -116,16 +90,16 @@ article {
     margin: 3%;
 }
 
-article .thumb {
+.thumb {
     margin-top: 2.5%;
 }
 
 .thumb img {
-    width: 100%;
+    width: 300px;
     height: auto;
 }
 
-article .preview {
+.preview {
     line-height: 170%;
 }
 
@@ -152,6 +126,41 @@ article .meta li:after
 article .meta li:last-child:after
  {
     content: none;
+}
+
+/*-------------------------------*/
+/*             Navbar           */
+/*-------------------------------*/
+
+.navbar-nav { /* this and the following one make the nav bar stretch across the screen*/
+    display:table;
+    width:80%;
+    margin: 0;
+}
+.navbar-nav > li {
+    float:none;
+    text-align:right;
+}
+
+.navbar-top{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.collapsed{
+    color:rgb(19,125,73);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.collapsed.in{
+    color:rgb(19,125,73);
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /*-------------------------------*/
@@ -203,12 +212,6 @@ article .meta li:last-child:after
     margin-right: -220px;
 }
 
-@media screen and (max-width: 767px) {
-  .logo {
-    width: 60%;
-    padding-top:6%
-  }
-  }
 /*-------------------------------*/
 /*     Sidebar nav styles        */
 /*-------------------------------*/
@@ -298,7 +301,7 @@ article .meta li:last-child:after
 
 .hamburger {
   position: fixed;
-  top: 30px;
+  top: 20px;
   z-index: 999;
   display: block;
   width: 32px;
@@ -489,34 +492,20 @@ article .meta li:last-child:after
 
 footer {
     background-color:#0c1a1e;
-    min-height:350px;
+    min-height:250px;
  }
-.footerleft {
- margin-top:50px;
- padding:7px 36px;
- }
-.logofooter {
+
+.paddingtop-bottom {  margin-top:20px;}
+.paddingtop-bottom .logofooter {
     margin-bottom:10px;
     font-size:25px;
     color:#fff;
     font-weight:700;
-    font-family: 'Special Elite', cursive;
+    direction: ltr;
 }
-
-.footerleft p {
- color:#fff;
-  font-size:12px !important;
-    margin-bottom:15px;}
-
-.footerleft p i {
- width:20px;
-  color:#999;}
-
-
-.paddingtop-bottom {  margin-top:50px;}
-.footer-ul { list-style-type:none;  padding-left:0px; margin-left:2px;}
-.footer-ul li { line-height:29px; font-size:12px;}
-.footer-ul li a { color:#a0a3a4; transition: color 0.2s linear 0s, background 0.2s linear 0s; }
+.footer-ul { list-style-type:none;  padding-left:0px; margin-left:2px; text-align: left;}
+.footer-ul li, footer p { line-height:29px; font-size:12px;}
+.footer-ul li a, footer p, footer p i{ color:#a0a3a4; transition: color 0.2s linear 0s, background 0.2s linear 0s; direction: ltr;}
 .footer-ul i { margin-right:10px;}
 .footer-ul li a:hover {transition: color 0.2s linear 0s, background 0.2s linear 0s; color:#ff670f; }
 
@@ -536,7 +525,7 @@ footer {
 
  .copyright { min-height:40px; background-color:#000000;}
  .copyright p { text-align:left; color:#FFF; padding:10px 0; margin-bottom:0px;}
- .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
+ .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px; direction: ltr;}
  .post p { font-size:12px; color:#FFF; line-height:20px;}
  .post p span { display:block; color:#8f8f8f;}
  .bottom_ul { list-style-type:none; float:right; margin-bottom:0px;}

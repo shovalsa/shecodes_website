@@ -1,28 +1,47 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}she codes; members{% endblock %}
+{% block title %}she codes(members);{% endblock %}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
-    <div style="color:white;">
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+        <figcaption>
+            <h1><b>{% trans 'Our Goal' %}</b></h1>
             <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
-        </div>
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+        </figcaption>
+        <figcaption>
+            <h1><b>{% trans 'Community' %}</b></h1>
             <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
-        </div>
-
-    </div>
+        </figcaption>
 </div>
-
 <div class="container">
     <h3 class="page-title">{%trans 'Members:' %}</h3>
-        <ul class="list-group">
+        <ul style="list-style: none;">
           {% for user in users %}
+            {% if LANGUAGE_BIDI %}
+                {% set bidi = 'right' %}
+                {% set counter_bidi = 'left' %}
+            {% else %}
+                {% set bidi = 'left' %}
+                {% set counter_bidi = 'right' %}
+            {% endif %}
             {% if not user.is_superuser %}
-                <li class="list-group-item"><a href="/members/{{ user.id }}/">{{ user.username }}</a></li>
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="pull-{{bidi}} thumb col-md-3">
+                        <a href="/members/{{ user.id }}/">
+                            <img src="{{MEDIA_URL}}{{user.profile.avatar}}" alt="" style="width: 150px; height:auto;"/>
+                        </a>
+                    </div>
+                    <div class="pull-{{counter_bidi}} preview col-md-9">
+                        <li><h3>{{ user.username }}</h3></li>
+                        <li>{% blocktrans %}<strong>Name:</strong> {% endblocktrans %} {{ user.first_name }} {{ user.last_name }}</li>
+                        <!--<li>{% blocktrans %}<strong>A she codes; member since:</strong> {% endblocktrans %}{{user.date_joined}}</li>-->
+                        <li>{% blocktrans %}<strong>Track:</strong> {% endblocktrans %} {{user.profile.track}}</li>
+                        <li>{% blocktrans %}<strong>Branch:</strong> {% endblocktrans %} {{user.profile.main_branch}}</li>
+                    </div>
+                </div>
+            </div>
             {% endif %}
           {% endfor %}
         </ul>

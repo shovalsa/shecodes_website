@@ -2,22 +2,18 @@
 {% load i18n %}
 {% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}she codes; Newsletter{% endblock %}
+{% block title %}she codes(Newsletter);{% endblock %}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
-    <div style="color:white;">
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+        <figcaption>
+            <h1><b>{% trans 'Our Goal' %}</b></h1>
             <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
-        </div>
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+        </figcaption>
+        <figcaption>
+            <h1><b>{% trans 'Community' %}</b></h1>
             <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
-        </div>
-
-    </div>
+        </figcaption>
 </div>
-
 <div class="container" style="padding: 2.5% 2% 1% 5%;">
         {% for item in news %}
             {% if LANGUAGE_BIDI and item.itemLanguage == 'hebrew' %}
@@ -29,24 +25,33 @@
             {% endif %}
             <div class="media">
             {% if dir == True %}
+                {% if LANGUAGE_BIDI %}
+                    {% set bidi = 'right' %}
+                    {% set counter_bidi = 'left' %}
+                {% else %}
+                    {% set bidi = 'left' %}
+                    {% set counter_bidi = 'right' %}
+                {% endif %}
                 <article>
-                    <div class="thumb col-md-4">
-                        <a href="#">
-                            <img src="/{{item.itemPhoto}}" alt=""/>
-                        </a>
-                    </div>
-                    <div class="preview col-md-8">
-                        <ul class="meta">
-                        <h2>{{item.itemTitle}}</h2>
-                            <!--<li><a href="#">{{item.tags}}</a></li>-->
-                            <!--<li><a href="#">{{item.itemLanguage}}</a></li>-->
-                            <li><a href="#">Published on {{item.postDate}}</a></li>
-                        </ul>
-                        <div class="body">
-                            <p>
-                                {{item.itemContent|safe|slice:":150"}}
-                            </p>
-                            <a href="/newsletter/{{item.id}}">Continue reading</a>
+                    <div class="col-md-12">
+                        <div class="pull-{{bidi}} thumb col-md-4">
+                            <a href="#">
+                                <img src="{{MEDIA_URL}}{{item.itemPhoto}}" alt=""/>
+                            </a>
+                        </div>
+                        <div class="pull-{{counter_bidi}} preview col-md-8">
+                            <ul class="meta">
+                            <h2>{{item.itemTitle}}</h2>
+                                <!--<li><a href="#">{{item.tags}}</a></li>-->
+                                <!--<li><a href="#">{{item.itemLanguage}}</a></li>-->
+                                <li><a href="#">Published on {{item.postDate}}</a></li>
+                            </ul>
+                            <div class="body">
+                                <p>
+                                    {{item.itemContent|safe|slice:":150"}}
+                                </p>
+                                <a href="/newsletter/{{item.id}}">Continue reading</a>
+                            </div>
                         </div>
                     </div>
                 </article>

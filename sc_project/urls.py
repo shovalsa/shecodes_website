@@ -55,24 +55,27 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # this is unsafe in production. Replace!
 
-#
-urlpatterns += i18n_patterns(
-    url(r'^$', index, name="home"),
-    url(r'^members/(?P<id>[^/]+)/$', members),
-    url(r'^members/$', members_index, name="members"),
-    url(r'^tracks/$', tracks, name="tracks"),
-    url(r'^career-center/$', jobs, name="jobs"),
-    url(r'^branches/$', branches, name="branches"),
-    url(r'^next-generation/$', next_generation),
-    url(r'^faq/$', faq),
-    url(r'^team/$', team),
-    url(r'^about/$', about),
-    url(r'^contact/$', contact),
-    url(r'^partners/$', partners),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
-    url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), #this is for defining 'home' in settings.py
-        name='home'),
-    url(r'^signup/$', signup, name='signup'),
-    )
+"""The following adds /en/ or /he/ to the URL. However, for the moment it causes a bug that
+when /en/ is added to the url, the switch to hebrew doesn't work.
+ """
+# urlpatterns += i18n_patterns(
+#     url(r'^$', index, name="home"),
+#     url(r'^members/(?P<id>[^/]+)/$', members),
+#     url(r'^members/$', members_index, name="members"),
+#     url(r'^tracks/$', tracks, name="tracks"),
+#     url(r'^career-center/$', jobs, name="jobs"),
+#     url(r'^branches/$', branches, name="branches"),
+#     url(r'^next-generation/$', next_generation),
+#     url(r'^faq/$', faq),
+#     url(r'^team/$', team),
+#     url(r'^about/$', about),
+#     url(r'^contact/$', contact),
+#     url(r'^partners/$', partners),
+#     url(r'^login/$', auth_views.login, name='login'),
+#     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+#     url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), #this is for defining 'home' in settings.py
+#         name='home'),
+#     url(r'^signup/$', signup, name='signup'),
+#     )
+
 urlpatterns += staticfiles_urlpatterns()

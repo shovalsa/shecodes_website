@@ -1,31 +1,30 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}she codes; contact us{% endblock %}
+{% block title %}she codes('contact us');{% endblock %}
 {% load static%}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
-    <div style="color:white;">
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+        <figcaption>
+            <h1><b>{% trans 'Our Goal' %}</b></h1>
             <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
-        </div>
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+        </figcaption>
+        <figcaption>
+            <h1><b>{% trans 'Community' %}</b></h1>
             <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
-        </div>
-
-    </div>
+        </figcaption>
 </div>
 <div class="container">
-    <h3 class="page-title">{% trans 'Contact Us:' %}
+    <h3 class="page-title">{% trans 'Contact Us: ' %}
     <a href="mailto:contact@she-codes.org" target="_blank"><span id="et-info-email">contact@she-codes.org</span></a></h3>
-    <form method="post">
-        {% csrf_token %}
-        {%trans contact.as_contact %}
-        <div class="form-actions">
-          <button class="btn" type="submit">{% trans 'Send' %}</button>
-        </div>
-    </form>
+    <div class="contact_form">
+        <form method="post">
+            {% csrf_token %}
+            {%trans contact.as_contact %}
+            <div class="form-actions">
+              <button class="btn" type="submit">{% trans 'Send' %}</button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

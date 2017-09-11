@@ -25,8 +25,8 @@ def signup(request):
             user = user_form.save()
             user.refresh_from_db()  # This will load the Profile created by the Signal
             profile_form = ProfileForm(request.POST, instance=user.profile)  # Reload the profile form with the profile instance
-            profile_form.full_clean()  # Manually clean the form this time. It is implicitly called by "is_valid()" method
-            profile_form.save()  # Gracefully save the form
+            profile_form.full_clean()  # Manually cleans the form.
+            profile_form.save()  # saves the form
             login(request, user)
             return redirect('home')
     else:
@@ -36,6 +36,7 @@ def signup(request):
 
 
 def contact(request):
+    sent = False
     if request.method == 'GET':
         contact = ContactForm()
     else:
@@ -51,11 +52,12 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse(_('Invalid header found.'))
             return success(request)
-    return render(request, "contact.html", {'contact': contact})
+    return render(request, "contact.html", {'contact': contact, 'sent': sent})
 
 def success(request):
-    # return HttpResponse('Success! Thank you for your message.')
+    # return HttpResponse('Success! Thank you for your message.') #this will show a message in a blank page
     return render(request, "success.html")
+    pass
 
 def index(request):
     jobs = Job.objects.all()
@@ -80,7 +82,7 @@ def members_index(request):
     users = User.objects.all()
     return render(request, "members_index.html", {'users': users})
 
-# @login_required #only logged in users can enter this page.
+@login_required #only logged in users can enter this page.
 def jobs(request):
     jobs = Job.objects.all()
     return render(request, "jobs.html", {'jobs': jobs})

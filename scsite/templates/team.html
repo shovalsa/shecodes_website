@@ -1,56 +1,52 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}she codes; team{% endblock %}
+{% block title %}she codes(team);{% endblock %}
 {% block content %}
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
-    <div style="color:white;">
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Our Goal' %}</b></h1>
+        <figcaption>
+            <h1><b>{% trans 'Our Goal' %}</b></h1>
             <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
-        </div>
-        <div style="text-align:center; padding: 2.5% 10% 0% 10%;">
-            <h1 class="parallax-title"><b>{% trans 'Community' %}</b></h1>
+        </figcaption>
+        <figcaption>
+            <h1><b>{% trans 'Community' %}</b></h1>
             <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
-        </div>
-
-    </div>
+        </figcaption>
 </div>
-
 <div class="container">
 
 <h3 class="page-title">{%trans 'Team:' %}</h3>
-            <div style="float: left; text-align:center; padding-right: 30px">
+            <!--<div style="float: left; text-align:center; padding-right: 30px">-->
                   {% for member in team %}
-                    {% if member.column == 1%}
-                      <h5><b>{{ member }}</b></h5>
-                        {{ member.title }}<br><br>
-                    {%endif%}
+                      <div class="thumbnail col-xs-3" style="margin: 4%; text-align:center; border: none;">
+                        <h4><b>{{ member }}</b></h4>
+                        {{ member.title }}
+                      </div>
                   {% endfor %}
-            </div>
-            <div style="float: left; text-align:center;  padding-right: 30px">
-                  {% for member in team %}
-                    {% if member.column == 2%}
-                      <h5><b>{{ member }}</b></h5>
-                        {{ member.title }}<br><br>
-                    {%endif%}
-                  {% endfor %}
-            </div>
-            <div style="float: left; text-align:center;padding-right: 30px">
-                  {% for member in team %}
-                    {% if member.column == 3%}
-                      <h5><b>{{ member }}</b></h5>
-                        {{ member.title }}<br><br>
-                    {%endif%}
-                  {% endfor %}
-            </div>
-            <div style="float: left; text-align:center;">
-                  {% for member in team %}
-                    {% if member.column == 4 %}
-                      <h5><b>{{ member }}</b></h5>
-                        {{ member.title }}<br><br>
-                    {%endif%}
-                  {% endfor %}
-            </div>
+            <!--</div>-->
+            <!--<div style="float: left; text-align:center;  padding-right: 30px">-->
+                  <!--{% for member in team %}-->
+                    <!--{% if member.column == 2%}-->
+                      <!--<h5><b>{{ member }}</b></h5>-->
+                        <!--{{ member.title }}<br><br>-->
+                    <!--{%endif%}-->
+                  <!--{% endfor %}-->
+            <!--</div>-->
+            <!--<div style="float: left; text-align:center;padding-right: 30px">-->
+                  <!--{% for member in team %}-->
+                    <!--{% if member.column == 3%}-->
+                      <!--<h5><b>{{ member }}</b></h5>-->
+                        <!--{{ member.title }}<br><br>-->
+                    <!--{%endif%}-->
+                  <!--{% endfor %}-->
+            <!--</div>-->
+            <!--<div style="float: left; text-align:center;">-->
+                  <!--{% for member in team %}-->
+                    <!--{% if member.column == 4 %}-->
+                      <!--<h5><b>{{ member }}</b></h5>-->
+                        <!--{{ member.title }}<br><br>-->
+                    <!--{%endif%}-->
+                  <!--{% endfor %}-->
+            <!--</div>-->
 </div>
     {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-05 22:13+0300\n"
+"POT-Creation-Date: 2017-09-11 23:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,22 +37,6 @@ msgstr "שדה חובה. אנא כתבי כתובת אימייל תקינה"
 msgid "Email address"
 msgstr "כתובת אימייל"
 
-#: .\scsite\forms.py:15
-msgid "username"
-msgstr "שם משתמשת"
-
-#: .\scsite\forms.py:20
-msgid "track"
-msgstr "מסלול"
-
-#: .\scsite\forms.py:20
-msgid "main_branch"
-msgstr "סניף"
-
-#: .\scsite\forms.py:20
-msgid "personal_background"
-msgstr "רקע אישי"
-
 #: .\scsite\forms.py:33
 msgid "Name"
 msgstr "שם"
@@ -71,66 +55,78 @@ msgstr "הודעה"
 
 #: .\scsite\models.py:48
 msgid "Area"
-msgstr ""
+msgstr "אזור"
 
 #: .\scsite\models.py:49
 msgid "אזור"
 msgstr ""
 
-#: .\scsite\models.py:54 .\scsite\models.py:110 .\scsite\models.py:111
-#: .\scsite\models.py:120
+#: .\scsite\models.py:54 .\scsite\models.py:111 .\scsite\models.py:112
+#: .\scsite\models.py:121
 #, fuzzy
 #| msgid "N/A"
 msgid "NA"
-msgstr "חסר"
+msgstr "NA"
 
-#: .\scsite\models.py:101
+#: .\scsite\models.py:102
 msgid "Choose Article Language"
-msgstr ""
+msgstr "שפת המאמר"
 
-#: .\scsite\models.py:101 .\scsite\models.py:117 .\scsite\models.py:132
+#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
 msgid "English"
 msgstr ""
 
-#: .\scsite\models.py:101 .\scsite\models.py:117 .\scsite\models.py:132
+#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
 msgid "עברית"
 msgstr ""
 
-#: .\scsite\models.py:101 .\scsite\models.py:117 .\scsite\models.py:132
+#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
 msgid "عربى"
 msgstr ""
 
-#: .\scsite\models.py:101 .\scsite\models.py:117 .\scsite\models.py:132
+#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
 msgid "русский"
 msgstr ""
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:115
 msgid "Required skill level"
 msgstr "רמת מיומנות דרושה"
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:115
 msgid "Junior"
 msgstr ""
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:115
 msgid "Senior"
 msgstr ""
 
-#: .\scsite\models.py:114
+#: .\scsite\models.py:115
 msgid "Team Leader"
 msgstr "ראשת צוות"
 
-#: .\scsite\models.py:117
+#: .\scsite\models.py:118
 msgid "Choose Offer Language"
-msgstr ""
+msgstr "שפת ההצעה"
 
-#: .\scsite\models.py:132
+#: .\scsite\models.py:133
 msgid "Choose item Language"
-msgstr ""
+msgstr "שפה"
 
-#: .\scsite\views.py:52
+#: .\scsite\views.py:53
 msgid "Invalid header found."
-msgstr ""
+msgstr "פרטים לא תקינים"
+
+#~ msgid "username"
+#~ msgstr "שם משתמשת"
+
+#~ msgid "track"
+#~ msgstr "מסלול"
+
+#~ msgid "main_branch"
+#~ msgstr "סניף"
+
+#~ msgid "personal_background"
+#~ msgstr "רקע אישי"
 
 #~ msgid "e.g. Mondays at 18:30"
 #~ msgstr "למשל, ימי שני ב-18:30"

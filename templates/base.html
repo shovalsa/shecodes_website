@@ -25,17 +25,18 @@
     <!-- although the above is newer, some browsers may not support it. see https://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
 
 </head>
 <body>
     <header >
-            <nav class="container" id="navbar_top">
-                <center>
-                    <a class="logo" href="{% url 'home' %}">
-                        <img class="img-responsive logo" src="{% static "/images/sc_logo.png" %}">
-                    </a>
-                </center>
+        <nav class="navbar-top">
+        {% if dir == 'ltr' %}
+                <a class="logo" href="{% url 'home' %}" style="float:right;">
+                    <img class="img-responsive logo" style="height: 60px; padding-top: 10px;" src="{% static "/images/sc_logo.png" %}"></a>
+        {% else %}
+                <a class="logo" href="{% url 'home' %}" style="float:left;">
+                    <img class="img-responsive logo" style="height: 60px; padding-top: 10px;" src="{% static "/images/sc_logo.png" %}"></a>
+        {% endif %}
             </nav>
     </header>
 
@@ -56,7 +57,7 @@
                             </option>
                           {% endfor %}
                       </select>
-                    </form></li>
+                    </form>
                 </center>
 
                     {% if request.user.is_authenticated %}
@@ -145,40 +146,41 @@
             });
         </script>
     {% load static %}
-    <main>
+    <main style="margin: 70px 0;">
         {%block content%}
         {%endblock%}
     </main>
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-sm-6 footerleft">
-        <div class="logofooter">{% trans 'she codes;' %}</div>
-        <p>{% trans 'she codes; is a community of women in technology, created to achieve an equal number of female and male software developers in Israel.' %}</p>
+      <div class="col-md-4 col-sm-6 paddingtop-bottom">
+        <h6 class="heading7" style="font-size:50px; font-family: 'Special Elite', cursive;">she codes;</h6>
+        <p>she codes; is a community of women in technology, created to achieve an equal number of female and male software developers in Israel.</p>
       </div>
       <div class="col-md-2 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">GENERAL LINKS</h6>
+        <h6 class="heading7">ABOUT US</h6>
         <ul class="footer-ul">
           <li><a href="/about/">About</a></li>
-          <li><a href="/branches/">Branches</a></li>
-          <li><a href="/tracks/">Tracks</a></li>
           <li><a href="/contact/">Contact us</a></li>
+          <li><a href="/partners/">Partners</a></li>
+          <li><a href="/team/">Team</a></li>
+          <li><a href="/faq/">FAQ</a></li>
         </ul>
       </div>
       <div class="col-md-2 col-sm-6 paddingtop-bottom">
-        <h6 class="paddingtop-bottom"> </h6>
+        <h6 class="heading7">RESOURCES</h6>
         <ul class="footer-ul">
           <li><a href="/newsletter/">Newsletter</a></li>
-          <li><a href="/partners/">Partners</a></li>
-          <li><a href="/team/">Team</a></li>
-          <li><a href="/faq/"> FAQ</a></li>
+          <li><a href="/branches/">Branches</a></li>
+          <li><a href="/tracks/">Tracks</a></li>
+          <li><a href="/#/">Lectures</a></li>
         </ul>
       </div>
-      <div class="col-md-4 col-sm-6 footerleft ">
+      <div class="col-md-4 col-sm-6 paddingtop-bottom">
         <h6 class="heading7">CONTACT US</h6>
-        <p><i class="fa fa-home"></i>{% trans ' Street number, St. name, Tel Aviv - Israel.' %}</p>
-        <p><i class="fa fa-phone"></i>{% trans ' Phone (Israel) : +972 9999 999 999.' %}</p>
-        <p><i class="fa fa-envelope"></i>{% trans ' E-mail : contact@she-codes.org.' %}</p>
+        <p><i class="fa fa-home"></i> Street number, St. name, Tel Aviv - Israel.</p>
+        <p><i class="fa fa-phone"></i> Phone (Israel) : +972 9999 999 999.</p>
+        <p><i class="fa fa-envelope"></i> E-mail : contact@she-codes.org.'</p>
       </div>
     </div>
   </div>
@@ -191,5 +193,7 @@
     </div>
   </div>
 </div>
+<script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
+
 </body>
 </html>

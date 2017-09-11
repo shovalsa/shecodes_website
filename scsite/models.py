@@ -81,8 +81,9 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+
     class Meta:
-        ordering = ['team_id']
+        ordering = ['column']
 
 class Faq(models.Model):
     question = models.CharField('Question', max_length=150)

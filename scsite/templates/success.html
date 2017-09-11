@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}she codes; home{% endblock %}
+{% block title %}she codes(success);{% endblock %}
 {% block content %}
 <div class="container">
+    <h3 class="page-title">{% trans 'Contact Us: ' %}
+    <a href="mailto:contact@she-codes.org" target="_blank">
+        <span id="et-info-email">contact@she-codes.org</span></a></h3>
 
-    <h3 class="page-title">{% trans contact_us %}:</h3>
-{%trans 'Email sent. Thank you for your message.' %}
+    <h3 style="color:rgb(19,125,73);">{%trans 'Thank you for your message.' %}</h3>
+    <button class="btn">{%trans 'Go back home' %}</button>
 </div>
 {% endblock %}
