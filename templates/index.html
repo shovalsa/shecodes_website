@@ -35,7 +35,7 @@
       <div class="carousel slide media-carousel" id="media-news">
         <div class="carousel-inner">
         {% for item in news %}
-            {% if item.id == 1  %}
+            {% if item.itemTitle == 'intro'  %}
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}"></a>
@@ -67,7 +67,7 @@
       <div class="carousel slide media-carousel" id="media-events">
         <div class="carousel-inner">
         {% for event in events %}
-            {% if event.id == 1  %}
+            {% if event.eventTitle == 'intro'  %}
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}"></a>
@@ -99,7 +99,7 @@
       <div class="carousel slide media-carousel" id="media-jobs">
         <div class="carousel-inner">
         {% for job in jobs %}
-            {% if job.id == 1  %}
+            {% if job.jobTitle == 'intro'  %}
               <div class="job active">
                 <div class="row">
                     <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}"></a>

@@ -18,21 +18,20 @@
     <h3 class="page-title">{%trans 'Careers:' %}</h3>
     <div class="media">
         {% for job in jobs %}
-            {% if LANGUAGE_BIDI and job.jobLanguage == 'hebrew' %}
-              {% set dir = True %}
-            {% elif LANGUAGE_BIDI == False and job.jobLanguage == 'english' %}
-              {% set dir = True %}
+            {% if LANGUAGE_BIDI %}
+                {% set bidi = 'right' %}
+                {% set counter_bidi = 'left' %}
             {% else %}
-              {% set dir = False %}
+                {% set bidi = 'left' %}
+                {% set counter_bidi = 'right' %}
             {% endif %}
-            {% if dir == True %}
                 <article>
-                    <div class="thumb col-md-4">
+                    <div class="pull-{{bidi}} thumb col-md-3">
                         <a href="#">
-                            <img src="/{{job.jobPhoto}}" alt=""/>
+                            <img src="{{MEDIA_URL}}{{job.jobPhoto}}" alt=""/>
                         </a>
                     </div>
-                    <div class="preview col-md-8">
+                    <div class="pull-{{counter_bidi}} preview col-md-9">
                         <ul class="meta">
                         <h2>{{job.jobTitle}}</h2>
                             <li><a href="#">{{job.company}}</a></li>
@@ -48,7 +47,6 @@
                         </div>
                     </div>
                 </article>
-            {% endif %}
         {% endfor %}
     </div>
 </div>
