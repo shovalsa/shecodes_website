@@ -39,8 +39,8 @@
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}"></a>
-                    <center><h3>{{item.itemTitle}}</h3>
-                    <span>{{item.itemContent|slice:":100"|safe}}</span></center>
+                    <!--<center><h3>{{item.itemTitle}}</h3>-->
+                    <!--<span>{{item.itemContent|slice:":100"|safe}}</span></center>-->
                 </div>
               </div>
             {% else %}
@@ -71,8 +71,8 @@
               <div class="item active">
                 <div class="row" style="margin-right: 0px; margin-left: 0px">
                     <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}"></a>
-                    <center><h3>{{event.eventTitle}}</h3>
-                    <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
+                    <!--<center><h3>{{event.eventTitle}}</h3>-->
+                    <!--<span>{{event.eventDescription|slice:":100"|safe}}</span></center>-->
                 </div>
               </div>
             {% else %}
@@ -103,8 +103,8 @@
               <div class="job active">
                 <div class="row">
                     <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}"></a>
-                    <center><h3>{{job.jobTitle}}</h3>
-                    <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
+                    <!--<center><h3>{{job.jobTitle}}</h3>-->
+                    <!--<span>{{job.jobDescription|slice:":100"|safe}}</span></center>-->
                 </div>
               </div>
             {% else %}
