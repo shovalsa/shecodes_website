@@ -25,6 +25,7 @@
     <!-- although the above is newer, some browsers may not support it. see https://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static "/bootstrap/js/shecodes.js" %}"></script>
 
 </head>
 <body>
@@ -59,12 +60,14 @@
                       </select>
                     </form>
                 </center>
-
                     {% if request.user.is_authenticated %}
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                                <span class="glyphicon glyphicon-user"></span>
+                          <center>
+                              <img src="{{MEDIA_URL}}{{user.profile.avatar}}" alt="" style="max-height: 100px;width: 100px; border-radius: 50%;"/>
+                          </center>
+                                <!--<span class="glyphicon glyphicon-user"></span>-->
                           <ul class="dropdown-menu">
                             <li><a href="/members/{{user.id}}/">{%trans 'My Profile' %}</a></li>
                             <li><a href="/logout/">{%trans 'Log out' %}</a></li>

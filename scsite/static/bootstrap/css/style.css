@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'yiddishkeit';
-    src: url('{% static 'fonts/YiddishkeitAlefAlefAlef-Bold.otf' %}');
+    src: url('static/fonts/YiddishkeitAlefAlefAlef-Bold.otf');
 }
 
 body {
@@ -28,25 +28,37 @@ main {
     padding-top: 30px;
     padding-bottom: 5px; /* This is the space between the heading text and the line */
     border-color: black;
-    font-family: 'Special Elite', cursive, 'yiddishkeit';
+    font-family: 'Special Elite', Lucida sans, cursive;
 	font-size: 32px;
 }
 
 .btn {
-  background-color: rgb(19,125,73);
-  color: white;
+    background-color: rgb(19,125,73);
+    color: white;
 }
 
-.noBorder {
-    border:none !important;
+.btn.focus, .btn:focus, .btn:hover {
+    color: white;
 }
 
+/* style of About text*/
 .mainPar{
     padding-left: 3%;
     padding-right: 3%;
     font-size:18px;
     text-align: justify
 }
+
+/* style of FAQ*/
+.card-header{
+    border-left: 6px solid rgb(19,125,73);
+    background-color: #f9fffa;
+    padding: 3px;
+}
+
+/*-------------------------------*/
+/*             Parallax          */
+/*-------------------------------*/
 
 .parallax-container figcaption {
     color:white;
@@ -56,14 +68,8 @@ main {
 
 
 .parallax-container figcaption h1{
-    font-family: 'Special Elite', Assitant, cursive;
+    font-family: 'Special Elite', Lucida sans;
     font-size: 300%
-}
-
-.card-header{
-    border-left: 6px solid rgb(19,125,73);
-    background-color: #f9fffa;
-    padding: 3px 3px 3px 3px;
 }
 
 figcaption h3{
@@ -71,32 +77,12 @@ figcaption h3{
 }
 
 
-.thumbnail a > img
- {
-  display: block;
-  height:270px;
-  width:auto;
-}
-
-.glyphicon .glyphicon-menu-left {
-    color:white;
-}
-
 /*-------------------------------*/
 /*             Articles          */
 /*-------------------------------*/
 article {
     position: relative;
     margin: 3%;
-}
-
-.thumb {
-    margin-top: 2.5%;
-}
-
-.thumb img {
-    max-height: 150px;
-    width: auto;
 }
 
 .preview {
@@ -436,56 +422,80 @@ article .meta li:last-child:after
 /*-------------------------------*/
 /*        thumbnails            */
 /*-------------------------------*/
+.thumbnail-small {
+    margin-top: 5%;
+}
 
-
-.media-carousel
-{
-  margin-bottom: 0;
-  margin-top: 30px;
-}
-/* Previous button  */
-.media-carousel .carousel-control.left
-{
-  left: 10px;
-  background-image: none;
-  background: none repeat scroll 0 0 rgb(19,125,73);
-  border: 4px solid #FFFFFF;
-  border-radius: 23px 23px 23px 23px;
-  height: 40px;
-  width : 40px;
-  margin-top: 70px
-}
-/* Next button  */
-.media-carousel .carousel-control.right
-{
-  right: 10px !important;
-  background-image: none;
-  background: none repeat scroll 0 0 rgb(19,125,73);
-  border: 4px solid #FFFFFF;
-  border-radius: 23px 23px 23px 23px;
-  height: 40px;
-  width : 40px;
-  margin-top: 70px
-}
-/* Changes the position of the indicators */
-.media-carousel .carousel-indicators
-{
-  right: 50%;
-  top: auto;
-  bottom: 0px;
-  margin-right: -19px;
-}
-/* Changes the colour of the indicators */
-.media-carousel .carousel-indicators li
-{
-  background: rgb(19,125,73);
-}
-.media-carousel .carousel-indicators .active
-{
-  background: transparent;
+.thumbnail-small img{
+    height: 150px;
+    width: 150px;
+    padding: 20px;
 }
 
 
+.thumbnail-big {
+    margin-top: 5%;
+}
+
+.thumbnail-big img{
+    height: 200px;
+    width: 200px  !important;
+    padding-right: 20px;
+}
+
+.thumbnail-big .col-md-3,
+.thumbnail-big .col-md-9 ul{
+    padding: 0;
+    margin: 0;
+}
+
+/*-------------------------------*/
+/*          Carousel             */
+/*-------------------------------*/
+
+.multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carousel-control{
+    &.left, &.right{
+    }
+  }
+}
+
+
+.carousel-control.left,
+.carousel-control.right{
+    background-image: none;
+    height: 60px;
+    width:60px;
+    margin-top:100px;
+    color: green;
+}
 /*-------------------------------*/
 /*           footer              */
 /*-------------------------------*/

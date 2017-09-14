@@ -2,11 +2,6 @@
 {% load i18n %}
 {% load set_var %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-<!--{% if LANGUAGE_BIDI %}-->
-  <!--{% set dir = "rtl" %}-->
-<!--{% else %}-->
-  <!--{% set dir = "ltr" %}-->
-<!--{% endif %}-->
 {% block title %}she codes(home);{% endblock %}
 {% load static%}
 {% block content %}
@@ -27,101 +22,51 @@
 </div>
 
 <div class="container">
-  <div class='column'>
-    <div class='col-md-4'>
+  <div class='row'>
+    <div class='col-md-12'>
         <h2 class="page-title">
             <b>{%trans 'Newsletter' %}</b>
         </h2>
-      <div class="carousel slide media-carousel" id="media-news">
+      <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
-        {% for item in news %}
-            {% if item.itemTitle == 'intro'  %}
-              <div class="item active">
-                <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}"></a>
-                    <!--<center><h3>{{item.itemTitle}}</h3>-->
-                    <!--<span>{{item.itemContent|slice:":100"|safe}}</span></center>-->
-                </div>
-              </div>
-            {% else %}
-              <div class="item">
-                <div class="row">
-                    <a class="thumbnail" href="/newsletter/{{item.id}}"><img alt="" src="{{MEDIA_URL}}{{item.itemPhoto}}"></a>
-                    <center><h3>{{item.itemTitle}}</h3>
-                    <span>{{item.itemContent|slice:":100"|safe}}</span></center>
-                </div>
-              </div>
-          {% endif %}
-      {% endfor %}
-        <a data-slide="prev" href="#media-news" class="left carousel-control"><span class="glyphicon glyphicon-menu-left"></span></a>
-        <a data-slide="next" href="#media-news" class="right carousel-control"><span class="glyphicon glyphicon-menu-right"></span></a>
+          <div class="item active">
+            <div class="col-sm-4"><a href="/newsletter/"><img src="/static/images/newsletter.jpg" class="img-responsive thumbnail-big"></a></div>
+          </div>
+            {% for new in news %}
+          <div class="item">
+            <div class="col-sm-4"><a href="/newsletter/{{new.id}}"><img src="{{MEDIA_URL}}{{new.itemPhoto}}" class="img-responsive thumbnail-big"></a></div>
+          </div>
+            {% endfor %}
+        </div>
+        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
     </div>
-      </div>
-    </div>
-  <div class='column'>
-    <div class='col-md-4'>
+  </div>
+  <div class='row'>
+    <div class='col-md-12'>
         <h2 class="page-title">
             <b>{%trans 'Events' %}</b>
         </h2>
-      <div class="carousel slide media-carousel" id="media-events">
+      <div class="carousel slide multi-item-carousel" id="theCarouselEvent">
         <div class="carousel-inner">
-        {% for event in events %}
-            {% if event.eventTitle == 'intro'  %}
-              <div class="item active">
-                <div class="row" style="margin-right: 0px; margin-left: 0px">
-                    <a class="thumbnail" href="{{event.eventLink}}" target="_blank"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}"></a>
-                    <!--<center><h3>{{event.eventTitle}}</h3>-->
-                    <!--<span>{{event.eventDescription|slice:":100"|safe}}</span></center>-->
-                </div>
-              </div>
-            {% else %}
-              <div class="item">
-                <div class="row">
-                    <a class="thumbnail" href="{{event.eventLink}}"><img alt="" src="{{MEDIA_URL}}{{event.eventPhoto}}" target="_blank"></a>
-                    <center><h3>{{event.eventTitle}}</h3>
-                    <span>{{event.eventDescription|slice:":100"|safe}}</span></center>
-                </div>
-              </div>
-          {% endif %}
-      {% endfor %}
-        <a data-slide="prev" href="#media-events" class="left carousel-control"><span class="glyphicon glyphicon-menu-left"></span></a>
-        <a data-slide="next" href="#media-events" class="right carousel-control"><span class="glyphicon glyphicon-menu-right"></span></a>
+          <div class="item active">
+            <div class="col-sm-4"><a href="https://www.facebook.com/pg/codesshe/events/?ref=page_internal"><img src="/static/images/agenda.png" class="img-responsive thumbnail-big"></a></div>
+          </div>
+            {% for event in events %}
+          <div class="item">
+            <div class="col-sm-4"><a href="{{event.eventLink}}"><img src="{{MEDIA_URL}}{{event.eventPhoto}}" class="img-responsive thumbnail-big">{{new}}</a></div>
+          </div>
+            {% endfor %}
+        </div>
+        <a class="left carousel-control" href="#theCarouselEvent" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarouselEvent" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
+
     </div>
-      </div>
-    </div>
-  <div class='column'>
-    <div class='col-md-4'>
-        <h2 class="page-title">
-            <b>{%trans 'Job Opportunity' %}</b>
-        </h2>
-      <div class="carousel slide media-carousel" id="media-jobs">
-        <div class="carousel-inner">
-        {% for job in jobs %}
-            {% if job.jobTitle == 'intro'  %}
-              <div class="job active">
-                <div class="row">
-                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}"></a>
-                    <!--<center><h3>{{job.jobTitle}}</h3>-->
-                    <!--<span>{{job.jobDescription|slice:":100"|safe}}</span></center>-->
-                </div>
-              </div>
-            {% else %}
-              <div class="item">
-                <div class="row">
-                    <a class="thumbnail" href="/career-center/"><img alt="" src="{{MEDIA_URL}}{{job.jobPhoto}}"></a>
-                    <center><h3>{{job.jobTitle}}</h3>
-                    <span>{{job.jobDescription|slice:":100"|safe}}</span></center>
-                </div>
-              </div>
-          {% endif %}
-      {% endfor %}
-        <a data-slide="prev" href="#media-jobs" class="left carousel-control"><span class="glyphicon glyphicon-menu-left"></span></a>
-        <a data-slide="next" href="#media-jobs" class="right carousel-control"><span class="glyphicon glyphicon-menu-right"></span></a>
-      </div>
-    </div>
-      </div>
-    </div>
+  </div>
 </div>
+<script>
+    carousel()
+</script>
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 23:00+0300\n"
+"POT-Creation-Date: 2017-09-14 21:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: .\scsite\templates\about.html:10 .\scsite\templates\branches.html:16
 #: .\scsite\templates\contact.html:9 .\scsite\templates\faq.html:14
 #: .\scsite\templates\jobs.html:9 .\scsite\templates\members.html:8
-#: .\scsite\templates\members_index.html:16
+#: .\scsite\templates\members_index.html:9
 #: .\scsite\templates\newsletter.html:9
 #: .\scsite\templates\newsletter_index.html:9
 #: .\scsite\templates\next_generation.html:15
@@ -32,7 +32,7 @@ msgstr "המטרה שלנו"
 #: .\scsite\templates\about.html:11 .\scsite\templates\branches.html:17
 #: .\scsite\templates\contact.html:10 .\scsite\templates\faq.html:15
 #: .\scsite\templates\jobs.html:10 .\scsite\templates\members.html:9
-#: .\scsite\templates\members_index.html:17
+#: .\scsite\templates\members_index.html:10
 #: .\scsite\templates\newsletter.html:10
 #: .\scsite\templates\newsletter_index.html:10
 #: .\scsite\templates\next_generation.html:16
@@ -46,7 +46,7 @@ msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ה�
 #: .\scsite\templates\about.html:14 .\scsite\templates\branches.html:20
 #: .\scsite\templates\contact.html:13 .\scsite\templates\faq.html:18
 #: .\scsite\templates\jobs.html:13 .\scsite\templates\members.html:12
-#: .\scsite\templates\members_index.html:20
+#: .\scsite\templates\members_index.html:13
 #: .\scsite\templates\newsletter.html:13
 #: .\scsite\templates\newsletter_index.html:13
 #: .\scsite\templates\next_generation.html:19
@@ -58,7 +58,7 @@ msgstr "קהילה"
 #: .\scsite\templates\about.html:15 .\scsite\templates\branches.html:21
 #: .\scsite\templates\contact.html:14 .\scsite\templates\faq.html:19
 #: .\scsite\templates\jobs.html:14 .\scsite\templates\members.html:13
-#: .\scsite\templates\members_index.html:21
+#: .\scsite\templates\members_index.html:14
 #: .\scsite\templates\newsletter.html:14
 #: .\scsite\templates\newsletter_index.html:14
 #: .\scsite\templates\next_generation.html:20
@@ -111,8 +111,10 @@ msgstr ""
 "האירועים שלנו ועוד."
 
 #: .\scsite\templates\branches.html:25
-msgid "Branches:"
-msgstr "סניפים: "
+#: .\scsite\templates\next_generation.html:38
+#: .\scsite\templates\next_generation.html:56
+msgid "Branches"
+msgstr "סניפים"
 
 #: .\scsite\templates\branches.html:31 .\scsite\templates\branches.html:49
 #: .\scsite\templates\next_generation.html:43
@@ -141,24 +143,27 @@ msgstr "מסלולים בסניף: "
 #: .\scsite\templates\contact.html:18 .\scsite\templates\success.html:7
 #, fuzzy
 #| msgid "Contact Us:"
-msgid "Contact Us: "
-msgstr "צרי קשר: "
+msgid "Contact Us "
+msgstr "צרי קשר "
 
 #: .\scsite\templates\contact.html:25
 msgid "Send"
 msgstr "שלחי"
 
 #: .\scsite\templates\faq.html:23
-msgid "FAQ:"
-msgstr "שאלות ותשובות: "
+msgid "FAQ"
+msgstr "שאלות ותשובות"
 
 #: .\scsite\templates\jobs.html:18
-msgid "Careers:"
-msgstr "הצעות עבודה: "
+#, fuzzy
+#| msgid "Careers:"
+msgid "Careers"
+msgstr "הצעות עבודה "
 
 #: .\scsite\templates\members.html:19
-#, python-format
-msgid " %(user)s's Profile: "
+#, fuzzy, python-format
+#| msgid " %(user)s's Profile: "
+msgid " %(user)s's Profile "
 msgstr "  הפרופיל של: %(user)s"
 
 #: .\scsite\templates\members.html:21
@@ -177,25 +182,27 @@ msgstr "מסלול: "
 msgid "Branch: "
 msgstr "סניף: "
 
-#: .\scsite\templates\members_index.html:25
-msgid "Members:"
-msgstr "חברות קהילה: "
+#: .\scsite\templates\members_index.html:18
+#, fuzzy
+#| msgid "Members:"
+msgid "Members"
+msgstr "חברות קהילה "
 
-#: .\scsite\templates\members_index.html:36
+#: .\scsite\templates\members_index.html:38
 msgid "<strong>Name:</strong> "
 msgstr "<strong>שם:</strong> "
 
-#: .\scsite\templates\members_index.html:37
+#: .\scsite\templates\members_index.html:39
 #, fuzzy
 #| msgid "A she codes; member since: "
 msgid "<strong>A she codes; member since:</strong> "
 msgstr "<strong>;she codes חברת מאז:</strong> "
 
-#: .\scsite\templates\members_index.html:38
+#: .\scsite\templates\members_index.html:40
 msgid "<strong>Track:</strong> "
 msgstr "<strong>מסלול:</strong>"
 
-#: .\scsite\templates\members_index.html:39
+#: .\scsite\templates\members_index.html:41
 msgid "<strong>Branch:</strong> "
 msgstr "<strong>סניף:</strong> "
 
@@ -217,9 +224,13 @@ msgstr "לחזור לאינדקס ולחפש את אותו המאמר בשפה �
 msgid "Take me to index"
 msgstr "קחי אותי לאינדקס"
 
+#: .\scsite\templates\newsletter_index.html:18
+msgid "Newsletter"
+msgstr "ניוזלטר"
+
 #: .\scsite\templates\next_generation.html:24
-msgid "Next Generation:"
-msgstr "הדור הבא: "
+msgid "Next Generation"
+msgstr "הדור הבא"
 
 #: .\scsite\templates\next_generation.html:27
 msgid ""
@@ -242,13 +253,8 @@ msgstr ""
 "בואי לעבוד על פרויקט, ללמוד שפה חדשה, להקשיב להרצאה מרשימה – או ללמוד לקודד "
 "מההתחלה באחד מהמפגשים שלנו."
 
-#: .\scsite\templates\next_generation.html:38
-#: .\scsite\templates\next_generation.html:56
-msgid "Branches"
-msgstr "סניפים"
-
 #: .\scsite\templates\partners.html:18
-msgid "Partners:"
+msgid "Partners"
 msgstr "שותפים"
 
 #: .\scsite\templates\registration\login.html:6
@@ -278,12 +284,14 @@ msgid "Go back home"
 msgstr "חזרה לדף הבית"
 
 #: .\scsite\templates\team.html:18
-msgid "Team:"
-msgstr "צוות:"
+msgid "Team"
+msgstr "צוות"
 
 #: .\scsite\templates\tracks.html:23
-msgid "Tracks:"
-msgstr "מסלולים:"
+#, fuzzy
+#| msgid "Tracks:"
+msgid "Tracks"
+msgstr "מסלולים"
 
 #: .\scsite\templates\tracks.html:37
 msgid "All the tracks are for free."
@@ -310,18 +318,27 @@ msgstr ""
 "לסניף."
 
 #: .\scsite\templates\tracks.html:42
-#, fuzzy
-#| msgid ""
-#| "In each track you study independently, with online lectures and "
-#| "exercises. There are no face-to-face lectures, but mentors are available "
-#| "in each branch to assist you."
 msgid ""
 "In each track you study independently, with online lectures and exercises. "
-"<br>There are no face-to-face lectures, but mentors are available in each "
-"branch to assist you."
+"There are no face-to-face lectures, but mentors are available in each branch "
+"to assist you."
 msgstr ""
-"בכל מסלול הלמידה היא עצמאית  - יש הרצאות מקוונות ותרגילים. <br>אין הרצאות "
-"פרונטליות, אך יש מדריכות זמינות בכל סניף בכדי לעזור לך בכל דבר שתצטרכי. "
+"הלמידה בכל מסלול היא עצמאית באמצעות הרצאות מקוונות ותרגילים. אין הרצאות פרונטליות אך יש מדריכות זמינות בכל סניף שיכולות לעזור כל אימת שתצטרכי."
+
+#~ msgid "Branches:"
+#~ msgstr "סניפים "
+
+#~ msgid "FAQ:"
+#~ msgstr "שאלות ותשובות "
+
+#~ msgid "Next Generation:"
+#~ msgstr "הדור הבא: "
+
+#~ msgid "Partners:"
+#~ msgstr "שותפים"
+
+#~ msgid "Team:"
+#~ msgstr "צוות"
 
 #~ msgid "Education"
 #~ msgstr "חינוך"
@@ -351,23 +368,11 @@ msgstr ""
 #~ msgid "Contact Us"
 #~ msgstr "צרי קשר"
 
-#~ msgid "FAQ"
-#~ msgstr "שאלות ותשובות"
-
 #~ msgid "career center"
 #~ msgstr "מרכז קריירה"
 
 #~ msgid "members"
 #~ msgstr "חברות קהילה"
-
-#~ msgid "Next Generation"
-#~ msgstr "הדור הבא"
-
-#~ msgid "Partners"
-#~ msgstr "שותפים"
-
-#~ msgid "Team"
-#~ msgstr "צוות"
 
 #~ msgid "tracks"
 #~ msgstr "מסלולים"

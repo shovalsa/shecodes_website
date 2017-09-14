@@ -102,7 +102,8 @@ class News(models.Model):
     languages = ((None, _("Choose Article Language")), ('english', _('English')), ('hebrew', _('עברית')), ('arabic', _('عربى')), ('russian', _('русский')),)
     itemLanguage = models.CharField(max_length=150, choices=languages, null=True)
 
-
+    class Meta:
+        ordering = ['-postDate']
 
     def __str__(self):
         return self.itemTitle

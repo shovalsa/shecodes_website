@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 23:00+0300\n"
+"POT-Creation-Date: 2017-09-14 21:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,10 +59,10 @@ msgstr "אזור"
 
 #: .\scsite\models.py:49
 msgid "אזור"
-msgstr ""
+msgstr "אזור"
 
-#: .\scsite\models.py:54 .\scsite\models.py:111 .\scsite\models.py:112
-#: .\scsite\models.py:121
+#: .\scsite\models.py:54 .\scsite\models.py:112 .\scsite\models.py:113
+#: .\scsite\models.py:122
 #, fuzzy
 #| msgid "N/A"
 msgid "NA"
@@ -72,43 +72,43 @@ msgstr "NA"
 msgid "Choose Article Language"
 msgstr "שפת המאמר"
 
-#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
+#: .\scsite\models.py:102 .\scsite\models.py:119 .\scsite\models.py:134
 msgid "English"
 msgstr ""
 
-#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
+#: .\scsite\models.py:102 .\scsite\models.py:119 .\scsite\models.py:134
 msgid "עברית"
 msgstr ""
 
-#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
+#: .\scsite\models.py:102 .\scsite\models.py:119 .\scsite\models.py:134
 msgid "عربى"
 msgstr ""
 
-#: .\scsite\models.py:102 .\scsite\models.py:118 .\scsite\models.py:133
+#: .\scsite\models.py:102 .\scsite\models.py:119 .\scsite\models.py:134
 msgid "русский"
 msgstr ""
 
-#: .\scsite\models.py:115
+#: .\scsite\models.py:116
 msgid "Required skill level"
 msgstr "רמת מיומנות דרושה"
 
-#: .\scsite\models.py:115
+#: .\scsite\models.py:116
 msgid "Junior"
 msgstr ""
 
-#: .\scsite\models.py:115
+#: .\scsite\models.py:116
 msgid "Senior"
 msgstr ""
 
-#: .\scsite\models.py:115
+#: .\scsite\models.py:116
 msgid "Team Leader"
 msgstr "ראשת צוות"
 
-#: .\scsite\models.py:118
+#: .\scsite\models.py:119
 msgid "Choose Offer Language"
 msgstr "שפת ההצעה"
 
-#: .\scsite\models.py:133
+#: .\scsite\models.py:134
 msgid "Choose item Language"
 msgstr "שפה"
 
