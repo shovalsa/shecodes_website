@@ -29,7 +29,7 @@
         <img src="/static/images/news/{{news.itemPhoto}}" alt=".">
     </div>
     <div class="article" style="padding-left: 5%">
-        {{news.itemContent|safe}}
+        {{news.itemContent|safe|linebreaks}}
     </div>
 {% else %}
     <section style="margin: 7%;">

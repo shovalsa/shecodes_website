@@ -22,49 +22,62 @@
 </div>
 
 <div class="container">
-  <div class='row'>
-    <div class='col-md-12'>
+    <div class='col-md-12' style="padding-bottom: 50px;">
         <h2 class="page-title">
             <b>{%trans 'Newsletter' %}</b>
         </h2>
       <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
           <div class="item active">
-            <div class="col-sm-4"><a href="/newsletter/"><img src="/static/images/newsletter.jpg" class="img-responsive thumbnail-big"></a></div>
+            <div class="col-sm-4  thumbnail-big">
+              <center><h4>See all items</h4></center>
+                <a href="/newsletter/">
+                    <img src="/static/images/newsletter.jpg" class="img-responsive thumbnail-big">
+                </a>
+            </div>
           </div>
             {% for new in news %}
           <div class="item">
-            <div class="col-sm-4"><a href="/newsletter/{{new.id}}"><img src="{{MEDIA_URL}}{{new.itemPhoto}}" class="img-responsive thumbnail-big"></a></div>
+            <div class="col-sm-4 thumbnail-big" >
+              <center><h4>{{new}}</h4>
+                <a href="/newsletter/{{new.id}}">
+                    <img src="{{MEDIA_URL}}{{new.itemPhoto}}" class="img-responsive">
+                </a>
+                    <div class="carousel-caption">{{new.itemContent|safe|slice:":150"}}</div></center>
+            </div>
           </div>
             {% endfor %}
         </div>
-        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        <a class="left carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
     </div>
-  </div>
-  <div class='row'>
-    <div class='col-md-12'>
+    <div class='col-md-12' style="padding-bottom: 50px;">
         <h2 class="page-title">
             <b>{%trans 'Events' %}</b>
         </h2>
       <div class="carousel slide multi-item-carousel" id="theCarouselEvent">
         <div class="carousel-inner">
           <div class="item active">
-            <div class="col-sm-4"><a href="https://www.facebook.com/pg/codesshe/events/?ref=page_internal"><img src="/static/images/agenda.png" class="img-responsive thumbnail-big"></a></div>
+            <div class="col-sm-4 thumbnail-big"><a href="https://www.facebook.com/pg/codesshe/events/?ref=page_internal"><img src="/static/images/agenda.png" class="img-responsive"></a></div>
           </div>
             {% for event in events %}
           <div class="item">
-            <div class="col-sm-4"><a href="{{event.eventLink}}"><img src="{{MEDIA_URL}}{{event.eventPhoto}}" class="img-responsive thumbnail-big">{{new}}</a></div>
+            <div class="col-sm-4 thumbnail-big">
+                <center>
+                    <h4>{{event.eventTitle}}</h4>
+                    <a href="{{event.eventLink}}">
+                <img src="{{MEDIA_URL}}{{event.eventPhoto}}" class="img-responsive"></a>
+                    <div class="carousel-caption">{{new.itemContent|safe|slice:":150"}}</div></center>
+</div>
           </div>
             {% endfor %}
         </div>
-        <a class="left carousel-control" href="#theCarouselEvent" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarouselEvent" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        <a class="left carousel-control" href="#theCarouselEvent" data-slide="next"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarouselEvent" data-slide="prev"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
-
+</div>
     </div>
-  </div>
 </div>
 <script>
     carousel()

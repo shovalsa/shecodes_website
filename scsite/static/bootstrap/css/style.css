@@ -438,9 +438,8 @@ article .meta li:last-child:after
 }
 
 .thumbnail-big img{
-    height: 200px;
-    width: 200px  !important;
-    padding-right: 20px;
+    height: 250px;
+    width: 250px  !important;
 }
 
 .thumbnail-big .col-md-3,
@@ -496,6 +495,27 @@ article .meta li:last-child:after
     margin-top:100px;
     color: green;
 }
+
+.carousel-inner > .item {
+    -webkit-transition: 1s ease-in-out left;
+    -moz-transition: 1s ease-in-out left;
+    -o-transition: 1s ease-in-out left;
+    transition: 1s ease-in-out left;
+}
+
+.carousel .carousel-caption {
+    visibility: hidden;
+}
+
+.carousel:hover .carousel-caption,
+.carousel:focus .carousel-caption {
+    visibility: visible;
+    width: 250px;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.75);
+    left: 16%;
+    top: 14%;
+    }
 /*-------------------------------*/
 /*           footer              */
 /*-------------------------------*/
