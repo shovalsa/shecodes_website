@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-14 21:30+0300\n"
+"POT-Creation-Date: 2017-09-26 14:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,19 +37,19 @@ msgstr "שדה חובה. אנא כתבי כתובת אימייל תקינה"
 msgid "Email address"
 msgstr "כתובת אימייל"
 
-#: .\scsite\forms.py:33
+#: .\scsite\forms.py:38
 msgid "Name"
 msgstr "שם"
 
-#: .\scsite\forms.py:34
+#: .\scsite\forms.py:39
 msgid "Email"
 msgstr "אימייל"
 
-#: .\scsite\forms.py:35
+#: .\scsite\forms.py:40
 msgid "Subject"
 msgstr "נושא"
 
-#: .\scsite\forms.py:36
+#: .\scsite\forms.py:41
 msgid "Message"
 msgstr "הודעה"
 
@@ -112,7 +112,7 @@ msgstr "שפת ההצעה"
 msgid "Choose item Language"
 msgstr "שפה"
 
-#: .\scsite\views.py:53
+#: .\scsite\views.py:101
 msgid "Invalid header found."
 msgstr "פרטים לא תקינים"
 

@@ -19,6 +19,11 @@ class ProfileForm(ModelForm):
         model = Profile
         fields = ('track', 'main_branch', 'personal_background', 'avatar')
 
+class UpdateUser(ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
 
 class MyForm(forms.Form):
   def as_contact(self):

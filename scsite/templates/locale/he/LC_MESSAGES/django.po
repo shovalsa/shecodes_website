@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-14 21:30+0300\n"
+"POT-Creation-Date: 2017-09-26 14:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,8 +151,8 @@ msgid "Send"
 msgstr "שלחי"
 
 #: .\scsite\templates\faq.html:23
-msgid "FAQ"
-msgstr "שאלות ותשובות"
+msgid "FAQ:"
+msgstr "שאלות ותשובות "
 
 #: .\scsite\templates\jobs.html:18
 #, fuzzy
@@ -290,7 +290,7 @@ msgstr "צוות"
 #: .\scsite\templates\tracks.html:23
 #, fuzzy
 #| msgid "Tracks:"
-msgid "Tracks"
+msgid "Tracks:"
 msgstr "מסלולים"
 
 #: .\scsite\templates\tracks.html:37
@@ -320,16 +320,17 @@ msgstr ""
 #: .\scsite\templates\tracks.html:42
 msgid ""
 "In each track you study independently, with online lectures and exercises. "
-"There are no face-to-face lectures, but mentors are available in each branch "
-"to assist you."
+"There are no face-to-face lectures, but mentors are available in each "
+"branch to assist you."
 msgstr ""
-"הלמידה בכל מסלול היא עצמאית באמצעות הרצאות מקוונות ותרגילים. אין הרצאות פרונטליות אך יש מדריכות זמינות בכל סניף שיכולות לעזור כל אימת שתצטרכי."
+"הלמידה בכל מסלול היא עצמאית באמצעות הרצאות מקוונות ותרגילים. אין הרצאות "
+"פרונטליות אך יש מדריכות זמינות בכל סניף שיכולות לעזור כל אימת שתצטרכי."
+
+#~ msgid "FAQ"
+#~ msgstr "שאלות ותשובות"
 
 #~ msgid "Branches:"
 #~ msgstr "סניפים "
-
-#~ msgid "FAQ:"
-#~ msgstr "שאלות ותשובות "
 
 #~ msgid "Next Generation:"
 #~ msgstr "הדור הבא: "

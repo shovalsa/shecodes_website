@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from scsite.views import index, members, members_index, tracks, branches, faq, team, contact, partners, \
-    next_generation, about, jobs, signup, newsletter, newsletter_index
+    next_generation, about, jobs, signup, newsletter, newsletter_index, profileUpdate
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf.urls.i18n import i18n_patterns
@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="home"),
     url(r'^members/(?P<id>[^/]+)/$', members),
+    url(r'^my-profile/$', profileUpdate, name='my-profile'),
     url(r'^members/$', members_index, name="members"),
     url(r'^tracks/$', tracks, name="tracks"),
     url(r'^career-center/$', jobs, name="jobs"),
