@@ -23,6 +23,8 @@ $> pip install pyt
 $> pip install django~=1.10.0
 ```
 
+** you will need to get a sensitive.py file to make the website work. contact admin for that.
+
 finally run the server to view and work on the website:
 ```ruby
 $> python manage.py runserver
