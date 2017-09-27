@@ -26,15 +26,13 @@ This is best done (and more up-to-date) via requirements.txt
 ```ruby
 $> pip install -r requirements.txt
 ```
-Unzip static.zip inside sc_project>scsite>static. Note that a file sensitive.py is missing. In need, ask me for the file.
+Unzip static.zip inside sc_project>scsite>static. Note that a file sensitive.py is missing.
+In need, ask me for the file.
 
-<<<<<<< HEAD
 ** you will need to get a sensitive.py file to make the website work. contact admin for that.
 
-finally run the server to view and work on the website:
-=======
 Finally run the server to view and work on the website:
->>>>>>> bc5398b37591783ed4507d7df71905dc02902c35
+
 ```ruby
 $> python manage.py runserver
 ```
