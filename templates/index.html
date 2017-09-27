@@ -7,94 +7,82 @@
 {% block content %}
 
 <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
-        <figcaption>
-          <h1><b>{% trans 'Our Goal' %}</b></h1>
-          <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
-        </figcaption>
-        <figcaption>
-          <h1><b>{% trans 'Community' %}</b></h1>
-          <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
-        </figcaption>
-        <figcaption>
-          <h1><b>{% trans 'Education' %}</b></h1>
-          <h3>{% trans 'Learn some code with us. “The Next Generation” of our community.' %}</h3>
-        </figcaption>
+    <figcaption>
+      <h1><b>{% trans 'Our Goal' %}</b></h1>
+      <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
+    </figcaption>
+    <figcaption>
+      <h1><b>{% trans 'Community' %}</b></h1>
+      <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
+    </figcaption>
+    <figcaption>
+      <h1><b>{% trans 'Education' %}</b></h1>
+      <h3>{% trans 'Learn some code with us. “The Next Generation” of our community.' %}</h3>
+    </figcaption>
 </div>
 
 <div class="container">
-    <div class='col-md-12' style="padding-bottom: 50px;">
-        <h2 class="page-title">
-            <b>{%trans 'Newsletter' %}</b>
-        </h2>
-      <div class="carousel slide multi-item-carousel" id="theCarousel">
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="col-sm-4  thumbnail-big">
-              <center><h4>See all items</h4></center>
-                <a href="/newsletter/">
-                    <img src="/static/images/newsletter.jpg" class="img-responsive thumbnail-big">
-                </a>
-            </div>
+  <div class='col-md-12' style="padding-bottom: 50px;">
+    <h2 class="page-title">
+      <b>{%trans 'Newsletter' %}</b>
+    </h2>
+    <div class="carousel slide multi-item-carousel" id="theCarousel">
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="col-sm-4 thumbnail-big">
+              <a href="/newsletter/">
+                <h4>See all items</h4>
+                <img src="/static/images/newsletter.jpg" class="img-responsive thumbnail-big">
+              </a>
           </div>
-            {% for new in news %}
-          <div class="item">
-            <div class="col-sm-4 thumbnail-big" >
-              <center><h4>{{new}}</h4>
-                <a href="/newsletter/{{new.id}}">
-                    <img src="{{MEDIA_URL}}{{new.itemPhoto}}" class="img-responsive">
-                </a>
-                    <div class="carousel-caption">{{new.itemContent|slice:":150"}}</div></center>
-            </div>
-          </div>
-            {% endfor %}
         </div>
-        <a class="left carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        {% for new in news %}
+        <div class="item">
+          <div class="col-sm-4 thumbnail-big">
+            <a href="/newsletter/{{new.id}}">
+              <h4>{{new}}</h4>
+              <img src="{{MEDIA_URL}}{{new.itemPhoto}}" class="img-responsive">
+            </a>
+            <div class="carousel-caption">{{new.itemContent|slice:":150"}}</div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
+      <a class="left carousel-control" href="#theCarousel" data-slide="next">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+      </a>
+      <a class="right carousel-control" href="#theCarousel" data-slide="prev">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+      </a>
     </div>
-    <div class='col-md-12' style="padding-bottom: 50px;">
-        <h2 class="page-title">
-            <b>{%trans 'Events' %}</b>
-        </h2>
-      <div class="carousel slide multi-item-carousel" id="theCarouselEvent">
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="col-sm-4 thumbnail-big"><a href="https://www.facebook.com/pg/codesshe/events/?ref=page_internal"><img src="/static/images/agenda.png" class="img-responsive"></a></div>
+  </div>
+  <div class='col-md-12' style="padding-bottom: 50px;">
+    <h2 class="page-title">
+      <b>{%trans 'Events' %}</b>
+    </h2>
+    <div class="carousel slide multi-item-carousel" id="theCarouselEvent">
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="col-sm-4 thumbnail-big">
+            <a href="https://www.facebook.com/pg/codesshe/events/?ref=page_internal">
+              <img src="/static/images/agenda.png" class="img-responsive">
+            </a>
           </div>
-            {% for event in events %}
-          <div class="item">
-            <div class="col-sm-4 thumbnail-big">
-                <center>
-                    <h4>{{event.eventTitle}}</h4>
-                    <a href="{{event.eventLink}}">
-                <img src="{{MEDIA_URL}}{{event.eventPhoto}}" class="img-responsive"></a>
-                    <div class="carousel-caption">{{new.itemContent|safe|slice:":150"}}</div></center>
-</div>
-          </div>
-            {% endfor %}
         </div>
-        <a class="left carousel-control" href="#theCarouselEvent" data-slide="next"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarouselEvent" data-slide="prev"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        {% for event in events %}
+        <div class="item">
+          <div class="col-sm-4 thumbnail-big">
+            <a href="{{event.eventLink}}">
+              <h4>{{event.eventTitle}}</h4>
+              <img src="{{MEDIA_URL}}{{event.eventPhoto}}" class="img-responsive">
+            </a>
+            <div class="carousel-caption">{{new.itemContent|safe|slice:":150"}}</div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-</div>
-<script>
-$('.multi-item-carousel').carousel({
-  interval: false
-});
-
-$('.multi-item-carousel .item').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-
-  if (next.next().length>0) {
-    next.next().children(':first-child').clone().appendTo($(this));
-  } else {
-  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-  }
-});
-</script>
+      <a class="left carousel-control" href="#theCarouselEvent" data-slide="next"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a class="right carousel-control" href="#theCarouselEvent" data-slide="prev"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
 </div>
 {% endblock %}

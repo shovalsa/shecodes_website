@@ -20,183 +20,146 @@
     <link rel="shortcut icon" href="{% static "/images/favicon.ico" %}">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito|Quicksand|Assistant|Special+Elite" />
     <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/style.css" %}">
-
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <!-- although the above is newer, some browsers may not support it. see https://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--<script src="{% static "/bootstrap/js/shecodes.js" %}"></script>-->
-
 </head>
 <body>
-    <header >
-        <nav class="navbar-top">
-        {% if dir == 'ltr' %}
-                <a class="logo" href="{% url 'home' %}" style="float:right;">
-                    <img class="img-responsive logo" style="height: 60px; padding-top: 10px;" src="{% static "/images/sc_logo.png" %}"></a>
-        {% else %}
-                <a class="logo" href="{% url 'home' %}" style="float:left;">
-                    <img class="img-responsive logo" style="height: 60px; padding-top: 10px;" src="{% static "/images/sc_logo.png" %}"></a>
-        {% endif %}
-            </nav>
-    </header>
-
-    <div id="wrapper">
-        <div class="overlay"></div>
-        <!-- Sidebar -->
+  <header>
+    <nav class="navbar-top">
+      {% if dir == 'ltr' %}
+      <a class="logo" href="{% url 'home' %}" style="float:right;">
+        <img class="img-responsive logo" style="height: 60px; padding-top: 10px;" src="{% static "/images/sc_logo.png" %}">
+      </a>
+      {% else %}
+      <a class="logo" href="{% url 'home' %}" style="float:left;">
+        <img class="img-responsive logo" style="height: 60px; padding-top: 10px;" src="{% static "/images/sc_logo.png" %}">
+      </a>
+      {% endif %}
+    </nav>
+  </header>
+  <div id="wrapper">
+    <div class="overlay"></div>
+    <!-- Sidebar -->
     <div>
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation" >
-            <ul class="nav sidebar-nav" >
-                <center><li>
-                    <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
-                      <input name="next" type="hidden" value="{{ redirect_to }}" />
-                      <select name="language" onchange="this.form.submit()">
-                        {% get_language_info_list for LANGUAGES as languages %}
-                          {% for language in languages %}
-                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                              {{ language.name_local }}
-                            </option>
-                          {% endfor %}
-                      </select>
-                    </form>
-                </center>
-                    {% if request.user.is_authenticated %}
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                          <center>
-                              <img src="{{MEDIA_URL}}{{user.profile.avatar}}" alt="" style="max-height: 100px;width: 100px; border-radius: 50%;"/>
-                          </center>
-                                <!--<span class="glyphicon glyphicon-user"></span>-->
-                          <ul class="dropdown-menu">
-                            <li><a href="/members/{{user.id}}/">{%trans 'My Profile' %}</a></li>
-                            <li><a href="/logout/">{%trans 'Log out' %}</a></li>
-                          </ul></a>
-                        </li>
-                    {% else %}
-                        <li><a href="/login/">{%trans 'Login' %}</a></li>
-                        <li><a href="/signup/">{%trans 'Join Us!' %}</a></li>
-                    {% endif %}
-               <li><a href="/about/">{%trans 'About' %}</a></li>
-                {% if request.user.is_authenticated %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                              {%trans 'Community' %}</a>
-                          <ul class="dropdown-menu">
-                            <li><a href="/members/">{%trans 'members' %}</a></li>
-                            <li><a href="/newsletter/">{%trans 'newsletter' %}</a></li>
-                          </ul>
-                    </li>
-                {% endif %}
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">
-                      {%trans 'Activities' %}</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="/tracks/" >{%trans 'Tracks' %}</a></li>
-                    <li><a href='/branches/'>{%trans 'Branches' %}</a></li>
-                    <li><a href="/next-generation/" >{%trans 'Next Generation' %}</a></li>
-                  </ul>
-                </li>
-                <li><a href="/faq/">{%trans 'FAQ' %}</a></li>
-                <li><a href="/team/">{%trans 'Team' %}</a></li>
-                <li><a href="/partners/">{%trans 'Partners' %}</a></li>
-                <li><a href="/contact/">{%trans 'Contact Us' %}</a></li>
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation" >
+        <ul class="nav sidebar-nav">
+          <li class="center">
+            <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
+              <input name="next" type="hidden" value="{{ redirect_to }}" />
+              <select name="language" onchange="this.form.submit()">
+                {% get_language_info_list for LANGUAGES as languages %}
+                  {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>{{ language.name_local }}</option>
+                  {% endfor %}
+              </select>
+            </form>
+          </li>
+          {% if request.user.is_authenticated %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <img src="{{MEDIA_URL}}{{user.profile.avatar}}" alt="תמונת משתמש" class="avatar"/>
+                {% blocktrans %} {{ user }} {% endblocktrans %}
+                <!--<span class="glyphicon glyphicon-user"></span>-->
+                <ul class="dropdown-menu">
+                  <li><a href="/members/{{user.id}}/">{%trans 'My Profile' %}</a></li>
+                  <li><a href="/logout/">{%trans 'Log out' %}</a></li>
+                </ul>
+              </a>
+            </li>
+          {% else %}
+            <li><a href="/login/">{%trans 'Login' %}</a></li>
+            <li><a href="/signup/">{%trans 'Join Us!' %}</a></li>
+          {% endif %}
+          <li><a href="/about/">{%trans 'About' %}</a></li>
+          {% if request.user.is_authenticated %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                {%trans 'Community' %}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/members/">{%trans 'members' %}</a></li>
+                <li><a href="/newsletter/">{%trans 'newsletter' %}</a></li>
+              </ul>
+            </li>
+          {% endif %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+               aria-expanded="false">
+                {%trans 'Activities' %}</a>
+            <ul class="dropdown-menu">
+              <li><a href="/tracks/" >{%trans 'Tracks' %}</a></li>
+              <li><a href='/branches/'>{%trans 'Branches' %}</a></li>
+              <li><a href="/next-generation/" >{%trans 'Next Generation' %}</a></li>
             </ul>
-        </nav>
+          </li>
+          <li><a href="/faq/">{%trans 'FAQ' %}</a></li>
+          <li><a href="/team/">{%trans 'Team' %}</a></li>
+          <li><a href="/partners/">{%trans 'Partners' %}</a></li>
+          <li><a href="/contact/">{%trans 'Contact Us' %}</a></li>
+        </ul>
+      </nav>
     </div>
-            <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-    			<span class="hamb-middle"></span>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+        <span class="hamb-top"></span>
+  			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
-            </button>
+      </button>
+    </div>
+  {% load static %}
+  <main style="margin: 70px 0;">
+    {%block content%}
+    {%endblock%}
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 paddingtop-bottom">
+          <h6 class="heading7" style="font-size:50px; font-family: 'Special Elite', cursive;">she codes;</h6>
+          <p>she codes; is a community of women in technology, created to achieve an equal number of female and male software developers in Israel.</p>
         </div>
-</div>
-<script>
-   $(document).ready(function () {
-      var trigger = $('.hamburger'),
-          overlay = $('.overlay'),
-         isClosed = false;
-
-        trigger.click(function () {
-          hamburger_cross();
-        });
-
-        function hamburger_cross() {
-
-          if (isClosed == true) {
-            overlay.hide();
-            trigger.removeClass('is-open');
-            trigger.addClass('is-closed');
-            isClosed = false;
-          } else {
-            overlay.show();
-            trigger.removeClass('is-closed');
-            trigger.addClass('is-open');
-            isClosed = true;
-          }
-      }
-
-      $('[data-toggle="offcanvas"]').click(function () {
-            $('#wrapper').toggleClass('toggled');
-      });
-
-    });
-</script>
-    {% load static %}
-    <main style="margin: 70px 0;">
-        {%block content%}
-        {%endblock%}
-    </main>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7" style="font-size:50px; font-family: 'Special Elite', cursive;">she codes;</h6>
-        <p>she codes; is a community of women in technology, created to achieve an equal number of female and male software developers in Israel.</p>
+        <div class="col-md-2 col-sm-6 paddingtop-bottom">
+          <h6 class="heading7">ABOUT US</h6>
+          <ul class="footer-ul">
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact us</a></li>
+            <li><a href="/partners/">Partners</a></li>
+            <li><a href="/team/">Team</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-6 paddingtop-bottom">
+          <h6 class="heading7">RESOURCES</h6>
+          <ul class="footer-ul">
+            <li><a href="/newsletter/">Newsletter</a></li>
+            <li><a href="/branches/">Branches</a></li>
+            <li><a href="/tracks/">Tracks</a></li>
+            <li><a href="/#/">Lectures</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-6 paddingtop-bottom">
+          <h6 class="heading7">CONTACT US</h6>
+          <p><i class="fa fa-home"></i> Street number, St. name, Tel Aviv - Israel.</p>
+          <p><i class="fa fa-phone"></i> Phone (Israel) : +972 9999 999 999.</p>
+          <p><i class="fa fa-envelope"></i> E-mail : contact@she-codes.org.'</p>
+        </div>
       </div>
-      <div class="col-md-2 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">ABOUT US</h6>
-        <ul class="footer-ul">
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact us</a></li>
-          <li><a href="/partners/">Partners</a></li>
-          <li><a href="/team/">Team</a></li>
-          <li><a href="/faq/">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">RESOURCES</h6>
-        <ul class="footer-ul">
-          <li><a href="/newsletter/">Newsletter</a></li>
-          <li><a href="/branches/">Branches</a></li>
-          <li><a href="/tracks/">Tracks</a></li>
-          <li><a href="/#/">Lectures</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">CONTACT US</h6>
-        <p><i class="fa fa-home"></i> Street number, St. name, Tel Aviv - Israel.</p>
-        <p><i class="fa fa-phone"></i> Phone (Israel) : +972 9999 999 999.</p>
-        <p><i class="fa fa-envelope"></i> E-mail : contact@she-codes.org.'</p>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    <div class="container">
+      <div class="col-md-6">
+        <p>© 2017 - Proudly created by she codes; members</p>
       </div>
     </div>
   </div>
-</footer>
-
-<div class="copyright">
-  <div class="container">
-    <div class="col-md-6">
-      <p>© 2017 - Proudly created by she codes; members</p>
-    </div>
-  </div>
-</div>
-<script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
-
+  
+  <script src="/static/bootstrap/js/parallax.js-1.4.2/parallax.js-1.4.2/parallax.js"></script>
+  <script src="{% static "/bootstrap/js/shecodes.js" %}"></script>
 </body>
 </html>
