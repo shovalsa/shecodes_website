@@ -15,7 +15,7 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline, )
-    list_display = ('is_superuser', 'username', 'email', 'first_name', 'last_name', 'is_staff', 'get_branch')
+    list_display = ('username', 'is_superuser', 'email', 'first_name', 'last_name', 'is_staff', 'get_branch')
     list_select_related = ('profile', )
 
     def get_branch(self, instance):

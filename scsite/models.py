@@ -13,7 +13,7 @@ class Profile(models.Model):
     track = models.ForeignKey('Track', blank=True, default=1)
     personal_background = models.TextField('Personal Background', max_length=2000, blank=True)
     personal_background_hebrew = models.TextField('Personal Background', max_length=2000, blank=True)
-    avatar = models.ImageField(upload_to = 'images/avatars/', default="images/avatars/default_member.png")
+    avatar = models.ImageField('Profile Picture', upload_to = 'images/avatars/', default="images/avatars/default_member.png")
 
     def __str__(self):
         """
@@ -21,11 +21,11 @@ class Profile(models.Model):
         """
         return self.user.username
 
-@receiver(post_save, sender=User)
-def create_or_update_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-    instance.profile.save()
+    @receiver(post_save, sender=User)
+    def create_or_update_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+        instance.profile.save()
 
 
 class Track(models.Model):
