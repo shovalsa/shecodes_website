@@ -554,7 +554,7 @@ button.hamburger.is-open .hamb-bottom {
 
 .carousel .carousel-caption {
     visibility: hidden;
-    left:9%;
+    left:16%;
 }
 
 .thumbnail-big:hover .carousel-caption,
@@ -563,7 +563,7 @@ button.hamburger.is-open .hamb-bottom {
   width: 250px;
   height: 250px;
   background: rgba(109, 109, 109, .75);
-  right: 9%;
+  right: 16%;
   bottom: 0;
   padding: 1em;
 }
