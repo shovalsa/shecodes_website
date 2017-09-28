@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-14 21:30+0300\n"
+"POT-Creation-Date: 2017-09-26 14:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,6 +46,7 @@ msgid "About"
 msgstr "עלינו"
 
 #: .\templates\base.html:85 .\templates\index.html:15
+#: .\templates\profile.html:13
 msgid "Community"
 msgstr "קהילה"
 
@@ -91,17 +92,17 @@ msgstr "שותפים"
 msgid "Contact Us"
 msgstr "צרי קשר"
 
-#: .\templates\index.html:11
+#: .\templates\index.html:11 .\templates\profile.html:9
 msgid "Our Goal"
 msgstr "המטרה שלנו "
 
-#: .\templates\index.html:12
+#: .\templates\index.html:12 .\templates\profile.html:10
 msgid ""
 "is to reach 50 percent female software developers in the IT industry within "
 "a decade."
 msgstr "היא להגיע ל-50% נשים במשרות פיתוח בעולם ההיי טק תוך עשור."
 
-#: .\templates\index.html:16
+#: .\templates\index.html:16 .\templates\profile.html:14
 msgid ""
 "Come and work on a project, learn a new language, hear an inspiring or "
 "technical lecture or learn to code in one of our meetups."
@@ -117,13 +118,74 @@ msgstr "חינוך"
 msgid "Learn some code with us. “The Next Generation” of our community."
 msgstr "למדי איתנו איך לתכנת. הדור הבא של הקהילה."
 
-#: .\templates\index.html:28
+#: .\templates\index.html:27
 msgid "Newsletter"
 msgstr "ניוזלטר"
 
-#: .\templates\index.html:49
+#: .\templates\index.html:57
 msgid "Events"
 msgstr "אירועים"
+
+#: .\templates\profile.html:18
+#, python-format
+msgid " %(user)s's Profile "
+msgstr " הפרופיל של  %(user)s"
+
+#: .\templates\profile.html:24
+msgid " Overview"
+msgstr "מידע כללי"
+
+#: .\templates\profile.html:25
+msgid " Edit Profile"
+msgstr "עריכה"
+
+#: .\templates\profile.html:26
+msgid " Security"
+msgstr "אבטחה"
+
+#: .\templates\profile.html:27
+msgid " Settings"
+msgstr "הגדרות"
+
+#: .\templates\profile.html:35
+msgid "Name"
+msgstr "שם"
+
+#: .\templates\profile.html:36
+msgid "A she codes; member since"
+msgstr "חברת ;she codes מאז"
+
+#: .\templates\profile.html:37
+msgid "Track"
+msgstr "מסלול"
+
+#: .\templates\profile.html:38
+msgid "Branch"
+msgstr "סניף"
+
+#: .\templates\profile.html:39
+msgid "Background"
+msgstr "רקע אישי"
+
+#: .\templates\profile.html:45
+msgid "Edit Profile Details"
+msgstr "עריכת פרטי פרופיל"
+
+#: .\templates\profile.html:77 .\templates\profile.html:86
+msgid "Update"
+msgstr "עדכני"
+
+#: .\templates\profile.html:81
+msgid "Change Password"
+msgstr "שינוי סיסמה"
+
+#: .\templates\profile.html:91
+msgid "Change Settings"
+msgstr "שינוי הגדרות"
+
+#: .\templates\profile.html:92
+msgid "Unavailable at the moment."
+msgstr "לא זמין כרגע"
 
 #: .\templates\signup.html:6 .\templates\signup.html:40
 #: .\templates\signup.html:43
