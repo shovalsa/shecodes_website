@@ -2,14 +2,15 @@ from django.shortcuts import render, get_object_or_404, render_to_response, redi
 from .models import Branch, Track, Team, Faq, News, Job, Event, User, Profile
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from django.utils import timezone
-from .forms import SignUpForm, ContactForm, UserCreationForm, ProfileForm
-from django.contrib.auth import login, authenticate
+from .forms import SignUpForm, ContactForm, ProfileForm, UpdateUser
+from django.contrib.auth import login
 from django.db import transaction
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
 from django.utils import formats
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 
 @login_required()
@@ -33,6 +34,53 @@ def signup(request):
         user_form = SignUpForm()
         profile_form = ProfileForm()
     return render(request, 'signup.html', {'user_form': user_form, 'profile_form': profile_form})
+
+@login_required
+def profileUpdate(request):
+    user = User.objects.get(pk=request.user.id)
+    user_form = UpdateUser(instance=user)
+    profile_form = ProfileForm(instance=user.profile)
+    password_form = PasswordChangeForm(request.user, request.POST)
+    if request.method == 'POST':
+        user_form = UpdateUser(request.POST, instance=user)
+        profile_form = ProfileForm(request.POST, instance=user.profile)
+        password_form = PasswordChangeForm(request.user, request.POST)
+        if 'first_name' in request.POST:
+            if profile_form.is_valid() and user_form.is_valid():
+                up = profile_form.save(commit=False)
+                us = user_form.save(commit=False)
+                up.user = request.user
+                up.save()
+                us.save()
+        elif 'old_password' in request.POST:
+            password_form = PasswordChangeForm(request.user, request.POST)
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)  # Important!
+                return redirect('my-profile')
+            profile_form = ProfileForm(instance=user.profile)
+            user_form = UpdateUser(instance=user)
+    return render(request, 'profile.html', {'user_form': user_form,'profile_form': profile_form,  'password_form': password_form, 'success': success})
+
+
+
+    #
+    # success = False
+    # user = User.objects.get(pk=request.user.id)
+    # if request.method == 'POST':
+    #     user_form = UpdateUser(request.POST, instance=user)
+    #     profile_form = ProfileForm(request.POST, instance=user.profile)
+    #     if profile_form.is_valid() and user_form.is_valid():
+    #         up = profile_form.save(commit=False)
+    #         us = user_form.save(commit=False)
+    #         up.user = request.user
+    #         up.save()
+    #         us.save()
+    #         success = True
+    # else:
+    #     user_form = UpdateUser(instance=user)
+    #     profile_form = ProfileForm(instance=user.profile)
+    # return render(request, 'profile.html', {'profile_form': profile_form, 'user_form': user_form})
 
 
 def contact(request):
@@ -78,11 +126,11 @@ def members(request, id):
     profile = Profile.objects.all()
     return render(request, "members.html", {'user': user, 'profile': profile})
 
+@login_required
 def members_index(request):
     users = User.objects.all()
     return render(request, "members_index.html", {'users': users})
 
-@login_required #only logged in users can enter this page.
 def jobs(request):
     jobs = Job.objects.all()
     return render(request, "jobs.html", {'jobs': jobs})
