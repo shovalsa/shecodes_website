@@ -455,7 +455,6 @@ button.hamburger.is-open .hamb-bottom {
     padding: 20px;
 }
 
-
 .thumbnail-big {
   display: flex;
   justify-content: center;
@@ -555,6 +554,7 @@ button.hamburger.is-open .hamb-bottom {
 
 .carousel .carousel-caption {
     visibility: hidden;
+    left:9%;
 }
 
 .thumbnail-big:hover .carousel-caption,
@@ -562,19 +562,11 @@ button.hamburger.is-open .hamb-bottom {
   visibility: visible;
   width: 250px;
   height: 250px;
-  background: rgba(0, 0, 0, 0.75);
-  right: 60px;
+  background: rgba(109, 109, 109, .75);
+  right: 9%;
   bottom: 0;
   padding: 1em;
 }
-.carousel:hover .carousel-caption{
-    visibility: visible;
-    width: 220px;
-    height: 250px;
-    background: rgba(0, 0, 0, 0.75);
-    left: 16%;
-    top: 14%;
-    }
 /*-------------------------------*/
 /*           footer              */
 /*-------------------------------*/
