@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block title %}she codes('{{ user }}');{% endblock %}
+{% block content %}
+<div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/static/images/parallax12.png" data-natural-width="100%">
+        <figcaption>
+            <h1><b>{% trans 'Our Goal' %}</b></h1>
+            <h3>{%trans 'is to reach 50 percent female software developers in the IT industry within a decade.' %}</h3>
+        </figcaption>
+        <figcaption>
+            <h1><b>{% trans 'Community' %}</b></h1>
+            <h3>{% trans 'Come and work on a project, learn a new language, hear an inspiring or technical lecture or learn to code in one of our meetups.' %}</h3>
+        </figcaption>
+</div>
+<div class="container">
+    <h3 class="page-title">{% blocktrans %} {{ user }}'s Profile {% endblocktrans %}</h3>
+    <div class="profile-sidebar col-sm-3">
+    <div class="profile-pic">
+        <img src="{{MEDIA_URL}}{{user.profile.avatar}}" class="img-responsive" alt="">
+    </div>
+        <ul class="nav nav-tabs nav-stacked">
+          <li class="active"><a href="#tab_overview" data-toggle="tab" class="glyphicon glyphicon-user"><span>{%trans ' Overview' %}</span></a></li>
+          <li><a href="#tab_edit" data-toggle="tab" class="glyphicon glyphicon-pencil"><span>{%trans ' Edit Profile' %}</span></a></li>
+          <li><a href="#tab_security" data-toggle="tab" class="glyphicon glyphicon-lock"><span>{%trans ' Security' %}</span></a></li>
+          <li><a href="#tab_settings" data-toggle="tab" class="glyphicon glyphicon-cog"><span>{%trans ' Settings' %}</span></a></li>
+          </ul>
+    </div><!-- tab content -->
+        <div class="tab-content col-sm-9">
+                <div class="tab-pane active" id="tab_overview">
+                    <div class="media">
+                        <div class="col-sm-12">
+                                <ul>
+                                    <li><h4>{% trans 'Name' %}</h4> {{ user.first_name }} {{ user.last_name }}</li>
+                                    <li><h4>{% trans 'A she codes; member since' %}</h4>{{user.date_joined}}</li>
+                                    <li><h4>{% trans 'Track' %}</h4> {{user.profile.track}}</li>
+                                    <li><h4>{% trans 'Branch' %}</h4> {{user.profile.main_branch}}</li>
+                                    <li><h4>{% trans 'Background' %}</h4> {{user.profile.personal_background}}</li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_edit">
+                     <h4>{% trans 'Edit Profile Details' %}</h4>
+                     <form method="post" id="profile-form">
+                        <div class="col-sm-6">
+                        {% csrf_token %}
+                        {% for field in user_form %}
+                          <ul style="list-style: none;">
+                            <li>{{ field.label_tag }}</li>
+                            <li>{{ field }}</li>
+                            {% if field.help_text %}
+                              <li><small style="color: grey">{{ field.help_text|safe}}</small></li>
+                            {% endif %}
+                            {% for error in field.errors %}
+                              <li style="color: red">{{ error }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% endfor %}
+                          </div>
+                          <div class="col-sm-6">
+                        {% csrf_token %}
+                        {% for field in profile_form %}
+                              <ul style="list-style:none;">
+                                <li>{% trans field.label_tag %}</li>
+                                <li>{{ field }}</li>
+                                {% if field.help_text %}
+                                  <li><small style="color: #ccc;">{{ field.help_text|safe}}</small></li>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                  <li style="color: red">{{ error }}</li>
+                                {% endfor %}
+                              </ul>
+                        {% endfor %}
+                              </div>
+                            <button name="profile" form="profile-form" class="btn" type="submit">{% trans 'Update' %}</button>
+                      </form>
+                </div>
+                <div class="tab-pane" id="tab_security">
+                     <h4>{% trans 'Change Password' %}</h4>
+                    <p>
+                        <form method="post" id="password-form">
+                          {% csrf_token %}
+                          {{ password_form }}
+                          <button class="btn" name="password" form="password-form" type="submit">{% trans 'Update' %}</button>
+                        </form>
+                    </p>
+                </div>
+                <div class="tab-pane" id="tab_settings">
+                     <h4>{% trans 'Change Settings' %}</h4>
+                    <p>{% trans 'Unavailable at the moment.'%}</p>
+                </div>
+        </div>
+</div><!-- end of container -->
+{% endblock %}
